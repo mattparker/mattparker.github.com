@@ -119,9 +119,8 @@ body {
  <script type="text/javascript">
    YUI(  ).use(  "*", function(Y) {
 
-     var n = Y.one("#demo");
-     n.plug( Y.Plugin.Resize );
-     console.log(n);
+     Y.one("#demo").plug( Y.Plugin.Resize );
+
    
    } );
  </script>
@@ -150,6 +149,16 @@ body {
     This Javascript was brought to you by the United Kingdom.<br/>
     We're sorry we won't be seeing you at JSConf...
   </div>  
+  
+  <script type="text/javascript">
+   YUI().use( "*" , function( Y ) {
+        Y.one( "#demo2" ).plug( Y.Plugin.Resize, 
+                             { draggable: true, 
+                               handles: ["tr", "b", "l"],
+                               animate: true,
+                               status: true } );
+   }
+  </script>
   
     <code>
      
