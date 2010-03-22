@@ -118,7 +118,7 @@ body {
  <script type="text/javascript">
    YUI(  ).use(  "*", function(Y) {
    console.log(Y);
-     Y.get("#demo").plug( Y.Plugin.Resize );
+     Y.one("#demo").plug( Y.Plugin.Resize );
    
    } );
  </script>
@@ -130,7 +130,7 @@ body {
  <code>
    YUI().use( "*" , function( Y ) {
    
-      Y.get( "#demo" ).plug( Y.Plugin.Resize );
+      Y.one( "#demo" ).plug( Y.Plugin.Resize );
    
    } );
  </code>
@@ -152,7 +152,7 @@ body {
      
       // This will also make it draggable, zany handles, animate the final 
       // repositioning, and show a status element showing size
-      Y.get( "#demo2" ).plug( Y.Plugin.Resize, 
+      Y.one( "#demo2" ).plug( Y.Plugin.Resize, 
                              { draggable: true, 
                                handles: ["tr", "b", "l"],
                                animate: true,
