@@ -116,14 +116,7 @@ body {
    This element is resizeable, with default options.<br/>
    If I said I lived in one of the 50 United States in my heart would it count?
  </div>
- <script type="text/javascript">
-   YUI(  ).use(  "*", function(Y) {
 
-     Y.one("#demo").plug( Y.Plugin.Resize );
-
-   
-   } );
- </script>
  
  
  <p>
@@ -150,15 +143,7 @@ body {
     We're sorry we won't be seeing you at JSConf...
   </div>  
   
-  <script type="text/javascript">
-   YUI().use( "*" , function( Y ) {
-        Y.one( "#demo2" ).plug( Y.Plugin.Resize, 
-                             { draggable: true, 
-                               handles: ["tr", "b", "l"],
-                               animate: true,
-                               status: true } );
-   }
-  </script>
+
   
     <code>
      
@@ -175,6 +160,17 @@ body {
  </p>
  
 </div>
+ <script type="text/javascript">
+   YUI(  ).use(  "*", function(Y) {
 
+     Y.one("#demo").plug( Y.Plugin.Resize );
+
+        Y.one( "#demo2" ).plug( Y.Plugin.Resize, 
+                             { draggable: true, 
+                               handles: ["tr", "b", "l"],
+                               animate: true,
+                               status: true } );   
+   } );
+ </script>
 </body>
 </html> 
