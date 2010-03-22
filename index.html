@@ -39,7 +39,8 @@ body {
 <script src="http://yui.yahooapis.com/2.8.0r4/build/resize/resize-min.js"></script>
 -->
 
-
+<link type="text/css" rel="stylesheet" href="http://github.com/mattparker/yui3-gallery/raw/master/build/gallery-resize/assets/resize-core.css" /> 
+<link type="text/css" rel="stylesheet" href="http://github.com/mattparker/yui3-gallery/raw/master/build/gallery-resize/assets/skin/sam/resize-core.css" />
 <script type="text/javascript" src="http://yui.yahooapis.com/3.1.0pr1/build/yui/yui-min.js"></script> 
 <script type="text/javascript" src="http://github.com/mattparker/yui3-gallery/raw/master/build/gallery-resize/gallery-resize.js"></script>
 <!-- 3.1.0pr1
@@ -117,8 +118,10 @@ body {
  </div>
  <script type="text/javascript">
    YUI(  ).use(  "*", function(Y) {
-   console.log(Y);
-     Y.one("#demo").plug( Y.Plugin.Resize );
+
+     var n = Y.one("#demo");
+     n.plug( Y.Plugin.Resize );
+     console.log(n);
    
    } );
  </script>
