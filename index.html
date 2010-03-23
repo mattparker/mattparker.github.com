@@ -24,8 +24,8 @@ body {
 <link type="text/css" rel="stylesheet" href="http://github.com/mattparker/yui3-gallery/raw/master/build/gallery-resize/assets/resize-core.css" /> 
 <link type="text/css" rel="stylesheet" href="http://github.com/mattparker/yui3-gallery/raw/master/build/gallery-resize/assets/skin/sam/resize-skin.css" />
 <script type="text/javascript" src="http://yui.yahooapis.com/3.1.0pr1/build/yui/yui-min.js"></script> 
-<script type="text/javascript" src="http://github.com/mattparker/yui3-gallery/raw/master/build/gallery-resize/gallery-resize.js"></script>
-
+<!--<script type="text/javascript" src="http://github.com/mattparker/yui3-gallery/raw/master/build/gallery-resize/gallery-resize.js"></script>
+-->
 
 <!--BEGIN SOURCE CODE FOR EXAMPLE =============================== --> 
  
@@ -97,7 +97,17 @@ body {
  Once you've got the js on the page, getting a simple resize should be as easy
  as:
  <code>
-   YUI().use( "*" , function( Y ) {
+  YUI({
+      modules: {
+          'gallery-resize': {
+              fullpath: 'http://yui.yahooapis.com/gallery-2010.03.23-17-54/build/gallery-resize/gallery-resize-min.js',
+              requires: ['attribute','node','plugin','dd-plugin','dd-proxy','event-mouseenter', 'anim'],
+              optional: [],
+              supersedes: []
+        }
+   
+      }
+  }).use('gallery-resize', function(Y) {
    
       Y.one( "#demo" ).plug( Y.Plugin.Resize );
    
@@ -135,7 +145,17 @@ body {
  
 </div>
  <script type="text/javascript">
-   YUI(  ).use(  "*", function(Y) {
+YUI({
+    modules: {
+        'gallery-resize': {
+            fullpath: 'http://yui.yahooapis.com/gallery-2010.03.23-17-54/build/gallery-resize/gallery-resize-min.js',
+            requires: ['attribute','node','plugin','dd-plugin','dd-proxy','event-mouseenter', 'anim'],
+            optional: [],
+            supersedes: []
+      }
+ 
+    }
+}).use('gallery-resize', function(Y) {
 
      Y.one("#demo").plug( Y.Plugin.Resize );
 
