@@ -109,17 +109,17 @@ body {
         width="300" alt="A lovely picture by my baby girl. I think it's supposed to be me." />
  </div>
  <script type="text/javascript">
-  YUI({
-      modules: {
-          'gallery-resize': {
-              fullpath: 'http://yui.yahooapis.com/gallery-2010.03.23-17-54/build/gallery-resize/gallery-resize-min.js',
-              requires: ['attribute','node','plugin','dd-plugin','dd-proxy','event-mouseenter','anim'],
-              optional: [],
-              supersedes: []
-        }
-   
+YUI({
+    modules: {
+        'gallery-resize': {
+            fullpath: 'http://yui.yahooapis.com/gallery-2010.03.29-18-07/build/gallery-resize/gallery-resize-min.js',
+            requires: ['attribute','node','plugin','dd-plugin','dd-proxy','event-mouseenter', 'anim'],
+            optional: [],
+            supersedes: []
       }
-  }).use('gallery-resize', function(Y) {
+ 
+    }
+}).use('gallery-resize', function(Y) {
    
      // the wrappedEls config is a selector string for elements to resize when the 
      // wrapper is resized.  It will only find children of the wrapper element.
@@ -146,7 +146,7 @@ body {
   YUI({
       modules: {
           'gallery-resize': {
-              fullpath: 'http://yui.yahooapis.com/gallery-2010.03.23-17-54/build/gallery-resize/gallery-resize-min.js',
+              fullpath: 'http://yui.yahooapis.com/gallery-2010.03.29-18-07/build/gallery-resize/gallery-resize-min.js',
               requires: ['attribute','node','plugin','dd-plugin','dd-proxy','event-mouseenter','anim'],
               optional: [],
               supersedes: []
