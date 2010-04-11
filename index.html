@@ -2,7 +2,7 @@
 <html> 
 <head> 
 <meta http-equiv="content-type" content="text/html; charset=utf-8"> 
-<title>Resize Node Plugin</title> 
+<title>Some YUI examples and things</title> 
  
 <style type="text/css"> 
 /*margin and padding on body element
@@ -20,151 +20,62 @@ body {
 
 
 
-
-<link type="text/css" rel="stylesheet" href="http://github.com/mattparker/yui3-gallery/raw/master/build/gallery-resize/assets/resize-core.css" /> 
-<link type="text/css" rel="stylesheet" href="http://github.com/mattparker/yui3-gallery/raw/master/build/gallery-resize/assets/skin/sam/resize-skin.css" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.1.0/build/cssreset/reset-min.css&3.1.0/build/cssfonts/fonts-min.css&3.1.0/build/cssgrids/grids-min.css">
+<link rel="stylesheet" type="text/css" href="assets/git.css"/>
 <script type="text/javascript" src="http://yui.yahooapis.com/3.1.0pr1/build/yui/yui-min.js"></script> 
-<!--<script type="text/javascript" src="http://github.com/mattparker/yui3-gallery/raw/master/build/gallery-resize/gallery-resize.js"></script>
--->
-
-<!--BEGIN SOURCE CODE FOR EXAMPLE =============================== --> 
- 
-<style> 
-    #demo , #demo2{
-        height: 100px;
-        width: 200px;
-        border: 1px solid black;
-        background-color: #8DD5E7;
-        position: absolute;
-        padding: 7px;
-        left: 350px;
-    }
-
-    #demo2{
-      left: 600px;
-      background-color: green;
-    } 
-    
-     code{
-     display: block;
-     white-space: pre;
-    }   
-
-
-</style> 
-
 
  
 </head> 
  
 <body class=" yui-skin-sam"> 
- 
-<h1>Resize Node Plugin</h1> 
+ <div class="gitpage">
+
+<div class="links">
+ <ul>
+  <li>
+   <a href="../">Home</a>
+  </li>
+  <li>
+   <a href="../resize/">Resize</a>
+  </li>
+  <li>
+   <a href="../treeviewlite/">TreeviewLite</a>
+  </li>
+ </ul>
+</div>
+
+
+<h1>Some YUI bits and bobs</h1> 
  
 <div class="exampleIntro"> 
  <h2>Introduction</h2>
-	<p>This example shows using the Resize Node Plugin.  Grab your node and plugin the resize!</p> 
-	<p>It's not a direct port of the YUI2.x version, but it does retain the config and methods of 
-	   2.x, so the documentation and examples 
-	   <a href="http://developer.yahoo.com/yui/resize/">here</a>
-	   and the API
-     <a href="http://developer.yahoo.com/yui/docs/YAHOO.util.Resize.html">here</a> will 
-     be helpful.
-  </p>
-  <p>There is one exception: wrappers.  This plugin does not wrap elements for
-     you that need it, like images or textareas.  There's a good reason
-     for this, and you can still resize these elements.  See
-     <a href="demo-wrap.html">this example</a> for discussion and a demo.
-  </p>
-  <p>This uses drag drop, and plugs in a dd instance into the node, so most events
-     come from the default plugin infrastructure or the drag-drop.  But I might
-     want to add some more at some point.
-  </p>
-			
-</div> 
- 
-<div class="example">
- <h2>Simple example</h2>
- 
- <div id="demo">
-   This element is resizeable, with default options.<br/>
-   If I said I lived in one of the 50 United States in my heart would it count?
- </div>
-
- 
- 
- <p>
- Once you've got the js on the page, getting a simple resize should be as easy
- as:
- <code>
-  YUI({
-      modules: {
-          'gallery-resize': {
-              fullpath: 'http://yui.yahooapis.com/gallery-2010.03.29-18-07/build/gallery-resize/gallery-resize-min.js',
-              requires: ['attribute','node','plugin','dd-plugin','dd-proxy','event-mouseenter', 'anim'],
-              optional: [],
-              supersedes: []
-        }
-   
-      }
-  }).use('gallery-resize', function(Y) {
-   
-      Y.one( "#demo" ).plug( Y.Plugin.Resize );
-   
-   } );
- </code>
-   This will give the same defaults as the YUI2.x versions.  The css used is also
-   the same (I did just copy that), but uses yui3- prefixes instead of yui-.
- </p>
- 
- <h2>Config options</h2>
- 
- <p> Config options are also the same as in YUI2.x, so you can pass an object 
-    as the second argument to plug to change the behaviour of the resize:
-    
-  <div id="demo2">
-    This Javascript was brought to you by the United Kingdom.<br/>
-    We're sorry we won't be seeing you at JSConf...
-  </div>  
-  
-
-  
-    <code>
+	<p>This is where I'm sticking YUI related code, docs, examples and things.</p> 
+	<p>There's not so much just yet...</p>
+	
+ <h2>Resize</h2>
+  <p>There's a few examples for my <a href="http://yuilibrary.com/gallery/show/resize" title="resize gallery plugin">
+     resize gallery plugin</a> <a href="resize/index.html">here</a>.  Resize is not a
+     port of the YUI2 resize, but respects its API so using this after YUI2
+     shouldn't be too unpleasant.</p>
      
-      // This will also make it draggable, zany handles, animate the final 
-      // repositioning, and show a status element showing size
-      Y.one( "#demo2" ).plug( Y.Plugin.Resize, 
-                             { draggable: true, 
-                               handles: ["tr", "b", "l"],
-                               animate: true,
-                               status: true } );
-    
-    </code>
-    
- </p>
- 
+ <h2>TreeviewLite</h2>
+  <p>TreeviewLite is <a href="http://yuilibrary.com/gallery/show/treeviewlite" title="YUI gallery treeviewlite page">
+  another gallery plugin</a> trying to be a really lightweight treeview.  
+  There's already a port of the YUI2 version with lots of fancies, but if you
+  just need a simple treeview this might be for you.
+  It uses html lists already on the page and just adds some styling and an event listener.
+  You can nest your lists as deep as you like, using &lt;ul&gt; or &lt;ol&gt; tags
+  at any level. There's a couple of events, too: "open" and "collapse".  
+  An example can be found <a href="treeviewlite/index.html">here</a>.
+  </p>
+
 </div>
- <script type="text/javascript">
-YUI({
-    modules: {
-        'gallery-resize': {
-            fullpath: 'http://yui.yahooapis.com/gallery-2010.03.29-18-07/build/gallery-resize/gallery-resize-min.js',
-            requires: ['attribute','node','plugin','dd-plugin','dd-proxy','event-mouseenter', 'anim'],
-            optional: [],
-            supersedes: []
-      }
- 
-    }
-}).use('gallery-resize', function(Y) {
 
-     Y.one("#demo").plug( Y.Plugin.Resize );
 
-        Y.one( "#demo2" ).plug( Y.Plugin.Resize, 
-                             { draggable: true, 
-                               handles: ["tr", "b", "l"],
-                               animate: true,
-                               status: true } );   
-   } );
- </script>
+<div class="footer">
+&copy; Matt Parker, <a href="http://www.lamplightdb.co.uk" title="Lamplight Database Systems">
+Lamplight Database Systems Limited</a> 2010 
+</div>
+
 </body>
 </html> 
