@@ -20,6 +20,13 @@ font-weight:bold;
 margin:10px 0;
 
 }
+h3{
+padding-left: 30px;
+font-size: 116%;
+font-style:italic;
+margin: 10px 0;
+color:#5a601f;
+}
 p{
 padding-left:20px;
 line-height:170%;
