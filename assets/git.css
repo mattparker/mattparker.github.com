@@ -1,0 +1,105 @@
+body{
+text-align:left;
+
+}
+div.gitpage{
+padding: 0 2%;
+}
+h1{
+font-size:153.9%;
+font-weight:bold;
+padding-bottom: 10px;
+border-bottom: dotted 2px #c9dd02; 
+margin: 20px 0;
+}
+
+h2{
+color:#a1c037;
+font-size: 123.1%;
+font-weight:bold;
+margin:10px 0;
+
+}
+p{
+padding-left:20px;
+line-height:170%;
+}
+
+pre,code{
+margin: 40px;
+padding: 10px;
+background-color:#EDEFD1;
+display:block;
+white-space:pre;
+}
+li{
+list-style-position:inside;
+list-style-type:disc;
+margin-left:40px;
+}
+a:visited, a:link{
+color:#a1c037;
+}
+a:hover{
+color:black;
+background-color:#EDEFD1;
+}
+
+div.example, div.log{
+margin:40px;
+padding:10px;
+border: 1px solid #EDEFD1;
+}
+div.log, .mono{
+font-family:monospace;
+}
+
+table{
+margin: 40px
+}
+tr{
+border-bottom: 1px solid #EDEFD1;
+}
+th{
+font-weight:bold;
+background-color:#EDEFD1;
+padding: 6px;
+}
+td{
+padding: 6px;
+}
+
+.links{
+ padding: 8px 0;
+ background-color:#a1c037;
+}
+.links a, .links a:hover, .links a:visited{
+ color:white;
+ font-weight:bold;
+ text-decoration:none;
+ background-color:#a1c037;
+}
+.links a:hover{
+ text-decoration:underline;
+}
+.links ul li{
+ display:inline;
+ padding: 0px 20px;
+    list-style-image:none;
+    list-style-position:inside;
+    list-style-type:none;  
+}
+div.footer{
+font-size:90%;
+}
+div.footer, div.footer a{
+background-color:#EDEFD1;
+color:#5a601f;
+
+padding: 15px;
+margin-top: 10px;
+}
+div.footer a{
+text-decoration: none;
+padding:0;
+}

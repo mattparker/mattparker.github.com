@@ -1,0 +1,391 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="content-type" content="text/html; charset=utf-8"> 
+<title>TreeviewLite example</title> 
+ 
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.1.0/build/cssreset/reset-min.css&3.1.0/build/cssfonts/fonts-min.css&3.1.0/build/cssgrids/grids-min.css">
+<link rel="stylesheet" type="text/css" href="../assets/git.css"/>
+<script type="text/javascript" src="http://yui.yahooapis.com/3.1.0pr1/build/yui/yui-min.js"></script> 
+
+<!--
+<script type="text/javascript" src="http://github.com/mattparker/yui3-gallery/raw/master/src/gallery-treeview-lite/js/treeview-lite.js"></script> 
+-->
+<link rel="stylesheet" type="text/css" href="http://github.com/mattparker/yui3-gallery/raw/master/src/gallery-treeview-lite/assets/gallery-treeviewlite-core.css"/>
+<link rel="stylesheet" type="text/css" href="http://github.com/mattparker/yui3-gallery/raw/master/src/gallery-treeview-lite/assets/skins/sam/gallery-treeviewlite-skin.css"/>
+ 
+</head> 
+ 
+<body class=" yui-skin-sam"> 
+
+<div class="gitpage">
+
+<div class="links">
+ <ul>
+  <li>
+   <a href="../">Home</a>
+  </li>
+  <li>
+   <a href="../resize/">Resize</a>
+  </li>
+  <li>
+   <a href="../treeviewlite/">TreeviewLite</a>
+  </li>
+ </ul>
+</div>
+
+<h1>TreeviewLite</h1>
+
+
+<p>TreeviewLite is a <a href="http://yuilibrary.com/gallery/show/treeviewlite">
+YUI3 lightweight gallery plugin</a>.  It renders, collapses nodes,
+and not much else.
+</p>
+
+<h2>Markup</h2>
+<p> To use it you'll need a list on your page already:</p>
+
+<pre >
+&lt;ol id="myOlList2"&gt;
+ &lt;li&gt;&lt;span&gt;item 1&lt;/span&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;span&gt;item 2&lt;/span&gt;
+  &lt;ul&gt;
+   &lt;li&gt;&lt;span&gt;item 2.1&lt;/span&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;span&gt;item 2.2&lt;/span&gt;
+     &lt;ol&gt;
+      &lt;li&gt;&lt;span&gt;item 2.2.1&lt;/span&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;item 2.2.2&lt;/span&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;span&gt;item 2.2.3&lt;/span&gt;&lt;/li&gt;
+     &lt;/ol&gt;
+   &lt;/li&gt;
+  &lt;/ul&gt;
+ &lt;/li&gt;
+ &lt;li&gt;&lt;span&gt;item 3&lt;/span&gt;
+   &lt;ol&gt;
+    &lt;li&gt;&lt;span&gt;item 3.1&lt;/span&gt;&lt;/li&gt;
+   &lt;/ol&gt;
+ &lt;/li&gt;
+&lt;/ol&gt;
+</pre>
+
+<p>Note that:
+ <ul>
+  <li>You need to wrap the labels of each list item in span tags</li>
+  <li>You can nest lists as deeply as you like</li>
+  <li>You can use any combination of ordered or unordered lists</li>
+ </ul>
+</p>
+
+<h2>Script</h2>
+<p>TreeviewLite is a plugin, which you plug into the node at the top of the
+tree; in this example, the &lt;ol&gt; with id="myOlList", like so:</p>
+
+<code>
+YUI().use('gallery-treeviewlite', function(Y) {
+ 
+ Y.one( "#myOlList" ).plug( Y.Plugin.TreeviewLite );
+ 
+});
+</code>
+<p>which will render this:</p>
+<div class="example">
+<ol id="myOlList2">
+ <li><span>item 1</span></li>
+ <li><span>item 2</span>
+  <ul>
+   <li><span>item 2.1</span></li>
+   <li><span>item 2.2</span>
+     <ol>
+      <li><span>item 2.2.1</span></li>
+      <li><span>item 2.2.2</span></li>
+      <li><span>item 2.2.3</span></li>
+     </ol>
+   </li>
+  </ul>
+ </li>
+ <li><span>item 3</span>
+   <ol>
+    <li><span>item 3.1</span></li>
+   </ol>
+ </li>
+</ol>
+</div>
+
+<h2>Events</h2>
+<p>TreeviewLite will fire a couple of events: "open" and "collapse", which
+fire when a branch of the tree is opened or closed respectively.  It just
+passes through the click event at the moment, which is registered on the
+&lt;span&gt; elements, so that's the element you get if you're listening.</p>
+<p>To subscribe to the events, do this:</p>
+<pre>
+YUI().use('gallery-treeviewlite', function(Y) {
+ 
+ Y.one( "#myOlList" ).plug( Y.Plugin.TreeviewLite );
+
+ var myTvListener = function(ev){
+   Y.one("#eventLog").append( 
+     ev._type + "; on node " + ev.details[0].currentTarget.get("innerHTML" ) + "&lt;br/&gt;" 
+   );
+ }
+
+ Y.one( "#myOlList" ).treeviewLite.on( "open" , myTvListener );
+ Y.one( "#myOlList" ).treeviewLite.on( "collapse" , myTvListener ); 
+ 
+ 
+});
+</pre>
+<p>
+and when you click on the +/- on the treeview above you should get something here:
+</p>
+<div id="eventLog" class="log">
+
+</div>
+
+
+<h2>CSS</h2>
+<p>TreeviewLite uses Y.ClassNameManager and adds the following css classes
+to the the lists:
+ <table>
+  <thead>
+   <tr>
+    <th>Element</th>
+    <th>Class</th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td>Root element (that you plug in to)</td>
+    <td class="mono">yui3-treeviewlite</td>
+   </tr>
+   <tr>
+    <td>&lt;li&gt; items that have nested lists within them</td>
+    <td class="mono">yui3-treeviewlite-haschild</td>
+   </tr>
+    <tr>
+    <td>&lt;li&gt; items that have collapsed (ie not visible) nested lists within them</td>
+    <td class="mono">yui3-treeviewlite-collapsed</td>
+   </tr>  
+    <tr>
+    <td>&lt;li&gt; items that are the last in their branch</td>
+    <td class="mono">yui3-treeviewlite-lastchild</td>
+   </tr>    
+   
+  </tbody>
+</table>
+
+<h2>Tested</h2>
+<p>On Windows XP: Firefox 3.5.9; IE 7 &amp; 8; Chrome.  Comments on others
+welcome!</p>
+
+<h2>More fun</h2>
+<p>I actually started doing this with Sortable, the new utility in YUI3,
+so that you can drag and drop the nodes of the treeview around.  I'll try
+ and get an example up before too long...</p>
+
+
+<!-- until it's in the gallery here's the treeview code too: -->
+<script type="text/javascript">
+YUI().use( 'classnamemanager', 'node','plugin', function(Y) {
+        /**
+        * Simple Treeview
+        *
+        * Copyright (c) 2010 Matt Parker, Lamplight Database Systems Ltd
+        * YUI BSD - http://developer.yahoo.com/yui/license.html
+        */
+       /**
+        * Really lightweight treeview plugin that can be attached to a Node via the plug method.
+        * It's just a listener and some css
+        * @class TreeviewLite
+        * @constructor
+        * @namespace Plugin
+        */
+
+
+
+        // for minimizing
+        var HOST            = "host",
+            TREEVIEWLITE    = "treeviewlite",
+        		getCN           = Y.ClassNameManager.getClassName,
+            CSS_TOP         = getCN( TREEVIEWLITE ), //"yui3-treeviewlite",
+            CSS_HAS_CHILD   = getCN( TREEVIEWLITE , "haschild" ), //"yui3-treeviewlite-haschild", 
+            CSS_FINAL_CHILD = getCN( TREEVIEWLITE , "lastchild" ), //"yui3-treeviewlite-lastchild",
+            CSS_COLLAPSED   = getCN( TREEVIEWLITE , "collapsed" ), //"yui3-treeviewlite-collapsed";
+            
+            
+            
+
+        TreeviewLite = function(config) {
+
+            TreeviewLite.superclass.constructor.apply(this, arguments);
+        };
+        
+        
+
+
+
+        
+        /**
+        * @property NAME
+        * @type {String}
+        */
+        TreeviewLite.NAME = "treeviewLitePlugin";
+
+        /**
+        * @property NS
+        * @description The treeview instance will be placed on the Node instance 
+        *         under the treeviewlight namespace. It can be accessed via Node.treeviewlight;
+        * @type {String}
+        */
+        TreeviewLite.NS = "treeviewLite";
+
+
+
+        /**
+         * There are no attributes to set.  It's that simple.
+         */
+        TreeviewLite.ATTRS = {};
+        
+        Y.extend(TreeviewLite, Y.Plugin.Base, {
+            
+            /**
+             * Stores handles for delegated event listener(s).
+             * @property _delegates
+             * @protected
+             * @type Array
+             */
+            _delegates: [],
+            
+            
+            /**
+             * Lifecycle: add classes and a delegated listener
+             * @method initializer
+             */
+            initializer: function(){
+            
+              var host = this.get(HOST);
+              
+              host.addClass( CSS_TOP );
+              
+              Y.each( host.all( "li" ) , function(n){ 
+                   
+                   // add class if they have child lists
+                   n.removeClass( CSS_HAS_CHILD );
+                   if( n.one( "ol li,ul li" ) ){
+                       n.addClass( CSS_HAS_CHILD );
+                   }
+                   
+                   // add a 'last child' css.
+                   n.removeClass( CSS_FINAL_CHILD );
+                   if( n.next() === null ) {
+                     n.addClass( CSS_FINAL_CHILD );
+                   }
+              });
+                
+              this.bindUI();
+                
+
+            },
+            
+            /**
+             * Lifecycle: removes classes and listener(s)
+             * @method destructor
+             */
+            destructor: function(){
+
+              var host = this.get(HOST);
+              
+              host.removeClass( CSS_TOP );
+              host.all( "li" ).removeClass( CSS_HAS_CHILD )
+                              .removeClass( CSS_COLLAPSED )
+                              .removeClass( CSS_FINAL_CHILD );
+              // remove event(s);
+              Y.each( this._delegates , function(d){d.detach( );} );
+            },
+
+
+            /**
+             * <p>Adds a delegated listener to the top of the tree
+             * to open toggle the collapsed state of any list item
+             * containing a nested list.</p>
+             * @method bindUI
+             */
+            bindUI : function() {
+                 
+                 // add a delegated listener to expand collapsed sub trees
+                 this._delegates.push( this.get(HOST).delegate( "click" , 
+                    this._toggleCollapse , 
+                    "li." + CSS_HAS_CHILD + " span" , 
+                    this, 
+                    true)
+                 );            
+            },
+            
+            /**
+             * <p>Opens or collapses a nested list.</p>
+             * @method _toggleCollapse
+             * @param {EventFacade} e Event object
+             * @protected 
+             */
+            _toggleCollapse : function( ev ){
+                 var parent = ev.currentTarget.get( "parentNode" );
+                 if( parent.one("ol,ul") ){
+                   if( parent.hasClass( CSS_COLLAPSED ) ) { 
+                     /**
+                      * <p>Event fired when a list is opened</p>
+                      * @event open
+                      * @param {EventFacade} e Event object
+                      */
+                     this.fire( "open", ev );
+                   } else {
+                     /**
+                      * <p>Event fired when a list is collapsed</p>
+                      * @event collapse
+                      * @param {EventFacade} e Event object
+                      */
+                     this.fire( "collapse" , ev );
+                   }
+                   parent.toggleClass( CSS_COLLAPSED );
+                 }
+            }
+            
+            
+            
+        } );
+        
+        
+        
+        
+        
+        Y.Plugin.TreeviewLite = TreeviewLite;
+        
+        
+ Y.one( "#myOlList2" ).plug( Y.Plugin.TreeviewLite );
+
+
+ var myTvListener = function(ev){
+   Y.one("#eventLog").append( 
+      ev._type + "; on node " + ev.details[0].currentTarget.get("innerHTML" ) + "<br/>" 
+   );
+ }
+
+ Y.one( "#myOlList2" ).treeviewLite.on( "open" , myTvListener );
+ Y.one( "#myOlList2" ).treeviewLite.on( "collapse" , myTvListener );  
+});
+</script>
+
+</div>
+
+
+<div class="footer">
+&copy; Matt Parker, <a href="http://www.lamplightdb.co.uk" title="Lamplight Database Systems">
+Lamplight Database Systems Limited</a> 2010 
+</div>
+
+
+</body>
+</html>

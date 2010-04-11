@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="content-type" content="text/html; charset=utf-8"> 
+<title>Resize Node Plugin - wrapping elements</title> 
+ 
+<style type="text/css"> 
+/*margin and padding on body element
+  can introduce errors in determining
+  element position and are not recommended;
+  we turn them off as a foundation for YUI
+  CSS treatments. */
+body {
+	margin:0;
+	padding:0;
+}
+</style> 
+
+
+
+
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.1.0/build/cssreset/reset-min.css&3.1.0/build/cssfonts/fonts-min.css&3.1.0/build/cssgrids/grids-min.css">
+
+
+
+<link type="text/css" rel="stylesheet" href="http://github.com/mattparker/yui3-gallery/raw/master/build/gallery-resize/assets/resize-core.css" /> 
+<link type="text/css" rel="stylesheet" href="http://github.com/mattparker/yui3-gallery/raw/master/build/gallery-resize/assets/skin/sam/resize-skin.css" />
+<script type="text/javascript" src="http://yui.yahooapis.com/3.1.0pr1/build/yui/yui-min.js"></script> 
+<!--<script type="text/javascript" src="http://github.com/mattparker/yui3-gallery/raw/master/build/gallery-resize/gallery-resize.js"></script>
+-->
+<link rel="stylesheet" type="text/css" href="../assets/git.css"/>
+
+
+
+<!--BEGIN SOURCE CODE FOR EXAMPLE =============================== --> 
+ 
+<style> 
+    #wrapper {
+       position: absolute;
+       left: 400px;
+       top: 400px;
+
+    }
+    
+    code{
+     display: block;
+     white-space: pre;
+    }
+
+
+</style> 
+
+
+ 
+</head> 
+ 
+<body class=" yui-skin-sam"> 
+ 
+<div class="gitpage">
+
+<div class="links">
+ <ul>
+  <li>
+   <a href="../">Home</a>
+  </li>
+  <li>
+   <a href="../resize/">Resize</a>
+  </li>
+  <li>
+   <a href="../treeviewlite/">TreeviewLite</a>
+  </li>
+ </ul>
+</div>
+
+<h1>Resize Node Plugin - wrapping elements</h1> 
+
+
+ <h2>Introduction</h2>
+	<p>Resize adds some handles inside the html element you are making resizeable.
+	Which is fine most of the time, unless the element doesn't allow child nodes:
+   images, textareas, inputs, iframes, and selects.
+   
+   In YUI2.x, these elements would be wrapped by a div, which would then hold 
+  the handles and the element itself.  All good.
+  </p>
+  <p>However, in writing the resize as a plugin for YUI3, this gives us a problem.
+  I started replicating the behaviour, becuase I wanted to honour the config
+  and use of 2.x.  But I realised this would be a bad thing.  The problem
+  is that the core resize behaviour then sits with the wrapper element, not
+  the element originally specified.  So if I have an image with id "myElement",
+   code like this:
+  <code>
+     var myNode = Y.get( '#myElement' );
+     
+     myNode.plug( Y.Plugin.Resize );
+  </code>
+  would end up a bit misleading: it says (to me) <em>Add some fancy resize behaviour
+  to the node with id "myElement".</em>  But what it does is different:
+  <em>Add some fancy resize behaviour to a magically newly created Node that 
+  wraps up your image with id "myElement".</em>
+  </p>
+  <p>
+  I didn't like the sound of that.  Particularly when you want to get your resize
+  later in the code:
+  <code>
+    myNode.resize.set("knobHandles", true);
+  </code>
+  Now in fact the resize would be attached to the parent of myNode, and myNode
+  would have had a reference to pass this kind of call up to the resize.  It
+  felt wrong.
+  </p>
+  <p>
+   So the moral of the story: there ain't no wrappin, baby.  You're just going
+   to have to do that yourself, either in the html or with js, and attach
+   the resize plugin to the wrapper.  The example below gives some details.
+  </p>
+	<p>
+   There is one advantage to this: you could wrap several elements with one 
+   resize plugin, and they'll all be resized proportionally to the wrapper.
+   Or put some text around the image and have it move with the image resize.
+  </p>		
+
+ 
+
+ <h2>Wrapping example</h2>
+ 
+ <div id="wrapper">
+   <img src="http://westofkilburn.wordpress.com/files/2010/01/img_0446.jpg?w=840" 
+        width="300" alt="A lovely picture by my baby girl. I think it's supposed to be me." />
+ </div>
+ <script type="text/javascript">
+YUI({
+       //Last Gallery Build of this module
+       gallery: 'gallery-2010.04.02-17-26'
+      }).use('gallery-resize', function(Y) {
+   
+     // the wrappedEls config is a selector string for elements to resize when the 
+     // wrapper is resized.  It will only find children of the wrapper element.
+     
+     // hugWrappedEl makes the wrapper Node 'hug' the wrapped element.  It only
+     // works if there's one wrapped element.
+     
+     Y.one("#wrapper").plug( Y.Plugin.Resize , {wrappedEls: "img", hugWrappedEl: true , draggable: true});
+   
+   } );
+ </script>
+ 
+ 
+ <p>
+ So as a simple example, we'll wrap our image in a div in the html, and add the
+ resize to this wrapper:
+ <code>
+  &lt;div id="wrapper"&gt;
+     &lt;img src="mypic.jpg" /&gt;
+  &lt/div&gt; 
+ </code>
+ Javascript:
+ <code>
+  YUI(
+    //Last Gallery Build of this module
+    gallery: 'gallery-2010.04.02-17-26'
+   
+    }).use('gallery-resize', function(Y) {
+   
+     // the wrappedEls config is a selector string for elements to resize when the 
+     // wrapper is resized.  It will only find children of the wrapper element.
+     
+     // hugWrappedEl makes the wrapper Node 'hug' the wrapped element.  It only
+     // works if there's one wrapped element.
+     
+     Y.one("#wrapper").plug( Y.Plugin.Resize , 
+                            {wrappedEls: "img", 
+                             hugWrappedEl: true , 
+                             draggable: true}
+     );
+   
+   
+   } );
+ </code>
+   
+ </p>
+ 
+  </div>
+
+
+<div class="footer">
+&copy; Matt Parker, <a href="http://www.lamplightdb.co.uk" title="Lamplight Database Systems">
+Lamplight Database Systems Limited</a> 2010 
+</div>
+
+
+</body>
+</html> 
