@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="content-type" content="text/html; charset=utf-8"> 
+<title>TreeviewLite - sortable example</title> 
+ 
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.1.0/build/cssreset/reset-min.css&3.1.0/build/cssfonts/fonts-min.css&3.1.0/build/cssgrids/grids-min.css">
+<link rel="stylesheet" type="text/css" href="../assets/git.css"/>
+<script type="text/javascript" src="http://yui.yahooapis.com/3.1.0pr1/build/yui/yui-min.js"></script> 
+
+<!--
+<script type="text/javascript" src="http://github.com/mattparker/yui3-gallery/raw/master/src/gallery-treeview-lite/js/treeview-lite.js"></script> 
+-->
+<link rel="stylesheet" type="text/css" href="http://github.com/mattparker/yui3-gallery/raw/master/src/gallery-treeview-lite/assets/gallery-treeviewlite-core.css"/>
+<link rel="stylesheet" type="text/css" href="http://github.com/mattparker/yui3-gallery/raw/master/src/gallery-treeview-lite/assets/skins/sam/gallery-treeviewlite-skin.css"/>
+ 
+</head> 
+ 
+<body class=" yui3-skin-sam"> 
+
+<div class="gitpage">
+
+<div class="links">
+ <ul>
+  <li>
+   <a href="../">Home</a>
+  </li>
+  <li>
+   <a href="../resize/">Resize</a>
+  </li>
+  <li>
+   <a href="../treeviewlite/">TreeviewLite</a>
+  </li>
+ </ul>
+</div>
+
+<h1>Sortable</h1>
+
+
+<p>This is just a simple test of <a href="http://developer.yahoo.com/yui/3/sortable/">
+Sortable</a> drag-drop events.  start, over and end should all 
+appear in the logger.  The markup is just an ordered list.
+</p>
+
+<h2>End result</h2>
+
+<p>This is what we end up with... try dragging some nodes.</p>
+<div class="example">
+<ol id="myOlList2">
+ <li><span>item 1</span></li>
+ <li><span>item 2</span></li>
+ <li><span>item 3</span>
+ </li>
+</ol>
+</div>
+
+
+<h2>Script</h2>
+<p>We'll be using sortable:</p>
+<code>
+YUI().use(  'sortable', function(Y) {
+
+ //...
+
+});
+</code>
+<p>We set up the Sortable instance, straight from the examples,
+and add some listeners to Y.DD.DDM:</p>
+<code>
+
+    var list1 = new Y.Sortable({
+        container: '#myOlList2',
+        nodes: 'li',
+        opacity: '.5',
+        opacityNode: "dragNode",
+        moveType: "insert"
+    });
+    
+
+    // start
+    Y.DD.DDM.on("drag:start", function(ev){
+        Y.log( "dd - drag:start" );
+    
+    });
+
+
+    // over
+    Y.DD.DDM.on("drag:over", function(ev){ 
+        Y.log( "dd - drag:over" );
+ 
+    });
+
+
+
+    // end
+    Y.DD.DDM.after("drag:end", function( ev ){
+        Y.log( "dd - drag:end" );
+       
+         
+    } );
+</code>
+
+
+
+<!-- until it's in the gallery here's the treeview code too: -->
+<script type="text/javascript">
+YUI( {debug:true } ).use(  'sortable','console', function(Y) {
+
+
+
+   new Y.Console().render();
+
+
+  
+
+
+   // overwrite to check dragging onto itself:
+   Y.Sortable.prototype._onDragOver = function(e){
+Y.log( "sortable _onDragOver " );
+            var NODE = "node", NODES = "nodes", PARENT_NODE = "parentNode", ID = "id";
+            if (!e.drop.get(NODE).test(this.get(NODES))) {
+                return;
+            }
+            if (e.drag.get(NODE) == e.drop.get(NODE)) {
+                return;
+            }
+            // is drop a child of drag?  - this is the bit that's added:
+            if ( e.drag.get(NODE).contains( e.drop.get(NODE) ) ) {
+                return;
+            }
+
+
+            
+            switch (this.get('moveType').toLowerCase()) {
+                case 'insert':
+                    var dir = ((this._up) ? 'before' : 'after');
+                    e.drop.get(NODE).insert(e.drag.get(NODE), dir);
+                    break;
+                case 'swap':
+                    Y.DD.DDM.swapNode(e.drag, e.drop);
+                    break;
+                case 'move':
+                case 'copy':
+                    var dropsort = Y.Sortable.getSortable(e.drop.get(NODE).get(PARENT_NODE)),
+                        oldNode, newNode;
+
+                    if (!dropsort) {
+                        Y.log('No delegate parent found', 'error');
+                        return;
+                    }
+                    
+                    Y.DD.DDM.getDrop(e.drag.get(NODE)).addToGroup(dropsort.get(ID));
+
+                    //Same List
+                    if (e.drag.get(NODE).get(PARENT_NODE).contains(e.drop.get(NODE))) {
+                        Y.DD.DDM.swapNode(e.drag, e.drop);
+                    } else {
+                        if (this.get('moveType') == 'copy') {
+                            //New List
+                            oldNode = e.drag.get(NODE);
+                            newNode = oldNode.cloneNode(true);
+
+                            newNode.set(ID, '');
+                            e.drag.set(NODE, newNode);
+                            dropsort.delegate.createDrop(newNode, [dropsort.get(ID)]);
+                            oldNode.setStyles({
+                                top: '',
+                                left: ''
+                            });
+                        }
+                        e.drop.get(NODE).insert(e.drag.get(NODE), 'before');
+                    }
+                    break;
+            }
+
+   };
+
+
+
+
+
+
+
+
+    var list1 = new Y.Sortable({
+        container: '#myOlList2',
+        nodes: 'li',
+        opacity: '.5',
+        opacityNode: "dragNode",
+        moveType: "insert"
+    });
+
+
+ 
+    ///////////////////////////////////////////////////////////////
+    // Handle the drag drop events
+    // Key thing is 
+    
+ 
+
+
+    // make a new node that can be inserted as a new tree sometimes
+    Y.DD.DDM.on("drag:start", function(ev){
+Y.log( "dd - drag:start" );
+    
+    });
+
+
+    // insert the nodes where needed
+    Y.DD.DDM.on("drag:over", function(ev){ 
+Y.log( "dd - drag:over" );
+ 
+    });
+
+
+
+    // reset things at the end of the drag
+    Y.DD.DDM.after("drag:end", function( ev ){
+Y.log( "dd - drag:end" );
+       
+         
+    } );
+
+
+
+
+
+
+
+
+
+
+});
+</script>
+
+</div>
+
+
+<div class="footer">
+&copy; Matt Parker, <a href="http://www.lamplightdb.co.uk" title="Lamplight Database Systems">
+Lamplight Database Systems Limited</a> 2010 
+</div>
+
+
+</body>
+</html>
