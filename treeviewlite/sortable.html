@@ -21,7 +21,7 @@
  
 </head> 
  
-<body class=" yui-skin-sam"> 
+<body class=" yui3-skin-sam"> 
 
 <div class="gitpage">
 
@@ -336,7 +336,13 @@ when indirectly).</p>
 
 <!-- until it's in the gallery here's the treeview code too: -->
 <script type="text/javascript">
-YUI().use( 'classnamemanager', 'node','plugin', 'dd' , 'sortable', function(Y) {
+YUI( {debug:true } ).use( 'classnamemanager', 'node','plugin', 'dd' , 'sortable','console', function(Y) {
+
+
+
+   new Y.Console().render();
+
+
         /**
         * Simple Treeview
         *
@@ -526,7 +532,7 @@ YUI().use( 'classnamemanager', 'node','plugin', 'dd' , 'sortable', function(Y) {
 
    // overwrite to check dragging onto itself:
    Y.Sortable.prototype._onDragOver = function(e){
-
+Y.log( "sortable _onDragOver " );
             var NODE = "node", NODES = "nodes", PARENT_NODE = "parentNode", ID = "id";
             if (!e.drop.get(NODE).test(this.get(NODES))) {
                 return;
@@ -612,7 +618,7 @@ YUI().use( 'classnamemanager', 'node','plugin', 'dd' , 'sortable', function(Y) {
 
     // make a new node that can be inserted as a new tree sometimes
     Y.DD.DDM.on("drag:start", function(ev){
-
+Y.log( "dd - drag:start" );
        //newNode = document.createElement("ol");
        newNode = Y.Node.create( "<ol></ol>" );
        newNode.setAttribute("id", Y.guid() );
@@ -624,7 +630,7 @@ YUI().use( 'classnamemanager', 'node','plugin', 'dd' , 'sortable', function(Y) {
 
     // insert the nodes where needed
     Y.DD.DDM.on("drag:over", function(ev){ 
-
+Y.log( "dd - drag:over" );
                   // remove it from where it was
                   if( addedNode !== undefined ) {
                   //  try{
@@ -688,7 +694,7 @@ YUI().use( 'classnamemanager', 'node','plugin', 'dd' , 'sortable', function(Y) {
 
     // reset things at the end of the drag
     Y.DD.DDM.after("drag:end", function( ev ){
-
+Y.log( "dd - drag:end" );
 
        addedNode = undefined; 
        newNode = undefined;
