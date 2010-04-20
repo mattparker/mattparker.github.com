@@ -51,15 +51,16 @@ and not much else.  A basic example is <a href="index.html">here.</a>
 <p>The 3.1 release of YUI included a <a href="http://developer.yahoo.com/yui/3/sortable/">
 Sortable utility</a> that lets you
 drag and drop list items within and/or between lists.  I needed a Sortable
-Treeview, and so I thought I'd have a go at it.  This is a first effort, but isn't 
-complete yet.</p>
+Treeview, and so I thought I'd have a go at it.  This is a first effort.</p>
 <p>I want to make
 a treeview that you can drag a node from anywhere to anywhere.  If you 
 drag a node and it's got children, they need to move too.  If you drag it
 onto a node that already has children, it will just add it to the list, but if
 you drag it onto a node without children, it'll create a new child list.  Try it
-on the treeview below (unless you're in IE - it doesn't work).
+on the treeview below.
 </p>
+<p><b>Update (20/04/2010)</b> - fixed IE problem.  The problem?  Using the pr version
+of yui3, not 3.1.  I don't know what changed, but something did and it works.</p>
 
 <h2>Markup</h2>
 Start with a plain nested list:
@@ -323,14 +324,7 @@ for checking if drag contains drop:
 
    };
 </code>
-<h2>Problems</h2>
-<p>Unfortunately, this isn't working in IE yet (as of 11th April).  The start
- and end events get 
-heard, but over isn't calling either the Sortable _onDragOver or the
-Y.DD.DDM.on("drag:over") listener.  I'm not sure why just yet.  It does seem
-to work OK in Chrome and FF.  I also had some weird problems mixing up YUI2 and 
-3 and loading pages using ajax (pages work when loaded directly, but not
-when indirectly).</p>
+
 
 <!-- until it's in the gallery here's the treeview code too: -->
 <script type="text/javascript">
