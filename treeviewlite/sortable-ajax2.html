@@ -1,0 +1,547 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="content-type" content="text/html; charset=utf-8"> 
+<title>Resize Node Plugin - wrapping elements</title> 
+ 
+<style type="text/css"> 
+/*margin and padding on body element
+  can introduce errors in determining
+  element position and are not recommended;
+  we turn them off as a foundation for YUI
+  CSS treatments. */
+body {
+	margin:0;
+	padding:0;
+}
+</style> 
+
+
+
+
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.1.0/build/cssreset/reset-min.css&3.1.0/build/cssfonts/fonts-min.css&3.1.0/build/cssgrids/grids-min.css">
+
+<link rel="stylesheet" type="text/css" href="../assets/git.css"/>
+
+<script src="http://yui.yahooapis.com/2.8.0r4/build/yahoo/yahoo.js" ></script>
+<script src="http://yui.yahooapis.com/2.8.0r4/build/get/get.js" ></script>
+</head>
+<body>
+
+<body class=" yui3-skin-sam"> 
+
+<div class="gitpage">
+
+<div class="links">
+ <ul>
+  <li>
+   <a href="../">Home</a>
+  </li>
+  <li>
+   <a href="../resize/">Resize</a>
+  </li>
+  <li>
+   <a href="../treeviewlite/">TreeviewLite</a>
+  </li>
+ </ul>
+</div>
+
+<h1>TreeviewLite</h1>
+
+<p>TreeviewLite is a <a href="http://yuilibrary.com/gallery/show/treeviewlite">
+YUI3 lightweight gallery plugin</a>.  It renders, collapses nodes,
+and not much else.  A basic example is <a href="index.html">here.</a>
+</p>
+<p>
+This slightly perverse example, starts with YUI2 on the page and uses the Get
+utility to load YUI3.  I'm trying to load Sortable, and combining it with 
+TreeviewLite.  The treeview renders, and Sortable fires start and end
+events, but none of the over events.  The script is identical to the (working)
+example <a href="sortable.html">here</a>, except for the way it gets on the
+page:
+</p>
+<code>
+YAHOO.util.Get.script( "http://yui.yahooapis.com/3.1.0/build/yui/yui.js", {
+  
+  onSuccess: function(){
+  
+    YUI( {filter: 'raw'} ).use( 'classnamemanager', 'node','plugin', 'dd' , 'sortable','console', function(Y) {
+
+      // set up the treeview and Sortable...
+      // ...
+      
+    });
+
+  } // end of onSuccess
+
+});
+</code>
+<p>Drag a node on the treeview below, you'll see start and end in the logger
+but nothing over.  I'm at a bit of a loss why not at the moment.  
+</p>
+
+<div class="example">
+<ol id="myOlList2">
+ <li><span>item 1</span></li>
+ <li><span>item 2</span>
+  <ol>
+   <li><span>item 2.1</span></li>
+   <li><span>item 2.2</span>
+     <ol>
+      <li><span>item 2.2.1</span></li>
+      <li><span>item 2.2.2</span></li>
+      <li><span>item 2.2.3</span></li>
+     </ol>
+   </li>
+  </ol>
+ </li>
+ <li><span>item 3</span>
+   <ol>
+    <li><span>item 3.1</span></li>
+   </ol>
+ </li>
+</ol>
+</div>
+
+<script type="text/javascript">
+// css for the treeviewLite
+YAHOO.util.Get.css( "http://github.com/mattparker/yui3-gallery/raw/master/build/gallery-treeviewlite/assets/skins/sam/gallery-treeviewlite.css" );
+
+// get the core
+YAHOO.util.Get.script( "http://yui.yahooapis.com/3.1.0/build/yui/yui.js", {
+  
+  onSuccess: function(){
+
+  //////////////////////////////////////////////////////////
+  // create a sortable list
+  // from one of the examples.
+  
+  YUI( {filter: 'raw'} ).use( 'classnamemanager', 'node','plugin', 'dd' , 'sortable','console', function(Y) {
+
+
+  new Y.Console().render();
+
+
+        /**
+        * Simple Treeview
+        *
+        * Copyright (c) 2010 Matt Parker, Lamplight Database Systems Ltd
+        * YUI BSD - http://developer.yahoo.com/yui/license.html
+        */
+       /**
+        * Really lightweight treeview plugin that can be attached to a Node via the plug method.
+        * It's just a listener and some css
+        * @class TreeviewLite
+        * @constructor
+        * @namespace Plugin
+        */
+
+
+
+        // for minimizing
+        var HOST            = "host",
+            TREEVIEWLITE    = "treeviewlite",
+        		getCN           = Y.ClassNameManager.getClassName,
+            CSS_TOP         = getCN( TREEVIEWLITE ), //"yui3-treeviewlite",
+            CSS_HAS_CHILD   = getCN( TREEVIEWLITE , "haschild" ), //"yui3-treeviewlite-haschild", 
+            CSS_FINAL_CHILD = getCN( TREEVIEWLITE , "lastchild" ), //"yui3-treeviewlite-lastchild",
+            CSS_COLLAPSED   = getCN( TREEVIEWLITE , "collapsed" ), //"yui3-treeviewlite-collapsed";
+            
+            
+            
+
+        TreeviewLite = function(config) {
+
+            TreeviewLite.superclass.constructor.apply(this, arguments);
+        };
+        
+        
+
+
+
+        
+        /**
+        * @property NAME
+        * @type {String}
+        */
+        TreeviewLite.NAME = "treeviewLitePlugin";
+
+        /**
+        * @property NS
+        * @description The treeview instance will be placed on the Node instance 
+        *         under the treeviewlight namespace. It can be accessed via Node.treeviewlight;
+        * @type {String}
+        */
+        TreeviewLite.NS = "treeviewLite";
+
+
+
+        /**
+         * There are no attributes to set.  It's that simple.
+         */
+        TreeviewLite.ATTRS = {};
+        
+        Y.extend(TreeviewLite, Y.Plugin.Base, {
+            
+            /**
+             * Stores handles for delegated event listener(s).
+             * @property _delegates
+             * @protected
+             * @type Array
+             */
+            _delegates: [],
+            
+            
+            /**
+             * Lifecycle: add classes and a delegated listener
+             * @method initializer
+             */
+            initializer: function(){
+            
+              this.renderUI();
+                
+              this.bindUI();
+                
+
+            },
+            
+            /**
+             * Lifecycle: removes classes and listener(s)
+             * @method destructor
+             */
+            destructor: function(){
+
+              var host = this.get(HOST);
+              
+              host.removeClass( CSS_TOP );
+              host.all( "li" ).removeClass( CSS_HAS_CHILD )
+                              .removeClass( CSS_COLLAPSED )
+                              .removeClass( CSS_FINAL_CHILD );
+              // remove event(s);
+              Y.each( this._delegates , function(d){d.detach( );} );
+            },
+
+            /**
+             * <p>Adds some CSS to the various nodes in the tree.</p>
+             * @method bindUI
+             */
+            renderUI : function() {
+              var host = this.get(HOST);
+              
+              host.addClass( CSS_TOP );
+              
+              Y.each( host.all( "li" ) , function(n){ 
+                   
+                   // add class if they have child lists
+                   n.removeClass( CSS_HAS_CHILD );
+                   if( n.one( "ol li,ul li" ) ){
+                       n.addClass( CSS_HAS_CHILD );
+                   }
+                   
+                   // add a 'last child' css.
+                   n.removeClass( CSS_FINAL_CHILD );
+                   if( n.next() === null ) {
+                     n.addClass( CSS_FINAL_CHILD );
+                   }
+              });            
+            },
+
+
+            /**
+             * <p>Adds a delegated listener to the top of the tree
+             * to open toggle the collapsed state of any list item
+             * containing a nested list.</p>
+             * @method bindUI
+             */
+            bindUI : function() {
+                 
+                 // add a delegated listener to expand collapsed sub trees
+                 this._delegates.push( this.get(HOST).delegate( "click" , 
+                    this._toggleCollapse , 
+                    "li." + CSS_HAS_CHILD + " span" , 
+                    this, 
+                    true)
+                 );            
+            },
+            
+            /**
+             * <p>Opens or collapses a nested list.</p>
+             * @method _toggleCollapse
+             * @param {EventFacade} e Event object
+             * @protected 
+             */
+            _toggleCollapse : function( ev ){
+                 var parent = ev.currentTarget.get( "parentNode" );
+                 if( parent.one("ol,ul") ){
+                   if( parent.hasClass( CSS_COLLAPSED ) ) { 
+                     /**
+                      * <p>Event fired when a list is opened</p>
+                      * @event open
+                      * @param {EventFacade} e Event object
+                      */
+                     this.fire( "open", ev );
+                   } else {
+                     /**
+                      * <p>Event fired when a list is collapsed</p>
+                      * @event collapse
+                      * @param {EventFacade} e Event object
+                      */
+                     this.fire( "collapse" , ev );
+                   }
+                   parent.toggleClass( CSS_COLLAPSED );
+                 }
+            }
+            
+            
+            
+        } );
+        
+        
+        
+        
+        
+        Y.Plugin.TreeviewLite = TreeviewLite;
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   // overwrite to check dragging onto itself:
+   Y.Sortable.prototype._onDragOver = function(e){
+Y.log( "sortable _onDragOver " );
+            var NODE = "node", NODES = "nodes", PARENT_NODE = "parentNode", ID = "id";
+            if (!e.drop.get(NODE).test(this.get(NODES))) {
+                return;
+            }
+            if (e.drag.get(NODE) == e.drop.get(NODE)) {
+                return;
+            }
+            // is drop a child of drag?  - this is the bit that's added:
+            if ( e.drag.get(NODE).contains( e.drop.get(NODE) ) ) {
+                return;
+            }
+
+
+            
+            switch (this.get('moveType').toLowerCase()) {
+                case 'insert':
+                    var dir = ((this._up) ? 'before' : 'after');
+                    e.drop.get(NODE).insert(e.drag.get(NODE), dir);
+                    break;
+                case 'swap':
+                    Y.DD.DDM.swapNode(e.drag, e.drop);
+                    break;
+                case 'move':
+                case 'copy':
+                    var dropsort = Y.Sortable.getSortable(e.drop.get(NODE).get(PARENT_NODE)),
+                        oldNode, newNode;
+
+                    if (!dropsort) {
+                        Y.log('No delegate parent found', 'error');
+                        return;
+                    }
+                    
+                    Y.DD.DDM.getDrop(e.drag.get(NODE)).addToGroup(dropsort.get(ID));
+
+                    //Same List
+                    if (e.drag.get(NODE).get(PARENT_NODE).contains(e.drop.get(NODE))) {
+                        Y.DD.DDM.swapNode(e.drag, e.drop);
+                    } else {
+                        if (this.get('moveType') == 'copy') {
+                            //New List
+                            oldNode = e.drag.get(NODE);
+                            newNode = oldNode.cloneNode(true);
+
+                            newNode.set(ID, '');
+                            e.drag.set(NODE, newNode);
+                            dropsort.delegate.createDrop(newNode, [dropsort.get(ID)]);
+                            oldNode.setStyles({
+                                top: '',
+                                left: ''
+                            });
+                        }
+                        e.drop.get(NODE).insert(e.drag.get(NODE), 'before');
+                    }
+                    break;
+            }
+
+   };
+
+
+
+
+
+
+
+    var list1 = new Y.Sortable({
+        container: '#myOlList2',
+        nodes: 'li',
+        opacity: '.5',
+        opacityNode: "dragNode",
+        moveType: "insert"
+    });
+
+
+ 
+    ///////////////////////////////////////////////////////////////
+    // Handle the drag drop events
+    // Key thing is 
+    
+    // nodes we're moving around
+    var addedNode, newNode;
+
+
+
+    // make a new node that can be inserted as a new tree sometimes
+    Y.DD.DDM.on("drag:start", function(ev){
+Y.log( "dd - drag:start" );
+       //newNode = document.createElement("ol");
+       newNode = Y.Node.create( "<ol></ol>" );
+       newNode.setAttribute("id", Y.guid() );
+     
+       //newNode.appendChild( document.createElement( "ol" ) );
+    
+    });
+
+
+    // insert the nodes where needed
+    Y.DD.DDM.on("drag:over", function(ev){ 
+Y.log( "dd - drag:over" );
+                  // remove it from where it was
+                  if( addedNode !== undefined ) {
+                  //  try{
+                      addedNode.remove();
+                  //  } catch(e){}
+                  }
+
+
+        var t = ev.drop.get("node"),
+            tOl = t.one( "ol" );
+
+
+  
+        // if we've over an li, add the new ol child block
+        switch( t.get("nodeName").toLowerCase() ) {
+        
+           case "li":
+                
+                // try and append it to existing ol on the target
+                if( tOl ) {
+                 // try {
+                    tOl.append( ev.drag.get("node") );
+                 // } catch(e){ }
+                } 
+                
+                // else add a new ol to the target
+                else {
+
+                  // try adding newNode
+                 // try{
+                    t.append( newNode );
+                    newNode.append( ev.drag.get( "node" ) );
+                 
+                    addedNode = newNode;//.getAttribute("id") );
+
+                    
+                //  } catch(e){ }
+                }
+                break;
+         
+        
+        // if we're over an ol, just add this as a new li child
+          case "ol":
+             // try{
+                t.append( ev.drag.get("node" ) );
+             // }
+             // catch(e){}
+              break;
+
+          default:
+              //ev.halt();
+              break;
+              
+        }
+    
+        //ev.halt();
+    
+    });
+
+
+
+    // reset things at the end of the drag
+    Y.DD.DDM.after("drag:end", function( ev ){
+Y.log( "dd - drag:end" );
+
+       addedNode = undefined; 
+       newNode = undefined;
+       // DD somewhere sets some element styles, which mess up alignment somewhere
+       // in IE
+       var targetNode = ev.target.get("node");
+       targetNode.removeAttribute( "style" );
+
+
+       
+       // re-read the DOM of the tree to put + and - classes in the right places
+
+       Y.one( "#myOlList2" ).treeviewLite.renderUI();
+
+       
+         
+    } );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+ Y.one( "#myOlList2" ).plug( Y.Plugin.TreeviewLite );
+
+
+
+      
+   
+
+
+  });
+ }
+
+});
+
+</script>
+
+
+</div>
+
+
+<div class="footer">
+&copy; Matt Parker, <a href="http://www.lamplightdb.co.uk" title="Lamplight Database Systems">
+Lamplight Database Systems Limited</a> 2010 
+</div>
+
+</body>
+</html>
