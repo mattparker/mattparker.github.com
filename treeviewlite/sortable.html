@@ -59,12 +59,13 @@ on the treeview below.
 </p>
 <p><b>Update (20/04/2010)</b> - fixed IE problem.  The problem?  Using the pr version
 of yui3, not 3.1.  I don't know what changed, but something did and it works.</p>
-<p><b>Example using YUI2 to load YUI3 onto the page</b>.  There seems to be
-a problem when loading YUI3 onto a page with YUI2.  The example <a href="sortable-ajax2.html">
-here</a> uses the Get utility in YUI2 to put the YUI3 on the page and do the treeviewLite.
-It works.  However, using the Dispatcher plugin to put the same content 
-onto a page works <b>except</b> DDM :over events don't fire.  The 'loader' page is
-<a href="sortable-ajax1.html">here</a>.
+<p><b>Update 2 (21/04/2010)</b> - using YUI2 to load YUI3 in the page - you need
+an injected:true in the YUI( { injected: true }).use(...) call - much thanks to
+Dav Glass for this.  To see YUI2 use a delegated event listener on a link,
+which uses Connection Manager to get the page with the Sortable Treeview on it,
+which uses the YUI2 Get utility to put YUI3 on the page... <a href="sortable-ajax2.html">
+click here!</a>.
+
 </p>
 
 
