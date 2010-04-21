@@ -24,15 +24,22 @@ and not much else.  A basic example is <a href="index.html">here.</a>
 </p>
 <p>
 This page has been loaded using the Dispatcher plugin.  The drag:over event
-doesn't fire.  The example <a href="sortable-ajax2.html">here</a> is identical 
-except for the way it gets on the page, and works.
+<span class="correction">doesn't</span> fire <span class="update"> it does now!
+</span>  
+Many thanks to Dav Glass, all it needed is this:
+ <code>
+   YUI( {injected:true} ).use(...
+ </code>
+which tells it it's being injected into the page.  Previously, onDomReady
+wasn't firing which upset things.
+
 </p>
 <code>
 YAHOO.util.Get.script( "http://yui.yahooapis.com/3.1.0/build/yui/yui.js", {
   
   onSuccess: function(){
   
-    YUI( {filter: 'raw'} ).use( 'classnamemanager', 'node','plugin', 'dd' , 'sortable','console', function(Y) {
+    YUI( {filter: 'raw', injected:true} ).use( 'classnamemanager', 'node','plugin', 'dd' , 'sortable','console', function(Y) {
 
       // set up the treeview and Sortable...
       // ...

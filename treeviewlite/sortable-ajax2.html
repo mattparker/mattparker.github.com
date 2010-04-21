@@ -56,9 +56,15 @@ and not much else.  A basic example is <a href="index.html">here.</a>
 This slightly perverse example, starts with YUI2 on the page and uses the Get
 utility to load YUI3.  I'm trying to load Sortable, and combining it with 
 TreeviewLite.  The treeview renders, and Sortable fires start and end
-events, but none of the over events.  The script is identical to the (working)
-example <a href="sortable.html">here</a>, except for the way it gets on the
-page:  
+events, <span class="correction">but none of the over events.</span>
+ <span class="update"> it does now!
+</span>  
+Many thanks to Dav Glass, all it needed is this:
+ <code>
+   YUI( {injected:true} ).use(...
+ </code>
+which tells it it's being injected into the page.  Previously, onDomReady
+wasn't firing which upset things.
 </p>
 <code>
 YAHOO.util.Get.script( "http://yui.yahooapis.com/3.1.0/build/yui/yui.js", {
