@@ -23,12 +23,9 @@ YUI3 lightweight gallery plugin</a>.  It renders, collapses nodes,
 and not much else.  A basic example is <a href="index.html">here.</a>
 </p>
 <p>
-This slightly perverse example, starts with YUI2 on the page and uses the Get
-utility to load YUI3.  I'm trying to load Sortable, and combining it with 
-TreeviewLite.  The treeview renders, and Sortable fires start and end
-events, but none of the over events.  The script is identical to the (working)
-example <a href="sortable.html">here</a>, except for the way it gets on the
-page:
+This page has been loaded using the Dispatcher plugin.  The drag:over event
+doesn't fire.  The example <a href="sortable-ajax2.html">here</a> is identical 
+except for the way it gets on the page, and works.
 </p>
 <code>
 YAHOO.util.Get.script( "http://yui.yahooapis.com/3.1.0/build/yui/yui.js", {
