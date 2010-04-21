@@ -71,6 +71,7 @@ but nothing over.  I'm at a bit of a loss why not at the moment.
 </div>
 
 <script type="text/javascript">
+
 // css for the treeviewLite
 YAHOO.util.Get.css( "http://github.com/mattparker/yui3-gallery/raw/master/build/gallery-treeviewlite/assets/skins/sam/gallery-treeviewlite.css" );
 
@@ -83,10 +84,11 @@ YAHOO.util.Get.script( "http://yui.yahooapis.com/3.1.0/build/yui/yui.js", {
   // create a sortable list
   // from one of the examples.
   
-  YUI( {filter: 'raw'} ).use( 'classnamemanager', 'node','plugin', 'dd' , 'sortable','console', function(Y) {
+  YUI( {debug:true } ).use( 'classnamemanager', 'node','plugin', 'dd' , 'sortable','console', function(Y) {
 
 
-  new Y.Console().render();
+
+   new Y.Console().render();
 
 
         /**
@@ -489,12 +491,7 @@ Y.log( "dd - drag:end" );
  Y.one( "#myOlList2" ).plug( Y.Plugin.TreeviewLite );
 
 
-
-      
-   
-
-
-  });
+});
  }
 
 });

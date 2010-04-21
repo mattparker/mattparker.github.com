@@ -58,7 +58,7 @@ utility to load YUI3.  I'm trying to load Sortable, and combining it with
 TreeviewLite.  The treeview renders, and Sortable fires start and end
 events, but none of the over events.  The script is identical to the (working)
 example <a href="sortable.html">here</a>, except for the way it gets on the
-page:
+page:  
 </p>
 <code>
 YAHOO.util.Get.script( "http://yui.yahooapis.com/3.1.0/build/yui/yui.js", {
@@ -90,7 +90,7 @@ but nothing over.  I'm at a bit of a loss why not at the moment.
      <ol>
       <li><span>item 2.2.1</span></li>
       <li><span>item 2.2.2</span></li>
-      <li><span>item 2.2.3</span></li>
+      <li><span>item 2.2.3 hi</span></li>
      </ol>
    </li>
   </ol>
@@ -104,6 +104,7 @@ but nothing over.  I'm at a bit of a loss why not at the moment.
 </div>
 
 <script type="text/javascript">
+
 // css for the treeviewLite
 YAHOO.util.Get.css( "http://github.com/mattparker/yui3-gallery/raw/master/build/gallery-treeviewlite/assets/skins/sam/gallery-treeviewlite.css" );
 
@@ -115,11 +116,11 @@ YAHOO.util.Get.script( "http://yui.yahooapis.com/3.1.0/build/yui/yui.js", {
   //////////////////////////////////////////////////////////
   // create a sortable list
   // from one of the examples.
-  
-  YUI( {filter: 'raw'} ).use( 'classnamemanager', 'node','plugin', 'dd' , 'sortable','console', function(Y) {
+  YUI( {debug:true } ).use( 'classnamemanager', 'node','plugin', 'dd' , 'sortable','console', function(Y) {
 
 
-  new Y.Console().render();
+
+   new Y.Console().render();
 
 
         /**
@@ -522,12 +523,8 @@ Y.log( "dd - drag:end" );
  Y.one( "#myOlList2" ).plug( Y.Plugin.TreeviewLite );
 
 
-
-      
-   
-
-
-  });
+}); 
+ 
  }
 
 });
