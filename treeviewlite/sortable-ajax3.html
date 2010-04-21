@@ -1,25 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
-<html> 
-<head> 
-<meta http-equiv="content-type" content="text/html; charset=utf-8"> 
-<title>TreeviewLite - sortable example</title> 
 
-
-
-
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.1.0/build/cssreset/reset-min.css&3.1.0/build/cssfonts/fonts-min.css&3.1.0/build/cssgrids/grids-min.css">
-<link rel="stylesheet" type="text/css" href="../assets/git.css"/>
-<script type="text/javascript" src="http://yui.yahooapis.com/3.1.0/build/yui/yui-min.js"></script> 
-
-<!--
-<script type="text/javascript" src="http://github.com/mattparker/yui3-gallery/raw/master/src/gallery-treeview-lite/js/treeview-lite.js"></script> 
--->
-<link rel="stylesheet" type="text/css" href="http://github.com/mattparker/yui3-gallery/raw/master/src/gallery-treeview-lite/assets/gallery-treeviewlite-core.css"/>
-<link rel="stylesheet" type="text/css" href="http://github.com/mattparker/yui3-gallery/raw/master/src/gallery-treeview-lite/assets/skins/sam/gallery-treeviewlite-skin.css"/>
- 
-</head> 
- 
-<body class=" yui3-skin-sam"> 
 
 <div class="gitpage">
 
@@ -39,67 +18,38 @@
 
 <h1>TreeviewLite</h1>
 
-
 <p>TreeviewLite is a <a href="http://yuilibrary.com/gallery/show/treeviewlite">
 YUI3 lightweight gallery plugin</a>.  It renders, collapses nodes,
 and not much else.  A basic example is <a href="index.html">here.</a>
 </p>
-
-<h2>Sortable</h2>
-<p>The 3.1 release of YUI included a <a href="http://developer.yahoo.com/yui/3/sortable/">
-Sortable utility</a> that lets you
-drag and drop list items within and/or between lists.  I needed a Sortable
-Treeview, and so I thought I'd have a go at it.  This is a first effort.</p>
-<p>I want to make
-a treeview that you can drag a node from anywhere to anywhere.  If you 
-drag a node and it's got children, they need to move too.  If you drag it
-onto a node that already has children, it will just add it to the list, but if
-you drag it onto a node without children, it'll create a new child list.  Try it
-on the treeview below.
+<p>
+This slightly perverse example, starts with YUI2 on the page and uses the Get
+utility to load YUI3.  I'm trying to load Sortable, and combining it with 
+TreeviewLite.  The treeview renders, and Sortable fires start and end
+events, but none of the over events.  The script is identical to the (working)
+example <a href="sortable.html">here</a>, except for the way it gets on the
+page:
 </p>
-<p><b>Update (20/04/2010)</b> - fixed IE problem.  The problem?  Using the pr version
-of yui3, not 3.1.  I don't know what changed, but something did and it works.</p>
-<p><b>Example using YUI2 to load YUI3 onto the page</b>.  There seems to be
-a problem when loading YUI3 onto a page with YUI2.  The example <a href="sortable-ajax2.html">
-here</a> uses the Get utility in YUI2 to put the YUI3 on the page and do the treeviewLite.
-It works.  However, using the Dispatcher plugin to put the same content 
-onto a page works <b>except</b> DDM :over events don't fire.  The 'loader' page is
-<a href="sortable-ajax1.html">here</a>.
-</p>
+<code>
+YAHOO.util.Get.script( "http://yui.yahooapis.com/3.1.0/build/yui/yui.js", {
+  
+  onSuccess: function(){
+  
+    YUI( {filter: 'raw'} ).use( 'classnamemanager', 'node','plugin', 'dd' , 'sortable','console', function(Y) {
 
+      // set up the treeview and Sortable...
+      // ...
+      
+    });
 
+  } // end of onSuccess
 
-<h2>Markup</h2>
-Start with a plain nested list:
-<pre >
-&lt;ol id="myOlList2"&gt;
- &lt;li&gt;&lt;span&gt;item 1&lt;/span&gt;&lt;/li&gt;
- &lt;li&gt;&lt;span&gt;item 2&lt;/span&gt;
-  &lt;ol&gt;
-   &lt;li&gt;&lt;span&gt;item 2.1&lt;/span&gt;&lt;/li&gt;
-   &lt;li&gt;&lt;span&gt;item 2.2&lt;/span&gt;
-     &lt;ol&gt;
-      &lt;li&gt;&lt;span&gt;item 2.2.1&lt;/span&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;span&gt;item 2.2.2&lt;/span&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;span&gt;item 2.2.3&lt;/span&gt;&lt;/li&gt;
-     &lt;/ol&gt;
-   &lt;/li&gt;
-  &lt;/ol&gt;
- &lt;/li&gt;
- &lt;li&gt;&lt;span&gt;item 3&lt;/span&gt;
-   &lt;ol&gt;
-    &lt;li&gt;&lt;span&gt;item 3.1&lt;/span&gt;&lt;/li&gt;
-   &lt;/ol&gt;
- &lt;/li&gt;
-&lt;/ol&gt;
-</pre>
-
-<p>As before, you need to wrap the labels in span tags.
+});
+</code>
+<p>Drag a node on the treeview below, you'll see start and end in the logger
+but nothing over.  I'm at a bit of a loss why not at the moment.  
 </p>
 
-<h2>End result</h2>
-
-<p>This is what we end up with... try dragging some nodes.</p>
 <div class="example">
 <ol id="myOlList2">
  <li><span>item 1</span></li>
@@ -123,223 +73,23 @@ Start with a plain nested list:
 </ol>
 </div>
 
-
-<h2>Script</h2>
-<p>We'll be using dd and sortable, gallery-treeviewlite:</p>
-<code>
-YUI().use( 'dd' , 'sortable', 'gallery-treeviewlite', function(Y) {
-
- //...
-
-});
-</code>
-<p>First of all we set up the Sortable instance, straight from the examples,
-and plug in the TreeviewLite:</p>
-<code>
-
-    var list1 = new Y.Sortable({
-        container: '#myOlList2',
-        nodes: 'li',
-        opacity: '.5',
-        opacityNode: "dragNode",
-        moveType: "insert"
-    });
-    
-    Y.one( "#myOlList2" ).plug( Y.Plugin.TreeviewLite );
-</code>
-
-<p>And we'll listen to some of the drag-drop events.  It's a bit more complicated
-with nested lists, because in some cases we just append the &lt;li&gt; to 
-the existing list; in others we need to create a new child &lt;ol&gt;.  So 
-at the start of the drag we create a new &lt;ol&gt; that we move around as needed.
-</p>
-<p>
-Y.DD.DDM is the drag-drop manager; it seemed to be the easiest place to listen
-for the different events.
-</p>
-<code>
-    // nodes we're moving around
-    var addedNode, newNode;
-
-
-
-    // make a new node that can be inserted as a new tree sometimes
-    Y.DD.DDM.on("drag:start", function(ev){
-
-       newNode = Y.Node.create( "&lt;ol&gt;&lt;/ol&gt;" );
-       newNode.setAttribute("id", Y.guid() );
-
-    
-    });
-</code>
-
-<p>Now as we drag, we need to work out where we are and add the right nodes
-in the right place, and remove them from where they were previously.  This is
-pretty heavy DOM lifting; there may be a better way to do (any|all) of this.</p>
-
-<code>
-    // insert the nodes where needed
-    Y.DD.DDM.on("drag:over", function(ev){ 
-
-                  // remove it from where it was
-                  if( addedNode !== undefined ) {
-                      addedNode.remove();
-                  }
-
-
-        var t = ev.drop.get("node"),
-            // tOl is looking for a child ol below the li
-            tOl = t.one( "ol" );
-
-
-  
-        // if we've over an li, add the new ol child block
-        switch( t.get("nodeName").toLowerCase() ) {
-        
-           case "li":
-                
-                // try and append it to existing ol on the target
-                if( tOl ) {
-                  try {
-                    tOl.append( ev.drag.get("node") );
-                  } catch(e){ }
-                } 
-                
-                // else add a new ol to the target
-                else {
-
-                  // try adding newNode
-                  try{
-                    t.append( newNode );
-                    newNode.append( ev.drag.get( "node" ) );
-                 
-                    addedNode = newNode;
-
-                    
-                  } catch(e){ }
-                }
-                break;
-         
-        
-        // if we're over an ol, just add this as a new li child
-          case "ol":
-              try{
-                t.append( ev.drag.get("node" ) );
-              }
-              catch(e){}
-              break;
-
-          default:
-              break;
-              
-        }
-    
-    
-    });
-</code>
-<p>And at the end of the drag we want to tidy up and re-render the treeview.
-Unplugging and plugging the treeviewlite isn't a great way to do this; before
-too long I'll change the treeviewlite to give it an update() method or similar.
-</p>
-
-<code>
-    // reset things at the end of the drag
-    Y.DD.DDM.after("drag:end", function( ev ){
-        
-
-       addedNode = undefined; 
-       newNode = undefined;
-       // DD somewhere sets some element styles, which mess up alignment somewhere
-       // in IE
-       var targetNode = ev.target.get("node");
-       targetNode.removeAttribute( "style" );
-
-
-
-       // re-read the DOM of the tree to put + and - classes in the right places
-
-       Y.one( "#myOlList2" ).treeviewLite.renderUI();
-       
-         
-    } );
-</code>
-
-<p>This almost works; but it is possible to drop onto the drag, which throws
-a pile of errors.  Sortable is only designed, I think, for 1-d lists, so I
-needed to overwrite the _onDragOver of Sortable.  It's identical except
-for checking if drag contains drop: 
-
-<code>
-   // overwrite to check dragging onto itself:
-   Y.Sortable.prototype._onDragOver = function(e){
-
-            var NODE = "node", NODES = "nodes", PARENT_NODE = "parentNode", ID = "id";
-            if (!e.drop.get(NODE).test(this.get(NODES))) {
-                return;
-            }
-            if (e.drag.get(NODE) == e.drop.get(NODE)) {
-                return;
-            }
-            // is drop a child of drag?  - this is the bit that's added:
-            if ( e.drag.get(NODE).contains( e.drop.get(NODE) ) ) {
-                return;
-            }
-
-            
-            
-            switch (this.get('moveType').toLowerCase()) {
-                case 'insert':
-                    var dir = ((this._up) ? 'before' : 'after');
-                    e.drop.get(NODE).insert(e.drag.get(NODE), dir);
-                    break;
-                case 'swap':
-                    Y.DD.DDM.swapNode(e.drag, e.drop);
-                    break;
-                case 'move':
-                case 'copy':
-                    var dropsort = Y.Sortable.getSortable(e.drop.get(NODE).get(PARENT_NODE)),
-                        oldNode, newNode;
-
-                    if (!dropsort) {
-                        Y.log('No delegate parent found', 'error');
-                        return;
-                    }
-                    
-                    Y.DD.DDM.getDrop(e.drag.get(NODE)).addToGroup(dropsort.get(ID));
-
-                    //Same List
-                    if (e.drag.get(NODE).get(PARENT_NODE).contains(e.drop.get(NODE))) {
-                        Y.DD.DDM.swapNode(e.drag, e.drop);
-                    } else {
-                        if (this.get('moveType') == 'copy') {
-                            //New List
-                            oldNode = e.drag.get(NODE);
-                            newNode = oldNode.cloneNode(true);
-
-                            newNode.set(ID, '');
-                            e.drag.set(NODE, newNode);
-                            dropsort.delegate.createDrop(newNode, [dropsort.get(ID)]);
-                            oldNode.setStyles({
-                                top: '',
-                                left: ''
-                            });
-                        }
-                        e.drop.get(NODE).insert(e.drag.get(NODE), 'before');
-                    }
-                    break;
-            }
-
-   };
-</code>
-
-
-<!-- until it's in the gallery here's the treeview code too: -->
 <script type="text/javascript">
-YUI( {debug:true } ).use( 'classnamemanager', 'node','plugin', 'dd' , 'sortable','console', function(Y) {
+// css for the treeviewLite
+YAHOO.util.Get.css( "http://github.com/mattparker/yui3-gallery/raw/master/build/gallery-treeviewlite/assets/skins/sam/gallery-treeviewlite.css" );
+
+// get the core
+YAHOO.util.Get.script( "http://yui.yahooapis.com/3.1.0/build/yui/yui.js", {
+  
+  onSuccess: function(){
+
+  //////////////////////////////////////////////////////////
+  // create a sortable list
+  // from one of the examples.
+  
+  YUI( {filter: 'raw'} ).use( 'classnamemanager', 'node','plugin', 'dd' , 'sortable','console', function(Y) {
 
 
-
-   new Y.Console().render();
+  new Y.Console().render();
 
 
         /**
@@ -742,8 +492,18 @@ Y.log( "dd - drag:end" );
  Y.one( "#myOlList2" ).plug( Y.Plugin.TreeviewLite );
 
 
+
+      
+   
+
+
+  });
+ }
+
 });
+
 </script>
+
 
 </div>
 
@@ -753,6 +513,3 @@ Y.log( "dd - drag:end" );
 Lamplight Database Systems Limited</a> 2010 
 </div>
 
-
-</body>
-</html>
