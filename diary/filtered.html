@@ -1,0 +1,273 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="content-type" content="text/html; charset=utf-8"> 
+<title>Some YUI examples and things</title> 
+ 
+<style type="text/css"> 
+/*margin and padding on body element
+  can introduce errors in determining
+  element position and are not recommended;
+  we turn them off as a foundation for YUI
+  CSS treatments. */
+body {
+	margin:0;
+	padding:0;
+}
+</style> 
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.1.0/build/cssreset/reset-min.css&amp;3.1.0/build/cssfonts/fonts-min.css&amp;3.1.0/build/cssgrids/grids-min.css">
+<link rel="stylesheet" type="text/css" href="../assets/git.css">
+
+<!-- Combo-handled YUI CSS files: -->
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.8.0r4/build/assets/skins/sam/skin.css">
+<!-- Combo-handled YUI JS files: -->
+<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.8.0r4/build/yahoo-dom-event/yahoo-dom-event.js&2.8.0r4/build/animation/animation-min.js&2.8.0r4/build/calendar/calendar-min.js&2.8.0r4/build/dragdrop/dragdrop-min.js&2.8.0r4/build/container/container-min.js&2.8.0r4/build/datasource/datasource-min.js&2.8.0r4/build/datemath/datemath-min.js&2.8.0r4/build/selector/selector-min.js&2.8.0r4/build/event-delegate/event-delegate-min.js&2.8.0r4/build/event-mouseenter/event-mouseenter-min.js&2.8.0r4/build/element/element-min.js&2.8.0r4/build/element-delegate/element-delegate-min.js&2.8.0r4/build/resize/resize-min.js"></script>
+
+
+<script type="text/javascript" src="http://github.com/mattparker/diary/raw/master/js/Diary.js"></script>
+<link rel="stylesheet" type="text/css" href="http://github.com/mattparker/diary/raw/master/css/yui-diary.css">
+<!--
+<script type="text/javascript" src="file:///C:/Documents and Settings/Matt_2/yui2-diary\js/Diary.js"></script>
+<link rel="stylesheet" type="text/css" href="file:///C:/Documents and Settings/Matt_2/yui2-diary\css/yui-diary.css">
+-->
+ 
+ <!-- Styles for this example -->
+ <style type="text/css">
+     .lplt-diary-item.work{
+     background-color: #A7DFA7;
+    }
+    .lplt-diary-item.personal{
+     background-color: #EFC986;
+    }
+    .lplt-diary-item.important{
+     border-color: red;
+    }
+    
+    #diary-test{
+      margin: 30px;
+    }
+ </style>
+</head> 
+ 
+<body class=" yui-skin-sam"> 
+ <div class="gitpage">
+
+<div class="links">
+ <ul>
+  <li>
+   <a href="../">Home</a>
+  </li>
+  <li>
+   <a href="../resize/">Resize</a>
+  </li>
+  <li>
+   <a href="../treeviewlite/">TreeviewLite</a>
+  </li>
+ </ul>
+</div>
+
+
+<h1>YUI2 Diary</h1> 
+ <p>Diary is a widget to render and manipulate a diary.  It's a work in progress
+    at the moment but hoping for feedback...</p>
+ 
+ <h2>Field maps and filtering example</h2>
+ <p>This is a live version of the example on the <a href="index.html">overview page</a>
+  with some extra features.  The example demonstrates how to use the fieldMap
+  config attribute and how to filter your DiaryItems.
+ </p>
+ 
+  <div id="diary-test"></div> 
+      <button id="filterwork" value="hide work" >hide work</button>
+      <button id="unfilterwork" value="show work" >show work</button>
+      <button id="filterpersonal" value="hide personal" >hide personal</button>
+      <button id="unfilterpersonal" value="hide personal" >show personal</button>  
+  
+  
+ <h2>fieldMap config attribute</h2> 
+ <p>The fieldMap configuration attribute lets you map fields in your DataSource
+ to the expected field names for the Diary.  The field names expected are 
+ <a href="http://en.wikipedia.org/wiki/ICalendar">iCalendar style </a> but your
+ DataSource doesn't need to follow this.  In this example, the data has a field
+ called starttime, and a couple of extras: DESCRIPTION and category.  category
+ will be used for filtering.</p>
+
+
+ <h2>Data</h2>
+  <p>The data now looks like this:
+   <code>
+     var dataArr = [ 
+            {starttime: "2010/02/01 08:00", 
+             DTEND:"2010/02/01 10:30", 
+             SUMMARY: "Doctors appointment" , 
+             DESCRIPTION : "Go and see Jack about my back", 
+             category: "personal" }, 
+            {starttime: "2010/02/01 09:00", 
+             DTEND:"2010/02/01 11:30", 
+             SUMMARY: "Write some code", 
+             DESCRIPTION : "More Diary examples", 
+             category: "work"}, 
+            {starttime: "2010/02/04 11:30", 
+             DTEND:"2010/02/04 12:30", 
+             SUMMARY: "Client meeting", 
+             DESCRIPTION : "Go and see Jack about my back", 
+             category: "work important"}
+     ];   
+   </code>
+   and the response schema is now:
+   <code>
+        data.responseSchema = {
+        resultsList : "VCALENDAR", 
+        fields : [
+            { key: "starttime" , parser:"date" },                   
+            { key: "DTEND" , parser:"date" },  
+            { key: "SUMMARY" },
+            { key: "DESCRIPTION" },
+            { key: "category" }
+        ]
+     };
+   </code>
+  </p> 
+  
+  <h2>Diary javascript</h2>
+  
+   <p>The only change is the config object literal we pass to the constructor;
+   it includes a fieldMap object that maps starttime and category fields to 
+   DTSTART and backClass respectively:
+   <code>
+        
+    var cfg = { 
+      startDate: new Date("2010/01/31") , // first day to show in the Diary
+      width: 800, // width in px
+      scaleColumns: true, // whether to stretch columns to fit
+      display: { format: "week" , startTime: 08, endTime: 20 }, // display format: times as 24 hr
+      calenderNav: true, // whether to use a YAHOO.widget.Calendar in the navigation
+      fieldMap: {
+        DTSTART: "starttime",
+        backClass: "category"
+      }
+     };
+   </code>
+    Diary will now know to use the starttime field as the DTSTART value.</p>
+    
+    <p>
+   
+    The Diary will also take the values in the backClass (i.e. "category" in this example)
+    field and add them as classes to the container of each DiaryItem.  This enables
+    styling of different types of event as needed.  There is also a detailClass
+    property which does the same thing but adds the style to the html element
+    containing the actual text of the Diary item.  For this example we have the 
+    additional styles
+    <code>
+    .lplt-diary-item.work{
+     background-color: #A7DFA7;
+    }
+    .lplt-diary-item.personal{
+     background-color: #EFC986;
+    }
+    .lplt-diary-item.important{
+     border-color: red;
+    }
+    </code>
+    
+    </p>
+    
+    <p>
+    We can also use these categories as filters.  Diary has a method addItemFilter
+    which takes a Selector string, prepends it with "lplt-diary-item" (the class
+    added to the container of DiaryItems), and hides matches.  removeItemFilter
+    removes the filter.  This does nothing to the data; it just adds a "lplt-diary-item-hidden"
+    class to hide them from the display.  Filters continue to be applied when 
+    you navigate to a different week.  To add some buttons to show and hide
+    personal and work items, we add some (simple) controls:
+     <code>
+      &lt;button id="filterwork" value="hide work" &gt;hide work&lt;/button&gt;
+      &lt;button id="unfilterwork" value="show work" &gt;show work&lt;/button&gt;
+      &lt;button id="filterpersonal" value="hide personal" &gt;hide personal&lt;/button&gt;
+      &lt;button id="unfilterpersonal" value="hide personal" &gt;show personal&lt;/button&gt;
+     </code>
+     
+    and some simple event listeners:
+     <code>
+      YAHOO.util.Event.on( "filterwork", "click" , function(){this.addItemFilter( ".work" );}, myDiary , true );
+      YAHOO.util.Event.on( "unfilterwork", "click" , function(){this.removeItemFilter( ".work" );}, myDiary , true );
+      YAHOO.util.Event.on( "filterpersonal", "click" , function(){this.addItemFilter( ".personal" );}, myDiary , true );
+      YAHOO.util.Event.on( "unfilterpersonal", "click" , function(){this.removeItemFilter( ".personal" );}, myDiary , true );
+     </code>
+
+    </p>
+  
+  <script type="text/javascript">
+       // The raw data:
+     var dataArr = [ 
+            {starttime: "2010/02/01 08:00", 
+             DTEND:"2010/02/01 10:30", 
+             SUMMARY: "Doctors appointment" , 
+             DESCRIPTION : "Go and see Jack about my back", 
+             category: "personal" }, 
+            {starttime: "2010/02/01 09:00", 
+             DTEND:"2010/02/01 11:30", 
+             SUMMARY: "Write some code", 
+             DESCRIPTION : "More Diary examples", 
+             category: "work"}, 
+            {starttime: "2010/02/04 11:30", 
+             DTEND:"2010/02/04 12:30", 
+             SUMMARY: "Client meeting", 
+             DESCRIPTION : "Go and see Jack about my back", 
+             category: "work important"}
+     ];
+
+     // Set up the DataSource
+     var data = new YAHOO.util.DataSource({ 
+      	    total: 3, 
+      	    VCALENDAR: dataArr
+     }); 
+
+     data.responseType = YAHOO.util.DataSource.TYPE_JSON;
+     
+     // Point to the data
+     data.responseSchema = {
+        resultsList : "VCALENDAR", 
+        fields : [
+            { key: "starttime" , parser:"date" },                   
+            { key: "DTEND" , parser:"date" },  
+            { key: "SUMMARY" },
+            { key: "DESCRIPTION" },
+            { key: "category" }
+        ]
+     };
+     
+    var cfg = { 
+      startDate: new Date("2010/01/31") , // first day to show in the Diary
+      width: 800, // width in px
+      scaleColumns: true, // whether to stretch columns to fit
+      display: { format: "week" , startTime: 08, endTime: 20 }, // display format: times as 24 hr
+      calenderNav: true, // whether to use a YAHOO.widget.Calendar in the navigation
+      fieldMap: {
+        DTSTART: "starttime",
+        backClass: "category"
+      }
+     };
+    
+     var myDiary = new YAHOO.widget.Diary(  "diary-test" , data, cfg  );
+
+      YAHOO.util.Event.on( "filterwork", "click" , function(){this.addItemFilter( ".work" );}, myDiary , true );
+      YAHOO.util.Event.on( "unfilterwork", "click" , function(){this.removeItemFilter( ".work" );}, myDiary , true );
+      YAHOO.util.Event.on( "filterpersonal", "click" , function(){this.addItemFilter( ".personal" );}, myDiary , true );
+      YAHOO.util.Event.on( "unfilterpersonal", "click" , function(){this.removeItemFilter( ".personal" );}, myDiary , true );
+  </script>
+  
+ </div>
+ 
+ 
+<div class="footer">
+&copy; Matt Parker, <a href="http://www.lamplightdb.co.uk" title="Lamplight Database Systems">
+Lamplight Database Systems Limited</a> 2010 
+</div>
+ </body>
+ </html>
