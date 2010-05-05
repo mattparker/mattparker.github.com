@@ -1,0 +1,592 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns:yui="http://yuilibrary.com/rdf/1.0/yui.rdf#">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>API: diary  DiaryBlock   (YUI Library)</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/reset-fonts-grids-min.css?stamp=1273017894.53" />
+	<link rel="stylesheet" type="text/css" href="assets/api.css?stamp=1273017894.53" />
+
+    <script type="text/javascript" src="assets/api-js?stamp=1273017894.53"></script>
+    <script type="text/javascript" src="assets/ac-js?stamp=1273017894.53"></script>
+</head>
+
+<body id="yahoo-com">
+
+<div id="doc3" class="yui-t2">
+	<div id="hd">
+        <h1><a href="http://developer.yahoo.com/yui/" title="Yahoo! UI Library">Yahoo! UI Library</a></h1>
+        <h3>Diary widget
+Diary uses a YAHOO.util.Datasource with, minimally, start and end dates.
+Items in the diary can be rescheduled using drag and drop, or times changed using resize.
+New items can be added by click-and-dragging on the diary to provide the 
+start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
+        <a href="./index.html" title="Yahoo! UI Library">Yahoo! UI Library</a> 
+            &gt; <a href="./module_diary.html" title="diary">diary</a>
+                 &gt; DiaryBlock 
+                
+        <form onsubmit="return false">
+            <div id="propertysearch">
+                Search: <input autocomplete="off" id="searchinput" />
+                <div id="searchresults">
+                    &nbsp;
+                </div>
+            </div>
+        </form>
+	</div>
+
+	<div id="bd">
+		<div id="yui-main">
+			<div class="yui-b">
+            <form action="#" name="yui-classopts-form" method="get" id="yui-classopts-form">
+                <fieldset>
+                    <legend>Filters</legend>
+                <span class="classopts"><input type="checkbox" name="show_private" id="show_private" /> <label for="show_private">Show Private</label></span>
+                <span class="classopts"><input type="checkbox" name="show_protected" id="show_protected" /> <label for="show_protected">Show Protected</label></span>
+                <span class="classopts"><input type="checkbox" name="show_deprecated" id="show_deprecated" /> <label for="show_deprecated">Show Deprecated</label></span>
+                </fieldset>
+            </form>
+
+                    <h2>
+                        
+
+                        
+                        
+                            Class <b property="yui:name">DiaryBlock</b>
+                        <span class="extends">
+                        </span>
+
+                    </h2>
+                    <!-- class tree goes here -->
+                    
+                
+  
+
+                    <div class="summary description" property="yui:description">
+                        A block of diary items.
+Holds diary items that overlap in time within a single day.  You won't want
+to deal with these directly.
+                    </div>
+
+                    
+                    <div rel="yui:properties" resource="#properties">
+                        <div class="section field details">
+                            <h3 id="properties">Properties</h3>
+                            <div class="content">
+                                    <div class="protected" rel="yui:property" resource="#property__endSecs">
+                                    <h4><a name="property__endSecs" property="yui:name">_endSecs</a>
+                                        - <code>protected <span property="yui:type">Int</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Time, in seconds, of the end of this block.
+                                        </div>
+                                    </div>
+     
+                                        
+                                    <div class="default" property="yui:defaultValue">
+                                        Default Value: -1
+                                    </div>        
+
+
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:property" resource="#property__items">
+                                    <h4><a name="property__items" property="yui:name">_items</a>
+                                        - <code>protected <span property="yui:type">Array</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Array of DiaryItem in this block.
+                                        </div>
+                                    </div>
+     
+                                        
+                                    <div class="default" property="yui:defaultValue">
+                                        Default Value: []
+                                    </div>        
+
+
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:property" resource="#property__lines">
+                                    <h4><a name="property__lines" property="yui:name">_lines</a>
+                                        - <code>protected <span property="yui:type">Array</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            The number of vertical lines in the block.
+Array holding an objects for each line, of the form
+{ startSecs: 123, endSecs: 456 }
+                                        </div>
+                                    </div>
+     
+                                        
+                                    <div class="default" property="yui:defaultValue">
+                                        Default Value: []
+                                    </div>        
+
+
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:property" resource="#property__startSecs">
+                                    <h4><a name="property__startSecs" property="yui:name">_startSecs</a>
+                                        - <code>protected <span property="yui:type">Int</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Time of day, in seconds of the start of this block.
+                                        </div>
+                                    </div>
+     
+                                        
+                                    <div class="default" property="yui:defaultValue">
+                                        Default Value: 86401
+                                    </div>        
+
+
+                                    <hr />
+                                    </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div rel="yui:methods" resource="#methods">
+                        <div class="section method details">
+                            <h3 id="methods">Methods</h3>
+                            <div class="content">
+                                    <div class="protected" rel="yui:method" resource="#method__findLineForItem">
+                                    <h4>
+                                        <a name="method__findLineForItem">_findLineForItem</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        Int} || {False
+                                            <strong property="yui:name">_findLineForItem</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Will the item fit in an existing vertical line?
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        Int} || {False
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">- line number</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_addItem">
+                                    <h4>
+                                        <a name="method_addItem">addItem</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">addItem</strong>
+                                           (
+                                                
+                                                        
+                                                         DiaryItem
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Adds a DiaryItem to the block.
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">DiaryItem</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"></span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_contains">
+                                    <h4>
+                                        <a name="method_contains">contains</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        Boolean
+                                            <strong property="yui:name">contains</strong>
+                                           (
+                                                
+                                                        
+                                                         DiaryItem
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Does item overlap with this block?
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">DiaryItem</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"></span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        Boolean
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_destroy">
+                                    <h4>
+                                        <a name="method_destroy">destroy</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">destroy</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method_init">
+                                    <h4>
+                                        <a name="method_init">init</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">init</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Initializer function.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_removeItem">
+                                    <h4>
+                                        <a name="method_removeItem">removeItem</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        Boolean
+                                            <strong property="yui:name">removeItem</strong>
+                                           (
+                                                
+                                                        
+                                                         DiaryItem
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Removes an item from the block
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">DiaryItem</span>
+                                                        &lt;<span property="yui:type">DiaryItem</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> to remove</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        Boolean
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">True if removed, false if not found</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_render">
+                                    <h4>
+                                        <a name="method_render">render</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        Boolean
+                                            <strong property="yui:name">render</strong>
+                                           (
+                                                
+                                                        
+                                                         Object
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Renders the DiaryItems in the block
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">Object</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description">   Literal containing width property of entire column</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        Boolean
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_toString">
+                                    <h4>
+                                        <a name="method_toString">toString</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        String
+                                            <strong property="yui:name">toString</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        String
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div rel="yui:events" resource="#events">
+
+
+                    </div>
+
+                    <div rel="yui:attributes" resource="#configattributes">
+
+                    </div>
+
+			</div>
+		</div>
+		<div class="yui-b">
+            <div class="nav">
+
+                    <div id="moduleList" class="module">
+                        <h4>Modules</h4>
+                        <ul class="content">
+                                <li class="selected"><a href="module_diary.html" title="diary">diary</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="classList" class="module">
+                        <h4>Classes</h4>
+                        <ul class="content">
+                                <li class="selected"><a href="DiaryBlock.html" title="DiaryBlock">DiaryBlock</a></li>
+                                <li class=""><a href="DiaryDay.html" title="DiaryDay">DiaryDay</a></li>
+                                <li class=""><a href="DiaryItem.html" title="DiaryItem">DiaryItem</a></li>
+                                <li class=""><a href="YAHOO.widget.Diary.html" title="YAHOO.widget.Diary">YAHOO.widget.Diary</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="fileList" class="module">
+                        <h4>Files</h4>
+                        <ul class="content">        
+                                <li class=""><a href="Diary.js.html" title="Diary.js">Diary.js</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="propertyList" class="module">
+                        <h4>Properties</h4>
+                        <ul class="content">        
+                                <li class="protected"><a href="#property__endSecs" title="_endSecs">_endSecs</a></li>
+                                <li class="protected"><a href="#property__items" title="_items">_items</a></li>
+                                <li class="protected"><a href="#property__lines" title="_lines">_lines</a></li>
+                                <li class="protected"><a href="#property__startSecs" title="_startSecs">_startSecs</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="methodsList" class="module">
+                        <h4>Methods</h4>
+                        <ul class="content">        
+                                <li class="protected"><a href="#method__findLineForItem" title="_findLineForItem">_findLineForItem</a></li>
+                                <li class=""><a href="#method_addItem" title="addItem">addItem</a></li>
+                                <li class=""><a href="#method_contains" title="contains">contains</a></li>
+                                <li class=""><a href="#method_destroy" title="destroy">destroy</a></li>
+                                <li class="protected"><a href="#method_init" title="init">init</a></li>
+                                <li class=""><a href="#method_removeItem" title="removeItem">removeItem</a></li>
+                                <li class=""><a href="#method_render" title="render">render</a></li>
+                                <li class=""><a href="#method_toString" title="toString">toString</a></li>
+                        </ul>
+                    </div>
+
+
+
+            </div>
+		</div>
+	</div>
+	<div id="ft">
+        <hr />
+        Copyright &copy; 2010 Yahoo! Inc. All rights reserved.
+	</div>
+</div>
+<script type="text/javascript">
+    ALL_YUI_PROPS = [{"url": "DiaryBlock.html#method_addItem", "access": "", "host": "DiaryBlock", "type": "method", "name": "addItem"}, {"url": "DiaryItem.html#method_addMultiDayChild", "access": "", "host": "DiaryItem", "type": "method", "name": "addMultiDayChild"}, {"url": "DiaryItem.html#property_anim", "access": "", "host": "DiaryItem", "type": "property", "name": "anim"}, {"url": "DiaryItem.html#config_backClass", "access": "", "host": "DiaryItem", "type": "config", "name": "backClass"}, {"url": "DiaryItem.html#event_backClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "backClassChange"}, {"url": "DiaryItem.html#event_beforeBackClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeBackClassChange"}, {"url": "DiaryItem.html#event_beforeColumnChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeColumnChange"}, {"url": "DiaryItem.html#event_beforeDESCRIPTIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDESCRIPTIONChange"}, {"url": "DiaryItem.html#event_before_displayDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "before_displayDTENDChange"}, {"url": "DiaryItem.html#event_before_displayDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "before_displayDTSTARTChange"}, {"url": "DiaryItem.html#event_beforeDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDTENDChange"}, {"url": "DiaryItem.html#event_beforeDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDTSTARTChange"}, {"url": "DiaryItem.html#event_beforeMultiDayParentChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeMultiDayParentChange"}, {"url": "DiaryItem.html#event_beforeMultiDayPositionChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeMultiDayPositionChange"}, {"url": "DiaryItem.html#event_beforeSUMMARYChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeSUMMARYChange"}, {"url": "DiaryItem.html#event_beforeURLChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeURLChange"}, {"url": "DiaryItem.html#event_beforeUseAnimationChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeUseAnimationChange"}, {"url": "DiaryItem.html#method_calcEndFromPosition", "access": "", "host": "DiaryItem", "type": "method", "name": "calcEndFromPosition"}, {"url": "DiaryItem.html#method_calcStartFromPosition", "access": "", "host": "DiaryItem", "type": "method", "name": "calcStartFromPosition"}, {"url": "DiaryItem.html#method_calculateHeight", "access": "", "host": "DiaryItem", "type": "method", "name": "calculateHeight"}, {"url": "DiaryItem.html#method_calculateTop", "access": "", "host": "DiaryItem", "type": "method", "name": "calculateTop"}, {"url": "DiaryItem.html#config_column", "access": "", "host": "DiaryItem", "type": "config", "name": "column"}, {"url": "DiaryItem.html#event_columnChange", "access": "", "host": "DiaryItem", "type": "event", "name": "columnChange"}, {"url": "DiaryBlock.html#method_contains", "access": "", "host": "DiaryBlock", "type": "method", "name": "contains"}, {"url": "DiaryItem.html#config_DESCRIPTION", "access": "", "host": "DiaryItem", "type": "config", "name": "DESCRIPTION"}, {"url": "DiaryItem.html#event_DESCRIPTIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DESCRIPTIONChange"}, {"url": "DiaryBlock.html#method_destroy", "access": "", "host": "DiaryBlock", "type": "method", "name": "destroy"}, {"url": "DiaryItem.html#event__displayDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "_displayDTENDChange"}, {"url": "DiaryItem.html#event__displayDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "_displayDTSTARTChange"}, {"url": "DiaryItem.html#property_dragdrop", "access": "", "host": "DiaryItem", "type": "property", "name": "dragdrop"}, {"url": "DiaryItem.html#config_DTEND", "access": "", "host": "DiaryItem", "type": "config", "name": "DTEND"}, {"url": "DiaryItem.html#event_DTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DTENDChange"}, {"url": "DiaryItem.html#config_DTSTART", "access": "", "host": "DiaryItem", "type": "config", "name": "DTSTART"}, {"url": "DiaryItem.html#event_DTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DTSTARTChange"}, {"url": "DiaryBlock.html#property__endSecs", "access": "protected", "host": "DiaryBlock", "type": "property", "name": "_endSecs"}, {"url": "DiaryBlock.html#method__findLineForItem", "access": "protected", "host": "DiaryBlock", "type": "method", "name": "_findLineForItem"}, {"url": "DiaryItem.html#method_getDiary", "access": "", "host": "DiaryItem", "type": "method", "name": "getDiary"}, {"url": "DiaryItem.html#method_getDisplayEndTimeSecs", "access": "protected", "host": "DiaryItem", "type": "method", "name": "getDisplayEndTimeSecs"}, {"url": "DiaryItem.html#method_getDisplayStartTimeSecs", "access": "protected", "host": "DiaryItem", "type": "method", "name": "getDisplayStartTimeSecs"}, {"url": "DiaryItem.html#method_getEndTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "getEndTimeSecs"}, {"url": "DiaryItem.html#method_getParentItem", "access": "", "host": "DiaryItem", "type": "method", "name": "getParentItem"}, {"url": "DiaryItem.html#method_getStartTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "getStartTimeDay"}, {"url": "DiaryItem.html#method_getStartTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "getStartTimeSecs"}, {"url": "DiaryItem.html#method__handleBeforeStartDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleBeforeStartDrag"}, {"url": "DiaryItem.html#method__handleDiaryDragEnter", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryDragEnter"}, {"url": "DiaryItem.html#method__handleDiaryDragOver", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryDragOver"}, {"url": "DiaryItem.html#method__handleDiaryEndDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryEndDrag"}, {"url": "DiaryItem.html#method__handleDiaryStartDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryStartDrag"}, {"url": "DiaryBlock.html#method_init", "access": "protected", "host": "DiaryBlock", "type": "method", "name": "init"}, {"url": "DiaryItem.html#method_initContent", "access": "", "host": "DiaryItem", "type": "method", "name": "initContent"}, {"url": "DiaryItem.html#method_initListeners", "access": "", "host": "DiaryItem", "type": "method", "name": "initListeners"}, {"url": "DiaryItem.html#event_itemBeforeEndMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemBeforeEndMove"}, {"url": "DiaryItem.html#event_itemBeforeStartMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemBeforeStartMove"}, {"url": "DiaryItem.html#event_itemEndMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemEndMove"}, {"url": "DiaryBlock.html#property__items", "access": "protected", "host": "DiaryBlock", "type": "property", "name": "_items"}, {"url": "DiaryBlock.html#property__lines", "access": "protected", "host": "DiaryBlock", "type": "property", "name": "_lines"}, {"url": "DiaryItem.html#event_multiDayParentChange", "access": "", "host": "DiaryItem", "type": "event", "name": "multiDayParentChange"}, {"url": "DiaryItem.html#event_multiDayPositionChange", "access": "", "host": "DiaryItem", "type": "event", "name": "multiDayPositionChange"}, {"url": "DiaryBlock.html#method_removeItem", "access": "", "host": "DiaryBlock", "type": "method", "name": "removeItem"}, {"url": "DiaryItem.html#method_render", "access": "", "host": "DiaryItem", "type": "method", "name": "render"}, {"url": "DiaryBlock.html#method_render", "access": "", "host": "DiaryBlock", "type": "method", "name": "render"}, {"url": "DiaryItem.html#method_renderDetails", "access": "", "host": "DiaryItem", "type": "method", "name": "renderDetails"}, {"url": "DiaryItem.html#method_renderEndTime", "access": "", "host": "DiaryItem", "type": "method", "name": "renderEndTime"}, {"url": "DiaryItem.html#method_renderFullDetails", "access": "", "host": "DiaryItem", "type": "method", "name": "renderFullDetails"}, {"url": "DiaryItem.html#method_renderStartTime", "access": "", "host": "DiaryItem", "type": "method", "name": "renderStartTime"}, {"url": "DiaryItem.html#method_setEndTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "setEndTimeDay"}, {"url": "DiaryItem.html#method_setEndTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "setEndTimeSecs"}, {"url": "DiaryItem.html#method_setLine", "access": "", "host": "DiaryItem", "type": "method", "name": "setLine"}, {"url": "DiaryItem.html#method_setStartTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "setStartTimeDay"}, {"url": "DiaryItem.html#method_setStartTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "setStartTimeSecs"}, {"url": "DiaryBlock.html#property__startSecs", "access": "protected", "host": "DiaryBlock", "type": "property", "name": "_startSecs"}, {"url": "DiaryItem.html#config_SUMMARY", "access": "", "host": "DiaryItem", "type": "config", "name": "SUMMARY"}, {"url": "DiaryItem.html#event_SUMMARYChange", "access": "", "host": "DiaryItem", "type": "event", "name": "SUMMARYChange"}, {"url": "DiaryItem.html#property_TIME_SEPARATOR", "access": "", "host": "DiaryItem", "type": "property", "name": "TIME_SEPARATOR"}, {"url": "DiaryBlock.html#method_toString", "access": "", "host": "DiaryBlock", "type": "method", "name": "toString"}, {"url": "DiaryItem.html#config_URL", "access": "", "host": "DiaryItem", "type": "config", "name": "URL"}, {"url": "DiaryItem.html#event_URLChange", "access": "", "host": "DiaryItem", "type": "event", "name": "URLChange"}, {"url": "DiaryItem.html#config_useAnimation", "access": "", "host": "DiaryItem", "type": "config", "name": "useAnimation"}, {"url": "DiaryItem.html#event_useAnimationChange", "access": "", "host": "DiaryItem", "type": "event", "name": "useAnimationChange"}];
+</script>
+</body>
+</html>

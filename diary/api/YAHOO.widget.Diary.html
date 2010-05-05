@@ -1,0 +1,3158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns:yui="http://yuilibrary.com/rdf/1.0/yui.rdf#">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>API: diary  YAHOO.widget.Diary   (YUI Library)</title>
+
+	<link rel="stylesheet" type="text/css" href="assets/reset-fonts-grids-min.css?stamp=1273017894.53" />
+	<link rel="stylesheet" type="text/css" href="assets/api.css?stamp=1273017894.53" />
+
+    <script type="text/javascript" src="assets/api-js?stamp=1273017894.53"></script>
+    <script type="text/javascript" src="assets/ac-js?stamp=1273017894.53"></script>
+</head>
+
+<body id="yahoo-com">
+
+<div id="doc3" class="yui-t2">
+	<div id="hd">
+        <h1><a href="http://developer.yahoo.com/yui/" title="Yahoo! UI Library">Yahoo! UI Library</a></h1>
+        <h3>Diary widget
+Diary uses a YAHOO.util.Datasource with, minimally, start and end dates.
+Items in the diary can be rescheduled using drag and drop, or times changed using resize.
+New items can be added by click-and-dragging on the diary to provide the 
+start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
+        <a href="./index.html" title="Yahoo! UI Library">Yahoo! UI Library</a> 
+            &gt; <a href="./module_diary.html" title="diary">diary</a>
+                 &gt; YAHOO.widget.Diary 
+                
+        <form onsubmit="return false">
+            <div id="propertysearch">
+                Search: <input autocomplete="off" id="searchinput" />
+                <div id="searchresults">
+                    &nbsp;
+                </div>
+            </div>
+        </form>
+	</div>
+
+	<div id="bd">
+		<div id="yui-main">
+			<div class="yui-b">
+            <form action="#" name="yui-classopts-form" method="get" id="yui-classopts-form">
+                <fieldset>
+                    <legend>Filters</legend>
+                <span class="classopts"><input type="checkbox" name="show_private" id="show_private" /> <label for="show_private">Show Private</label></span>
+                <span class="classopts"><input type="checkbox" name="show_protected" id="show_protected" /> <label for="show_protected">Show Protected</label></span>
+                <span class="classopts"><input type="checkbox" name="show_deprecated" id="show_deprecated" /> <label for="show_deprecated">Show Deprecated</label></span>
+                </fieldset>
+            </form>
+
+                    <h2>
+                        
+
+                        
+                        
+                            Class <b property="yui:name">YAHOO.widget.Diary</b>
+                        <span class="extends">
+                           - extends <a href="YAHOO.util.Element.html" title="YAHOO.util.Element">YAHOO.util.Element</a>
+                        </span>
+
+                    </h2>
+                    <!-- class tree goes here -->
+                    
+                
+  
+
+                    <div class="summary description" property="yui:description">
+                        The main diary; 
+This is the main object:
+- gets the data
+- does the main background display
+- sets up the DiaryDay objects and calls their render methods
+- holds delegated event listeners
+                    </div>
+
+                        <div class="section constructor details" rel="yui:constructor" resource="#constructor">
+                        <h3 id="constructor">Constructor</h3>
+                        <div class="content">
+                            <div class="detail">
+                                <strong property="yui:name">YAHOO.widget.Diary</strong>
+                                <code>
+                                    (
+  
+                                        
+                                                
+                                                el
+
+                                                , 
+                                                oDS
+
+                                                , 
+                                                oCfg
+                                    )
+                                </code>
+                                <div class="description">
+                                        <dl rel="yui:parameters">
+                                            <dt>Parameters:</dt>
+                                                <dd rel="yui:parameter">
+                                                    <code><span property="yui:name">el</span>
+                                                    &lt;<span property="yui:type">HTMLElement</span>&gt;
+                                                    </code>
+                                                    <span property="yui:description">  Container element for the Diary</span>
+                                                </dd>
+                                                <dd rel="yui:parameter">
+                                                    <code><span property="yui:name">oDS</span>
+                                                    &lt;<span property="yui:type">YAHOO.util.DataSource</span>&gt;
+                                                    </code>
+                                                    <span property="yui:description">  DataSource instance.</span>
+                                                </dd>
+                                                <dd rel="yui:parameter">
+                                                    <code><span property="yui:name">oCfg</span>
+                                                    &lt;<span property="yui:type">Object</span>&gt;
+                                                    </code>
+                                                    <span property="yui:description">  Object literal of config values.</span>
+                                                </dd>
+                                        </dl>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div rel="yui:properties" resource="#properties">
+                        <div class="section field details">
+                            <h3 id="properties">Properties</h3>
+                            <div class="content">
+                                    <div class="protected" rel="yui:property" resource="#property__colToDayMap">
+                                    <h4><a name="property__colToDayMap" property="yui:name">_colToDayMap</a>
+                                        - <code>protected <span property="yui:type">Array</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            provieds a map from columns id's to dates (in seconds)
+                                        </div>
+                                    </div>
+     
+                                        
+
+
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:property" resource="#property__colWidth">
+                                    <h4><a name="property__colWidth" property="yui:name">_colWidth</a>
+                                        - <code>protected <span property="yui:type">Int</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Column widths
+                                        </div>
+                                    </div>
+     
+                                        
+
+
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:property" resource="#property__diaryData">
+                                    <h4><a name="property__diaryData" property="yui:name">_diaryData</a>
+                                        - <code>protected <span property="yui:type">Array</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Array holding currently displayed data
+                                        </div>
+                                    </div>
+     
+                                        
+
+
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:property" resource="#property__ds">
+                                    <h4><a name="property__ds" property="yui:name">_ds</a>
+                                        - <code>protected <span property="yui:type">YAHOO.util.DataSource</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Reference to the datasource passed in
+                                        </div>
+                                    </div>
+     
+                                        
+
+
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:property" resource="#property__filters">
+                                    <h4><a name="property__filters" property="yui:name">_filters</a>
+                                        - <code>protected <span property="yui:type">Object</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Object of filters currently applied
+                                        </div>
+                                    </div>
+     
+                                        
+
+
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:property" resource="#property__navCalendar">
+                                    <h4><a name="property__navCalendar" property="yui:name">_navCalendar</a>
+                                        - <code>protected <span property="yui:type">YAHOO.widget.Calendar</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Navigation calendar
+                                        </div>
+                                    </div>
+     
+                                        
+
+
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:property" resource="#property__selector">
+                                    <h4><a name="property__selector" property="yui:name">_selector</a>
+                                        - <code>protected <span property="yui:type">Object</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Holds details of a click-and-drag to add new Items
+                                        </div>
+                                    </div>
+     
+                                        
+
+
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:property" resource="#property__tooltip">
+                                    <h4><a name="property__tooltip" property="yui:name">_tooltip</a>
+                                        - <code>protected <span property="yui:type">YAHOO.widget.Tooltip</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Re-usable tooltip, if included on page
+                                        </div>
+                                    </div>
+     
+                                        
+
+
+                                    <hr />
+                                    </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div rel="yui:methods" resource="#methods">
+                        <div class="section method details">
+                            <h3 id="methods">Methods</h3>
+                            <div class="content">
+                                    <div class="protected" rel="yui:method" resource="#method__applyFilters">
+                                    <h4>
+                                        <a name="method__applyFilters">_applyFilters</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">_applyFilters</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Re-applies all filters currently in place.
+Called internally when navigating to keep existing filters in place
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method__applyFiltersToElement">
+                                    <h4>
+                                        <a name="method__applyFiltersToElement">_applyFiltersToElement</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">_applyFiltersToElement</strong>
+                                           (
+                                                
+                                                        
+                                                         HTMLElement
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Re-applies all filters to the element passed.
+Called internally when navigating to keep existing filters in place.
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">HTMLElement</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"></span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method__destroyData">
+                                    <h4>
+                                        <a name="method__destroyData">_destroyData</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">_destroyData</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Clears out existing data
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method__destroyDays">
+                                    <h4>
+                                        <a name="method__destroyDays">_destroyDays</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">_destroyDays</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Destroys the days rendered in the diary
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method__doCalNav">
+                                    <h4>
+                                        <a name="method__doCalNav">_doCalNav</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">_doCalNav</strong>
+                                           (
+                                                
+                                                        
+                                                         Event
+                                                    
+                                                
+                                                        , 
+                                                         Array
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Go to any start date (set by calendar)
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">Event</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"></span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">Array</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> Selected date, as returned by YAHOO.util.Calendar (ie array [[[ yyyy, mm, dd]]])</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method__doFirstDayOfTodaysWeek">
+                                    <h4>
+                                        <a name="method__doFirstDayOfTodaysWeek">_doFirstDayOfTodaysWeek</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">_doFirstDayOfTodaysWeek</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Goes to the start of this week
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method__doNext">
+                                    <h4>
+                                        <a name="method__doNext">_doNext</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">_doNext</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Go to the next day/week
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method__doPrevious">
+                                    <h4>
+                                        <a name="method__doPrevious">_doPrevious</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">_doPrevious</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Go to the previous day/week
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method__endSelector">
+                                    <h4>
+                                        <a name="method__endSelector">_endSelector</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">_endSelector</strong>
+                                           (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Called at the end of selector - creating a new item by drag-drop
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">event</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"></span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method__getData">
+                                    <h4>
+                                        <a name="method__getData">_getData</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">_getData</strong>
+                                           (
+                                                
+                                                        
+                                                         YAHOO.util.DataSource
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Gets data from the data source
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">YAHOO.util.DataSource</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"></span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method__parseData">
+                                    <h4>
+                                        <a name="method__parseData">_parseData</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">_parseData</strong>
+                                           (
+                                                
+                                                        
+                                                         Request
+                                                    
+                                                
+                                                        , 
+                                                         Data
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Parses the data when it comes
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">Request</span>
+                                                        &lt;<span property="yui:type">Object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> object</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">Data</span>
+                                                        &lt;<span property="yui:type">Object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> returned by DataSource</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method__reDo">
+                                    <h4>
+                                        <a name="method__reDo">_reDo</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">_reDo</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Redraws calendar, deleting DiaryItems and data currently held first
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method__renderNav">
+                                    <h4>
+                                        <a name="method__renderNav">_renderNav</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">_renderNav</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Renders the navigation. 
+Provides left, today, calendar and right buttons, and adds listeners.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method__renderTooltip">
+                                    <h4>
+                                        <a name="method__renderTooltip">_renderTooltip</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">_renderTooltip</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Renders tooltip for showing full info
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method__resizeSelectorDiv">
+                                    <h4>
+                                        <a name="method__resizeSelectorDiv">_resizeSelectorDiv</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">_resizeSelectorDiv</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Resizes the selector when creating a new item
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method__startNewItem">
+                                    <h4>
+                                        <a name="method__startNewItem">_startNewItem</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">_startNewItem</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Click and drag to add new DiaryItem
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_addItem">
+                                    <h4>
+                                        <a name="method_addItem">addItem</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        DiaryItem
+                                            <strong property="yui:name">addItem</strong>
+                                           (
+                                                
+                                                        
+                                                         Object
+                                                    
+                                                
+                                                        , 
+                                                         Boolean
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Add an item to the Diary
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">Object</span>
+                                                        &lt;<span property="yui:type">DTSTART: oDate, DTEND: oDate </span>&gt;
+                                                        </code>
+                                                        <span property="yui:description">      Data for the new item, minimally:</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">Boolean</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description">     Whether to redraw once it's added</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        DiaryItem
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">The new item created</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_addItemFilter">
+                                    <h4>
+                                        <a name="method_addItemFilter">addItemFilter</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">addItemFilter</strong>
+                                           (
+                                                
+                                                        
+                                                         Number
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Filters DiaryItems based on css selector.
+selector passed will be appended directly to ".lplt-diary-item"
+If nothing is passed, it will filter for all (ie hide everything)
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">Number</span>
+                                                        &lt;<span property="yui:type">Int</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"> of items hidden</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getItem">
+                                    <h4>
+                                        <a name="method_getItem">getItem</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        DiaryItem
+                                            <strong property="yui:name">getItem</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Returns the DiaryItem with id elId
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        DiaryItem
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_getNavContainer">
+                                    <h4>
+                                        <a name="method_getNavContainer">getNavContainer</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        HTMLElement
+                                            <strong property="yui:name">getNavContainer</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Returns the container for the navigation els
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        HTMLElement
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_handleItemClick">
+                                    <h4>
+                                        <a name="method_handleItemClick">handleItemClick</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">handleItemClick</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            When a DiaryItem is clicked
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_handleItemMouseEnter">
+                                    <h4>
+                                        <a name="method_handleItemMouseEnter">handleItemMouseEnter</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">handleItemMouseEnter</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            When a DiaryItem is mouseenter-ed
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method_initData">
+                                    <h4>
+                                        <a name="method_initData">initData</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">initData</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Store a reference to the data and get it
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method_initListeners">
+                                    <h4>
+                                        <a name="method_initListeners">initListeners</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">initListeners</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Set up delegated event listeners for rendering and mouse events
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_removeItemFilter">
+                                    <h4>
+                                        <a name="method_removeItemFilter">removeItemFilter</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        Int
+                                            <strong property="yui:name">removeItemFilter</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Removes filter on DiaryItems based on css selector.
+selector passed will be appended directly to ".lplt-diary-item"
+If nothing is passed, it will filter for all (ie show everything)
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        Int
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo">Number of items shown</dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_render">
+                                    <h4>
+                                        <a name="method_render">render</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">render</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Renders the Diary
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method_renderDateLabel">
+                                    <h4>
+                                        <a name="method_renderDateLabel">renderDateLabel</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        String
+                                            <strong property="yui:name">renderDateLabel</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Overwritable to render date labels
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        String
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="protected" rel="yui:method" resource="#method_setupDays">
+                                    <h4>
+                                        <a name="method_setupDays">setupDays</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                         protected 
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">setupDays</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Display days of the week holders
+                                        </div>
+
+                                        <div class="description">
+
+
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_showNavCalendar">
+                                    <h4>
+                                        <a name="method_showNavCalendar">showNavCalendar</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">showNavCalendar</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Shows the calendar navigator
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div rel="yui:events" resource="#events">
+                        <div class="section method details">
+                            <h3 id="events">Events</h3>
+                            <div class="content">
+                                    <div class="" rel="yui:event" resource="#event_allowCreateMultiDayItemsChange">
+                                    <h4>
+                                        <a name="event_allowCreateMultiDayItemsChange">allowCreateMultiDayItemsChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">allowCreateMultiDayItemsChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires when the value for the configuration attribute 'allowCreateMultiDayItems' changes.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_beforeAllowCreateMultiDayItemsChange">
+                                    <h4>
+                                        <a name="event_beforeAllowCreateMultiDayItemsChange">beforeAllowCreateMultiDayItemsChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">beforeAllowCreateMultiDayItemsChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires before the value for the configuration attribute 'allowCreateMultiDayItems' changes. Return false to cancel the attribute change.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_beforeCalenderNavChange">
+                                    <h4>
+                                        <a name="event_beforeCalenderNavChange">beforeCalenderNavChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">beforeCalenderNavChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires before the value for the configuration attribute 'calenderNav' changes. Return false to cancel the attribute change.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_beforeDisplayChange">
+                                    <h4>
+                                        <a name="event_beforeDisplayChange">beforeDisplayChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">beforeDisplayChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires before the value for the configuration attribute 'display' changes. Return false to cancel the attribute change.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_beforeEndDateChange">
+                                    <h4>
+                                        <a name="event_beforeEndDateChange">beforeEndDateChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">beforeEndDateChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires before the value for the configuration attribute 'endDate' changes. Return false to cancel the attribute change.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_beforeFieldMapChange">
+                                    <h4>
+                                        <a name="event_beforeFieldMapChange">beforeFieldMapChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">beforeFieldMapChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires before the value for the configuration attribute 'fieldMap' changes. Return false to cancel the attribute change.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_beforeItemClickCreateNewChange">
+                                    <h4>
+                                        <a name="event_beforeItemClickCreateNewChange">beforeItemClickCreateNewChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">beforeItemClickCreateNewChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires before the value for the configuration attribute 'itemClickCreateNew' changes. Return false to cancel the attribute change.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_beforeScaleColumnsChange">
+                                    <h4>
+                                        <a name="event_beforeScaleColumnsChange">beforeScaleColumnsChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">beforeScaleColumnsChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires before the value for the configuration attribute 'scaleColumns' changes. Return false to cancel the attribute change.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_beforeStartDateChange">
+                                    <h4>
+                                        <a name="event_beforeStartDateChange">beforeStartDateChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">beforeStartDateChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires before the value for the configuration attribute 'startDate' changes. Return false to cancel the attribute change.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_beforeTitleStringChange">
+                                    <h4>
+                                        <a name="event_beforeTitleStringChange">beforeTitleStringChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">beforeTitleStringChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires before the value for the configuration attribute 'titleString' changes. Return false to cancel the attribute change.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_beforeTooltipChange">
+                                    <h4>
+                                        <a name="event_beforeTooltipChange">beforeTooltipChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">beforeTooltipChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires before the value for the configuration attribute 'tooltip' changes. Return false to cancel the attribute change.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_beforeWidthChange">
+                                    <h4>
+                                        <a name="event_beforeWidthChange">beforeWidthChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">beforeWidthChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires before the value for the configuration attribute 'width' changes. Return false to cancel the attribute change.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_calenderNavChange">
+                                    <h4>
+                                        <a name="event_calenderNavChange">calenderNavChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">calenderNavChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires when the value for the configuration attribute 'calenderNav' changes.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_dataFailure">
+                                    <h4>
+                                        <a name="event_dataFailure">dataFailure</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">dataFailure</strong>
+
+                                            (
+                                                
+                                                        
+                                                         oArgs.request
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fired when data has failed
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">oArgs.request</span>
+                                                                &lt;<span property="yui:type">object</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">  Request object from DataSource</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_destroyData">
+                                    <h4>
+                                        <a name="event_destroyData">destroyData</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">destroyData</strong>
+
+                                            (
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            After all the data has been destroyed.
+                                        </div>
+
+                                        <div class="description">
+
+
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_displayChange">
+                                    <h4>
+                                        <a name="event_displayChange">displayChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">displayChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires when the value for the configuration attribute 'display' changes.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_endDateChange">
+                                    <h4>
+                                        <a name="event_endDateChange">endDateChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">endDateChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires when the value for the configuration attribute 'endDate' changes.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_fieldMapChange">
+                                    <h4>
+                                        <a name="event_fieldMapChange">fieldMapChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">fieldMapChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires when the value for the configuration attribute 'fieldMap' changes.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_itemBeforeEndCreate">
+                                    <h4>
+                                        <a name="event_itemBeforeEndCreate">itemBeforeEndCreate</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">itemBeforeEndCreate</strong>
+
+                                            (
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fired on the mouseup after drag-selecting to create a new Item.
+This is fired before the actual item is created and rendered.
+If subscribers return false the start is cancelled.
+                                        </div>
+
+                                        <div class="description">
+
+
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_itemBeforeStartCreate">
+                                    <h4>
+                                        <a name="event_itemBeforeStartCreate">itemBeforeStartCreate</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">itemBeforeStartCreate</strong>
+
+                                            (
+                                                
+                                                        
+                                                         oArgs.originEvent
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Before starting to create a new item by click and dragging
+If subscribers return false the start is cancelled.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">oArgs.originEvent</span>
+                                                                &lt;<span property="yui:type">object</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">  Event passed through</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_itemClick">
+                                    <h4>
+                                        <a name="event_itemClick">itemClick</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">itemClick</strong>
+
+                                            (
+                                                
+                                                        
+                                                         oArgs.item
+                                                    
+                                                
+                                                        , 
+                                                         oArgs.ev
+                                                    
+                                                
+                                                        , 
+                                                         oArgs.el
+                                                    
+                                                
+                                                        , 
+                                                         oArgs.container
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            When a mouse enters a DiaryItem.  Return false
+to cancel default behaviour (tooltip at the moment).
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">oArgs.item</span>
+                                                                &lt;<span property="yui:type">object</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">  The DiaryItem clicked on</span>
+                                                        </dd>
+                                                        
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">oArgs.ev</span>
+                                                                &lt;<span property="yui:type">object</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">    The click event</span>
+                                                        </dd>
+                                                        
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">oArgs.el</span>
+                                                                &lt;<span property="yui:type">object</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">    The element clicked on</span>
+                                                        </dd>
+                                                        
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">oArgs.container</span>
+                                                                &lt;<span property="yui:type">object</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">  The container element (from delegate)</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_itemClickCreateNewChange">
+                                    <h4>
+                                        <a name="event_itemClickCreateNewChange">itemClickCreateNewChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">itemClickCreateNewChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires when the value for the configuration attribute 'itemClickCreateNew' changes.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_itemEndCreate">
+                                    <h4>
+                                        <a name="event_itemEndCreate">itemEndCreate</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">itemEndCreate</strong>
+
+                                            (
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fired at the end of thee mouseup after drag-selecting to create a new Item.
+This is fired after the actual item is created and rendered.
+                                        </div>
+
+                                        <div class="description">
+
+
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_parseData">
+                                    <h4>
+                                        <a name="event_parseData">parseData</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">parseData</strong>
+
+                                            (
+                                                
+                                                        
+                                                         oArgs.data
+                                                    
+                                                
+                                                        , 
+                                                         oArgs.type
+                                                    
+                                                
+                                                        , 
+                                                         oArgs.target
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fired when data parsed and ready
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">oArgs.data</span>
+                                                                &lt;<span property="yui:type">object</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">     Parsed data</span>
+                                                        </dd>
+                                                        
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">oArgs.type</span>
+                                                                &lt;<span property="yui:type">object</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">     "parseData"</span>
+                                                        </dd>
+                                                        
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">oArgs.target</span>
+                                                                &lt;<span property="yui:type">object</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">   Diary</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_render">
+                                    <h4>
+                                        <a name="event_render">render</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">render</strong>
+
+                                            (
+                                                
+                                                        
+                                                         oArgs.target
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            When the rendering of the Diary is complete
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">oArgs.target</span>
+                                                                &lt;<span property="yui:type">object</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">  Diary</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_scaleColumnsChange">
+                                    <h4>
+                                        <a name="event_scaleColumnsChange">scaleColumnsChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">scaleColumnsChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires when the value for the configuration attribute 'scaleColumns' changes.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_startDateChange">
+                                    <h4>
+                                        <a name="event_startDateChange">startDateChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">startDateChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires when the value for the configuration attribute 'startDate' changes.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_titleStringChange">
+                                    <h4>
+                                        <a name="event_titleStringChange">titleStringChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">titleStringChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires when the value for the configuration attribute 'titleString' changes.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_tooltipChange">
+                                    <h4>
+                                        <a name="event_tooltipChange">tooltipChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">tooltipChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires when the value for the configuration attribute 'tooltip' changes.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_widthChange">
+                                    <h4>
+                                        <a name="event_widthChange">widthChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">widthChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires when the value for the configuration attribute 'width' changes.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div rel="yui:attributes" resource="#configattributes">
+                        <div class="section field details">
+                            <h3 id="configattributes">Configuration Attributes</h3>
+                            <div class="content">
+                                    <div class="" rel="yui:attribute" resource="#config_allowCreateMultiDayItems">
+                                    <h4><a name="config_allowCreateMultiDayItems">allowCreateMultiDayItems</a>
+                                        <code>- <span property="yui:type">object</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Whether, when creating new items, they're allowed to span multi days
+Default: false
+                                        </div>
+                                    </div>
+ 
+     
+
+                                    <hr />
+                                    </div>        
+                                    <div class="" rel="yui:attribute" resource="#config_calenderNav">
+                                    <h4><a name="config_calenderNav">calenderNav</a>
+                                        <code>- <span property="yui:type">object</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Whether to use a YAHOO.widget.Calendar in the navigation.
+                                        </div>
+                                    </div>
+ 
+     
+                                    <div class="default">
+                                        Default Value: true
+                                    </div>        
+
+                                    <hr />
+                                    </div>        
+                                    <div class="" rel="yui:attribute" resource="#config_display">
+                                    <h4><a name="config_display">display</a>
+                                        <code>- <span property="yui:type">object</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Display formats: object literal with format 
+and start and end times (in 24-hour clock hours) displayed
+in the main window (the rest are above and below the scroll.
+<pre>{ format: "week", startTime: 8, endTime: 20 }</pre>.
+The only format available currently is "week".
+                                        </div>
+                                    </div>
+ 
+     
+                                    <div class="default">
+                                        Default Value: <pre>{ format: "week", startTime: 8, endTime: 20 }</pre>
+                                    </div>        
+
+                                    <hr />
+                                    </div>        
+                                    <div class="" rel="yui:attribute" resource="#config_endDate">
+                                    <h4><a name="config_endDate">endDate</a>
+                                        <code>- <span property="yui:type">object</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Final date currently displayed on Diary
+                                        </div>
+                                    </div>
+ 
+     
+                                    <div class="default">
+                                        Default Value: 7 days on from startDate
+                                    </div>        
+
+                                    <hr />
+                                    </div>        
+                                    <div class="" rel="yui:attribute" resource="#config_fieldMap">
+                                    <h4><a name="config_fieldMap">fieldMap</a>
+                                        <code>- <span property="yui:type">object</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Field map, mapping keys of DataSource to expected 
+keys of data for DiaryItems.  DiaryItem keys are the keys in the 
+object passed; values are the names of the fields in the DataSource.
+backClass is the css class string applied to the background container of the
+DiaryItem; detailClass is the css class string applied to the element
+holding the text of the item.  These can be used by addItemFilter
+to show or hide items by category.
+                                        </div>
+                                    </div>
+ 
+     
+                                    <div class="default">
+                                        Default Value: <pre> 
+{ DTSTART: "DTSTART",
+DTEND:   "DTEND",
+SUMMARY: "SUMMARY",
+DESCRIPTION: "DESCRIPTION",
+URL: "URL",
+backClass: "backClass",
+detailClass: "detailClass" }</pre>
+                                    </div>        
+
+                                    <hr />
+                                    </div>        
+                                    <div class="" rel="yui:attribute" resource="#config_itemClickCreateNew">
+                                    <h4><a name="config_itemClickCreateNew">itemClickCreateNew</a>
+                                        <code>- <span property="yui:type">object</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Whether you can click and drag on an existing item 
+to start creating a new one.
+                                        </div>
+                                    </div>
+ 
+     
+                                    <div class="default">
+                                        Default Value: false
+                                    </div>        
+
+                                    <hr />
+                                    </div>        
+                                    <div class="" rel="yui:attribute" resource="#config_scaleColumns">
+                                    <h4><a name="config_scaleColumns">scaleColumns</a>
+                                        <code>- <span property="yui:type">object</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Whether to scale columns to width
+                                        </div>
+                                    </div>
+ 
+     
+                                    <div class="default">
+                                        Default Value: true
+                                    </div>        
+
+                                    <hr />
+                                    </div>        
+                                    <div class="" rel="yui:attribute" resource="#config_startDate">
+                                    <h4><a name="config_startDate">startDate</a>
+                                        <code>- <span property="yui:type">object</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            When to start the diary display from
+                                        </div>
+                                    </div>
+ 
+     
+
+                                    <hr />
+                                    </div>        
+                                    <div class="" rel="yui:attribute" resource="#config_titleString">
+                                    <h4><a name="config_titleString">titleString</a>
+                                        <code>- <span property="yui:type">object</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            String to use as template for title.  You can use 
+strftime type identifiers.
+                                        </div>
+                                    </div>
+ 
+     
+                                    <div class="default">
+                                        Default Value: "Diary w/c %A, %e %B %Y"
+                                    </div>        
+
+                                    <hr />
+                                    </div>        
+                                    <div class="" rel="yui:attribute" resource="#config_tooltip">
+                                    <h4><a name="config_tooltip">tooltip</a>
+                                        <code>- <span property="yui:type">object</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Whether to use tooltip for mouseover events to show details
+                                        </div>
+                                    </div>
+ 
+     
+                                    <div class="default">
+                                        Default Value: : false.
+                                    </div>        
+
+                                    <hr />
+                                    </div>        
+                                    <div class="" rel="yui:attribute" resource="#config_width">
+                                    <h4><a name="config_width">width</a>
+                                        <code>- <span property="yui:type">object</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Overall width of Diary (in pixels)
+                                        </div>
+                                    </div>
+ 
+     
+
+                                    <hr />
+                                    </div>        
+
+                            </div>
+                        </div>
+
+                    </div>
+
+			</div>
+		</div>
+		<div class="yui-b">
+            <div class="nav">
+
+                    <div id="moduleList" class="module">
+                        <h4>Modules</h4>
+                        <ul class="content">
+                                <li class="selected"><a href="module_diary.html" title="diary">diary</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="classList" class="module">
+                        <h4>Classes</h4>
+                        <ul class="content">
+                                <li class=""><a href="DiaryBlock.html" title="DiaryBlock">DiaryBlock</a></li>
+                                <li class=""><a href="DiaryDay.html" title="DiaryDay">DiaryDay</a></li>
+                                <li class=""><a href="DiaryItem.html" title="DiaryItem">DiaryItem</a></li>
+                                <li class="selected"><a href="YAHOO.widget.Diary.html" title="YAHOO.widget.Diary">YAHOO.widget.Diary</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="fileList" class="module">
+                        <h4>Files</h4>
+                        <ul class="content">        
+                                <li class=""><a href="Diary.js.html" title="Diary.js">Diary.js</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="propertyList" class="module">
+                        <h4>Properties</h4>
+                        <ul class="content">        
+                                <li class="protected"><a href="#property__colToDayMap" title="_colToDayMap">_colToDayMap</a></li>
+                                <li class="protected"><a href="#property__colWidth" title="_colWidth">_colWidth</a></li>
+                                <li class="protected"><a href="#property__diaryData" title="_diaryData">_diaryData</a></li>
+                                <li class="protected"><a href="#property__ds" title="_ds">_ds</a></li>
+                                <li class="protected"><a href="#property__filters" title="_filters">_filters</a></li>
+                                <li class="protected"><a href="#property__navCalendar" title="_navCalendar">_navCalendar</a></li>
+                                <li class="protected"><a href="#property__selector" title="_selector">_selector</a></li>
+                                <li class="protected"><a href="#property__tooltip" title="_tooltip">_tooltip</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="methodsList" class="module">
+                        <h4>Methods</h4>
+                        <ul class="content">        
+                                <li class="protected"><a href="#method__applyFilters" title="_applyFilters">_applyFilters</a></li>
+                                <li class="protected"><a href="#method__applyFiltersToElement" title="_applyFiltersToElement">_applyFiltersToElement</a></li>
+                                <li class="protected"><a href="#method__destroyData" title="_destroyData">_destroyData</a></li>
+                                <li class="protected"><a href="#method__destroyDays" title="_destroyDays">_destroyDays</a></li>
+                                <li class="protected"><a href="#method__doCalNav" title="_doCalNav">_doCalNav</a></li>
+                                <li class="protected"><a href="#method__doFirstDayOfTodaysWeek" title="_doFirstDayOfTodaysWeek">_doFirstDayOfTodaysWeek</a></li>
+                                <li class="protected"><a href="#method__doNext" title="_doNext">_doNext</a></li>
+                                <li class="protected"><a href="#method__doPrevious" title="_doPrevious">_doPrevious</a></li>
+                                <li class="protected"><a href="#method__endSelector" title="_endSelector">_endSelector</a></li>
+                                <li class="protected"><a href="#method__getData" title="_getData">_getData</a></li>
+                                <li class="protected"><a href="#method__parseData" title="_parseData">_parseData</a></li>
+                                <li class="protected"><a href="#method__reDo" title="_reDo">_reDo</a></li>
+                                <li class="protected"><a href="#method__renderNav" title="_renderNav">_renderNav</a></li>
+                                <li class="protected"><a href="#method__renderTooltip" title="_renderTooltip">_renderTooltip</a></li>
+                                <li class="protected"><a href="#method__resizeSelectorDiv" title="_resizeSelectorDiv">_resizeSelectorDiv</a></li>
+                                <li class="protected"><a href="#method__startNewItem" title="_startNewItem">_startNewItem</a></li>
+                                <li class=""><a href="#method_addItem" title="addItem">addItem</a></li>
+                                <li class=""><a href="#method_addItemFilter" title="addItemFilter">addItemFilter</a></li>
+                                <li class=""><a href="#method_getItem" title="getItem">getItem</a></li>
+                                <li class=""><a href="#method_getNavContainer" title="getNavContainer">getNavContainer</a></li>
+                                <li class=""><a href="#method_handleItemClick" title="handleItemClick">handleItemClick</a></li>
+                                <li class=""><a href="#method_handleItemMouseEnter" title="handleItemMouseEnter">handleItemMouseEnter</a></li>
+                                <li class="protected"><a href="#method_initData" title="initData">initData</a></li>
+                                <li class="protected"><a href="#method_initListeners" title="initListeners">initListeners</a></li>
+                                <li class=""><a href="#method_removeItemFilter" title="removeItemFilter">removeItemFilter</a></li>
+                                <li class=""><a href="#method_render" title="render">render</a></li>
+                                <li class="protected"><a href="#method_renderDateLabel" title="renderDateLabel">renderDateLabel</a></li>
+                                <li class="protected"><a href="#method_setupDays" title="setupDays">setupDays</a></li>
+                                <li class=""><a href="#method_showNavCalendar" title="showNavCalendar">showNavCalendar</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="eventsList" class="module">
+                        <h4>Events</h4>
+                        <ul class="content">        
+                                <li class=""><a href="#event_allowCreateMultiDayItemsChange" title="allowCreateMultiDayItemsChange">allowCreateMultiDayItemsChange</a></li>
+                                <li class=""><a href="#event_beforeAllowCreateMultiDayItemsChange" title="beforeAllowCreateMultiDayItemsChange">beforeAllowCreateMultiDayItemsChange</a></li>
+                                <li class=""><a href="#event_beforeCalenderNavChange" title="beforeCalenderNavChange">beforeCalenderNavChange</a></li>
+                                <li class=""><a href="#event_beforeDisplayChange" title="beforeDisplayChange">beforeDisplayChange</a></li>
+                                <li class=""><a href="#event_beforeEndDateChange" title="beforeEndDateChange">beforeEndDateChange</a></li>
+                                <li class=""><a href="#event_beforeFieldMapChange" title="beforeFieldMapChange">beforeFieldMapChange</a></li>
+                                <li class=""><a href="#event_beforeItemClickCreateNewChange" title="beforeItemClickCreateNewChange">beforeItemClickCreateNewChange</a></li>
+                                <li class=""><a href="#event_beforeScaleColumnsChange" title="beforeScaleColumnsChange">beforeScaleColumnsChange</a></li>
+                                <li class=""><a href="#event_beforeStartDateChange" title="beforeStartDateChange">beforeStartDateChange</a></li>
+                                <li class=""><a href="#event_beforeTitleStringChange" title="beforeTitleStringChange">beforeTitleStringChange</a></li>
+                                <li class=""><a href="#event_beforeTooltipChange" title="beforeTooltipChange">beforeTooltipChange</a></li>
+                                <li class=""><a href="#event_beforeWidthChange" title="beforeWidthChange">beforeWidthChange</a></li>
+                                <li class=""><a href="#event_calenderNavChange" title="calenderNavChange">calenderNavChange</a></li>
+                                <li class=""><a href="#event_dataFailure" title="dataFailure">dataFailure</a></li>
+                                <li class=""><a href="#event_destroyData" title="destroyData">destroyData</a></li>
+                                <li class=""><a href="#event_displayChange" title="displayChange">displayChange</a></li>
+                                <li class=""><a href="#event_endDateChange" title="endDateChange">endDateChange</a></li>
+                                <li class=""><a href="#event_fieldMapChange" title="fieldMapChange">fieldMapChange</a></li>
+                                <li class=""><a href="#event_itemBeforeEndCreate" title="itemBeforeEndCreate">itemBeforeEndCreate</a></li>
+                                <li class=""><a href="#event_itemBeforeStartCreate" title="itemBeforeStartCreate">itemBeforeStartCreate</a></li>
+                                <li class=""><a href="#event_itemClick" title="itemClick">itemClick</a></li>
+                                <li class=""><a href="#event_itemClickCreateNewChange" title="itemClickCreateNewChange">itemClickCreateNewChange</a></li>
+                                <li class=""><a href="#event_itemEndCreate" title="itemEndCreate">itemEndCreate</a></li>
+                                <li class=""><a href="#event_parseData" title="parseData">parseData</a></li>
+                                <li class=""><a href="#event_render" title="render">render</a></li>
+                                <li class=""><a href="#event_scaleColumnsChange" title="scaleColumnsChange">scaleColumnsChange</a></li>
+                                <li class=""><a href="#event_startDateChange" title="startDateChange">startDateChange</a></li>
+                                <li class=""><a href="#event_titleStringChange" title="titleStringChange">titleStringChange</a></li>
+                                <li class=""><a href="#event_tooltipChange" title="tooltipChange">tooltipChange</a></li>
+                                <li class=""><a href="#event_widthChange" title="widthChange">widthChange</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="configList" class="module">
+                        <h4>Configuration Attributes</h4>
+                        <ul class="content">        
+                                <li class=""><a href="#config_allowCreateMultiDayItems" title="allowCreateMultiDayItems">allowCreateMultiDayItems</a></li>
+                                <li class=""><a href="#config_calenderNav" title="calenderNav">calenderNav</a></li>
+                                <li class=""><a href="#config_display" title="display">display</a></li>
+                                <li class=""><a href="#config_endDate" title="endDate">endDate</a></li>
+                                <li class=""><a href="#config_fieldMap" title="fieldMap">fieldMap</a></li>
+                                <li class=""><a href="#config_itemClickCreateNew" title="itemClickCreateNew">itemClickCreateNew</a></li>
+                                <li class=""><a href="#config_scaleColumns" title="scaleColumns">scaleColumns</a></li>
+                                <li class=""><a href="#config_startDate" title="startDate">startDate</a></li>
+                                <li class=""><a href="#config_titleString" title="titleString">titleString</a></li>
+                                <li class=""><a href="#config_tooltip" title="tooltip">tooltip</a></li>
+                                <li class=""><a href="#config_width" title="width">width</a></li>
+                        </ul>
+                    </div>
+
+            </div>
+		</div>
+	</div>
+	<div id="ft">
+        <hr />
+        Copyright &copy; 2010 Yahoo! Inc. All rights reserved.
+	</div>
+</div>
+<script type="text/javascript">
+    ALL_YUI_PROPS = [{"url": "DiaryBlock.html#method_addItem", "access": "", "host": "DiaryBlock", "type": "method", "name": "addItem"}, {"url": "DiaryDay.html#method_addItem", "access": "", "host": "DiaryDay", "type": "method", "name": "addItem"}, {"url": "YAHOO.widget.Diary.html#method_addItem", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "addItem"}, {"url": "YAHOO.widget.Diary.html#method_addItemFilter", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "addItemFilter"}, {"url": "DiaryDay.html#method__addItemToBlock", "access": "protected", "host": "DiaryDay", "type": "method", "name": "_addItemToBlock"}, {"url": "DiaryItem.html#method_addMultiDayChild", "access": "", "host": "DiaryItem", "type": "method", "name": "addMultiDayChild"}, {"url": "YAHOO.widget.Diary.html#config_allowCreateMultiDayItems", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "allowCreateMultiDayItems"}, {"url": "YAHOO.widget.Diary.html#event_allowCreateMultiDayItemsChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "allowCreateMultiDayItemsChange"}, {"url": "DiaryItem.html#property_anim", "access": "", "host": "DiaryItem", "type": "property", "name": "anim"}, {"url": "YAHOO.widget.Diary.html#method__applyFilters", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_applyFilters"}, {"url": "YAHOO.widget.Diary.html#method__applyFiltersToElement", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_applyFiltersToElement"}, {"url": "DiaryItem.html#config_backClass", "access": "", "host": "DiaryItem", "type": "config", "name": "backClass"}, {"url": "DiaryItem.html#event_backClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "backClassChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeAllowCreateMultiDayItemsChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeAllowCreateMultiDayItemsChange"}, {"url": "DiaryItem.html#event_beforeBackClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeBackClassChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeCalenderNavChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeCalenderNavChange"}, {"url": "DiaryDay.html#event_beforeColdateChange", "access": "", "host": "DiaryDay", "type": "event", "name": "beforeColdateChange"}, {"url": "DiaryItem.html#event_beforeColumnChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeColumnChange"}, {"url": "DiaryItem.html#event_beforeDESCRIPTIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDESCRIPTIONChange"}, {"url": "DiaryDay.html#event_beforeDiaryChange", "access": "", "host": "DiaryDay", "type": "event", "name": "beforeDiaryChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeDisplayChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeDisplayChange"}, {"url": "DiaryItem.html#event_before_displayDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "before_displayDTENDChange"}, {"url": "DiaryItem.html#event_before_displayDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "before_displayDTSTARTChange"}, {"url": "DiaryItem.html#event_beforeDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDTENDChange"}, {"url": "DiaryItem.html#event_beforeDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDTSTARTChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeEndDateChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeEndDateChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeFieldMapChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeFieldMapChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeItemClickCreateNewChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeItemClickCreateNewChange"}, {"url": "DiaryItem.html#event_beforeMultiDayParentChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeMultiDayParentChange"}, {"url": "DiaryItem.html#event_beforeMultiDayPositionChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeMultiDayPositionChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeScaleColumnsChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeScaleColumnsChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeStartDateChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeStartDateChange"}, {"url": "DiaryItem.html#event_beforeSUMMARYChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeSUMMARYChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeTitleStringChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeTitleStringChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeTooltipChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeTooltipChange"}, {"url": "DiaryItem.html#event_beforeURLChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeURLChange"}, {"url": "DiaryItem.html#event_beforeUseAnimationChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeUseAnimationChange"}, {"url": "DiaryDay.html#event_beforeWidthChange", "access": "", "host": "DiaryDay", "type": "event", "name": "beforeWidthChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeWidthChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeWidthChange"}, {"url": "DiaryDay.html#property__blocks", "access": "protected", "host": "DiaryDay", "type": "property", "name": "_blocks"}, {"url": "DiaryItem.html#method_calcEndFromPosition", "access": "", "host": "DiaryItem", "type": "method", "name": "calcEndFromPosition"}, {"url": "DiaryItem.html#method_calcStartFromPosition", "access": "", "host": "DiaryItem", "type": "method", "name": "calcStartFromPosition"}, {"url": "DiaryItem.html#method_calculateHeight", "access": "", "host": "DiaryItem", "type": "method", "name": "calculateHeight"}, {"url": "DiaryItem.html#method_calculateTop", "access": "", "host": "DiaryItem", "type": "method", "name": "calculateTop"}, {"url": "YAHOO.widget.Diary.html#config_calenderNav", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "calenderNav"}, {"url": "YAHOO.widget.Diary.html#event_calenderNavChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "calenderNavChange"}, {"url": "DiaryDay.html#config_coldate", "access": "", "host": "DiaryDay", "type": "config", "name": "coldate"}, {"url": "DiaryDay.html#event_coldateChange", "access": "", "host": "DiaryDay", "type": "event", "name": "coldateChange"}, {"url": "YAHOO.widget.Diary.html#property__colToDayMap", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_colToDayMap"}, {"url": "DiaryItem.html#config_column", "access": "", "host": "DiaryItem", "type": "config", "name": "column"}, {"url": "DiaryItem.html#event_columnChange", "access": "", "host": "DiaryItem", "type": "event", "name": "columnChange"}, {"url": "YAHOO.widget.Diary.html#property__colWidth", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_colWidth"}, {"url": "DiaryBlock.html#method_contains", "access": "", "host": "DiaryBlock", "type": "method", "name": "contains"}, {"url": "DiaryDay.html#property__dataEl", "access": "protected", "host": "DiaryDay", "type": "property", "name": "_dataEl"}, {"url": "YAHOO.widget.Diary.html#event_dataFailure", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "dataFailure"}, {"url": "DiaryItem.html#config_DESCRIPTION", "access": "", "host": "DiaryItem", "type": "config", "name": "DESCRIPTION"}, {"url": "DiaryItem.html#event_DESCRIPTIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DESCRIPTIONChange"}, {"url": "DiaryBlock.html#method_destroy", "access": "", "host": "DiaryBlock", "type": "method", "name": "destroy"}, {"url": "DiaryDay.html#method_destroy", "access": "", "host": "DiaryDay", "type": "method", "name": "destroy"}, {"url": "YAHOO.widget.Diary.html#method__destroyData", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_destroyData"}, {"url": "YAHOO.widget.Diary.html#event_destroyData", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "destroyData"}, {"url": "YAHOO.widget.Diary.html#method__destroyDays", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_destroyDays"}, {"url": "DiaryDay.html#config_diary", "access": "", "host": "DiaryDay", "type": "config", "name": "diary"}, {"url": "DiaryDay.html#event_diaryChange", "access": "", "host": "DiaryDay", "type": "event", "name": "diaryChange"}, {"url": "YAHOO.widget.Diary.html#property__diaryData", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_diaryData"}, {"url": "YAHOO.widget.Diary.html#config_display", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "display"}, {"url": "YAHOO.widget.Diary.html#event_displayChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "displayChange"}, {"url": "DiaryItem.html#event__displayDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "_displayDTENDChange"}, {"url": "DiaryItem.html#event__displayDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "_displayDTSTARTChange"}, {"url": "YAHOO.widget.Diary.html#method__doCalNav", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_doCalNav"}, {"url": "YAHOO.widget.Diary.html#method__doFirstDayOfTodaysWeek", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_doFirstDayOfTodaysWeek"}, {"url": "YAHOO.widget.Diary.html#method__doNext", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_doNext"}, {"url": "YAHOO.widget.Diary.html#method__doPrevious", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_doPrevious"}, {"url": "DiaryItem.html#property_dragdrop", "access": "", "host": "DiaryItem", "type": "property", "name": "dragdrop"}, {"url": "YAHOO.widget.Diary.html#property__ds", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_ds"}, {"url": "DiaryItem.html#config_DTEND", "access": "", "host": "DiaryItem", "type": "config", "name": "DTEND"}, {"url": "DiaryItem.html#event_DTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DTENDChange"}, {"url": "DiaryItem.html#config_DTSTART", "access": "", "host": "DiaryItem", "type": "config", "name": "DTSTART"}, {"url": "DiaryItem.html#event_DTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DTSTARTChange"}, {"url": "YAHOO.widget.Diary.html#config_endDate", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "endDate"}, {"url": "YAHOO.widget.Diary.html#event_endDateChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "endDateChange"}, {"url": "DiaryBlock.html#property__endSecs", "access": "protected", "host": "DiaryBlock", "type": "property", "name": "_endSecs"}, {"url": "YAHOO.widget.Diary.html#method__endSelector", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_endSelector"}, {"url": "YAHOO.widget.Diary.html#config_fieldMap", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "fieldMap"}, {"url": "YAHOO.widget.Diary.html#event_fieldMapChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "fieldMapChange"}, {"url": "YAHOO.widget.Diary.html#property__filters", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_filters"}, {"url": "DiaryBlock.html#method__findLineForItem", "access": "protected", "host": "DiaryBlock", "type": "method", "name": "_findLineForItem"}, {"url": "YAHOO.widget.Diary.html#method__getData", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_getData"}, {"url": "DiaryItem.html#method_getDiary", "access": "", "host": "DiaryItem", "type": "method", "name": "getDiary"}, {"url": "DiaryItem.html#method_getDisplayEndTimeSecs", "access": "protected", "host": "DiaryItem", "type": "method", "name": "getDisplayEndTimeSecs"}, {"url": "DiaryItem.html#method_getDisplayStartTimeSecs", "access": "protected", "host": "DiaryItem", "type": "method", "name": "getDisplayStartTimeSecs"}, {"url": "DiaryItem.html#method_getEndTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "getEndTimeSecs"}, {"url": "YAHOO.widget.Diary.html#method_getItem", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "getItem"}, {"url": "YAHOO.widget.Diary.html#method_getNavContainer", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "getNavContainer"}, {"url": "DiaryItem.html#method_getParentItem", "access": "", "host": "DiaryItem", "type": "method", "name": "getParentItem"}, {"url": "DiaryItem.html#method_getStartTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "getStartTimeDay"}, {"url": "DiaryItem.html#method_getStartTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "getStartTimeSecs"}, {"url": "DiaryItem.html#method__handleBeforeStartDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleBeforeStartDrag"}, {"url": "DiaryItem.html#method__handleDiaryDragEnter", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryDragEnter"}, {"url": "DiaryItem.html#method__handleDiaryDragOver", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryDragOver"}, {"url": "DiaryItem.html#method__handleDiaryEndDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryEndDrag"}, {"url": "DiaryItem.html#method__handleDiaryStartDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryStartDrag"}, {"url": "YAHOO.widget.Diary.html#method_handleItemClick", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "handleItemClick"}, {"url": "YAHOO.widget.Diary.html#method_handleItemMouseEnter", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "handleItemMouseEnter"}, {"url": "DiaryBlock.html#method_init", "access": "protected", "host": "DiaryBlock", "type": "method", "name": "init"}, {"url": "DiaryItem.html#method_initContent", "access": "", "host": "DiaryItem", "type": "method", "name": "initContent"}, {"url": "YAHOO.widget.Diary.html#method_initData", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "initData"}, {"url": "DiaryItem.html#method_initListeners", "access": "", "host": "DiaryItem", "type": "method", "name": "initListeners"}, {"url": "YAHOO.widget.Diary.html#method_initListeners", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "initListeners"}, {"url": "YAHOO.widget.Diary.html#event_itemBeforeEndCreate", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemBeforeEndCreate"}, {"url": "DiaryItem.html#event_itemBeforeEndMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemBeforeEndMove"}, {"url": "YAHOO.widget.Diary.html#event_itemBeforeStartCreate", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemBeforeStartCreate"}, {"url": "DiaryItem.html#event_itemBeforeStartMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemBeforeStartMove"}, {"url": "YAHOO.widget.Diary.html#event_itemClick", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemClick"}, {"url": "YAHOO.widget.Diary.html#config_itemClickCreateNew", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "itemClickCreateNew"}, {"url": "YAHOO.widget.Diary.html#event_itemClickCreateNewChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemClickCreateNewChange"}, {"url": "YAHOO.widget.Diary.html#event_itemEndCreate", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemEndCreate"}, {"url": "DiaryItem.html#event_itemEndMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemEndMove"}, {"url": "DiaryBlock.html#property__items", "access": "protected", "host": "DiaryBlock", "type": "property", "name": "_items"}, {"url": "DiaryBlock.html#property__lines", "access": "protected", "host": "DiaryBlock", "type": "property", "name": "_lines"}, {"url": "DiaryItem.html#event_multiDayParentChange", "access": "", "host": "DiaryItem", "type": "event", "name": "multiDayParentChange"}, {"url": "DiaryItem.html#event_multiDayPositionChange", "access": "", "host": "DiaryItem", "type": "event", "name": "multiDayPositionChange"}, {"url": "YAHOO.widget.Diary.html#property__navCalendar", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_navCalendar"}, {"url": "DiaryDay.html#method_next", "access": "", "host": "DiaryDay", "type": "method", "name": "next"}, {"url": "YAHOO.widget.Diary.html#method__parseData", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_parseData"}, {"url": "YAHOO.widget.Diary.html#event_parseData", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "parseData"}, {"url": "DiaryDay.html#method_previous", "access": "", "host": "DiaryDay", "type": "method", "name": "previous"}, {"url": "DiaryDay.html#method__rebuildBlocks", "access": "protected", "host": "DiaryDay", "type": "method", "name": "_rebuildBlocks"}, {"url": "YAHOO.widget.Diary.html#method__reDo", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_reDo"}, {"url": "DiaryBlock.html#method_removeItem", "access": "", "host": "DiaryBlock", "type": "method", "name": "removeItem"}, {"url": "YAHOO.widget.Diary.html#method_removeItemFilter", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "removeItemFilter"}, {"url": "DiaryDay.html#method_removeItemFromBlock", "access": "", "host": "DiaryDay", "type": "method", "name": "removeItemFromBlock"}, {"url": "DiaryItem.html#method_render", "access": "", "host": "DiaryItem", "type": "method", "name": "render"}, {"url": "DiaryBlock.html#method_render", "access": "", "host": "DiaryBlock", "type": "method", "name": "render"}, {"url": "DiaryDay.html#method_render", "access": "", "host": "DiaryDay", "type": "method", "name": "render"}, {"url": "YAHOO.widget.Diary.html#method_render", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "render"}, {"url": "YAHOO.widget.Diary.html#event_render", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "render"}, {"url": "DiaryDay.html#method__renderBlocks", "access": "protected", "host": "DiaryDay", "type": "method", "name": "_renderBlocks"}, {"url": "DiaryDay.html#method__renderColumn", "access": "protected", "host": "DiaryDay", "type": "method", "name": "_renderColumn"}, {"url": "YAHOO.widget.Diary.html#method_renderDateLabel", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "renderDateLabel"}, {"url": "DiaryItem.html#method_renderDetails", "access": "", "host": "DiaryItem", "type": "method", "name": "renderDetails"}, {"url": "DiaryItem.html#method_renderEndTime", "access": "", "host": "DiaryItem", "type": "method", "name": "renderEndTime"}, {"url": "DiaryItem.html#method_renderFullDetails", "access": "", "host": "DiaryItem", "type": "method", "name": "renderFullDetails"}, {"url": "YAHOO.widget.Diary.html#method__renderNav", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_renderNav"}, {"url": "DiaryItem.html#method_renderStartTime", "access": "", "host": "DiaryItem", "type": "method", "name": "renderStartTime"}, {"url": "YAHOO.widget.Diary.html#method__renderTooltip", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_renderTooltip"}, {"url": "YAHOO.widget.Diary.html#method__resizeSelectorDiv", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_resizeSelectorDiv"}, {"url": "YAHOO.widget.Diary.html#config_scaleColumns", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "scaleColumns"}, {"url": "YAHOO.widget.Diary.html#event_scaleColumnsChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "scaleColumnsChange"}, {"url": "YAHOO.widget.Diary.html#property__selector", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_selector"}, {"url": "DiaryItem.html#method_setEndTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "setEndTimeDay"}, {"url": "DiaryItem.html#method_setEndTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "setEndTimeSecs"}, {"url": "DiaryItem.html#method_setLine", "access": "", "host": "DiaryItem", "type": "method", "name": "setLine"}, {"url": "DiaryItem.html#method_setStartTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "setStartTimeDay"}, {"url": "DiaryItem.html#method_setStartTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "setStartTimeSecs"}, {"url": "YAHOO.widget.Diary.html#method_setupDays", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "setupDays"}, {"url": "YAHOO.widget.Diary.html#method_showNavCalendar", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "showNavCalendar"}, {"url": "YAHOO.widget.Diary.html#config_startDate", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "startDate"}, {"url": "YAHOO.widget.Diary.html#event_startDateChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "startDateChange"}, {"url": "YAHOO.widget.Diary.html#method__startNewItem", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_startNewItem"}, {"url": "DiaryBlock.html#property__startSecs", "access": "protected", "host": "DiaryBlock", "type": "property", "name": "_startSecs"}, {"url": "DiaryItem.html#config_SUMMARY", "access": "", "host": "DiaryItem", "type": "config", "name": "SUMMARY"}, {"url": "DiaryItem.html#event_SUMMARYChange", "access": "", "host": "DiaryItem", "type": "event", "name": "SUMMARYChange"}, {"url": "DiaryItem.html#property_TIME_SEPARATOR", "access": "", "host": "DiaryItem", "type": "property", "name": "TIME_SEPARATOR"}, {"url": "YAHOO.widget.Diary.html#config_titleString", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "titleString"}, {"url": "YAHOO.widget.Diary.html#event_titleStringChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "titleStringChange"}, {"url": "YAHOO.widget.Diary.html#property__tooltip", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_tooltip"}, {"url": "YAHOO.widget.Diary.html#config_tooltip", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "tooltip"}, {"url": "YAHOO.widget.Diary.html#event_tooltipChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "tooltipChange"}, {"url": "DiaryBlock.html#method_toString", "access": "", "host": "DiaryBlock", "type": "method", "name": "toString"}, {"url": "DiaryItem.html#config_URL", "access": "", "host": "DiaryItem", "type": "config", "name": "URL"}, {"url": "DiaryItem.html#event_URLChange", "access": "", "host": "DiaryItem", "type": "event", "name": "URLChange"}, {"url": "DiaryItem.html#config_useAnimation", "access": "", "host": "DiaryItem", "type": "config", "name": "useAnimation"}, {"url": "DiaryItem.html#event_useAnimationChange", "access": "", "host": "DiaryItem", "type": "event", "name": "useAnimationChange"}, {"url": "DiaryDay.html#config_width", "access": "", "host": "DiaryDay", "type": "config", "name": "width"}, {"url": "YAHOO.widget.Diary.html#config_width", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "width"}, {"url": "DiaryDay.html#event_widthChange", "access": "", "host": "DiaryDay", "type": "event", "name": "widthChange"}, {"url": "YAHOO.widget.Diary.html#event_widthChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "widthChange"}];
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="content-type" content="text/html; charset=utf-8"> 
+<title>Some YUI examples and things</title> 
+ 
+<style type="text/css"> 
+/*margin and padding on body element
+  can introduce errors in determining
+  element position and are not recommended;
+  we turn them off as a foundation for YUI
+  CSS treatments. */
+body {
+	margin:0;
+	padding:0;
+}
+</style> 
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.1.0/build/cssreset/reset-min.css&amp;3.1.0/build/cssfonts/fonts-min.css&amp;3.1.0/build/cssgrids/grids-min.css">
+<link rel="stylesheet" type="text/css" href="../assets/git.css">
+
+<!-- Combo-handled YUI CSS files: -->
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.8.0r4/build/assets/skins/sam/skin.css">
+<!-- Combo-handled YUI JS files: -->
+<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.8.0r4/build/yahoo-dom-event/yahoo-dom-event.js&2.8.0r4/build/animation/animation-min.js&2.8.0r4/build/calendar/calendar-min.js&2.8.0r4/build/dragdrop/dragdrop-min.js&2.8.0r4/build/container/container-min.js&2.8.0r4/build/datasource/datasource-min.js&2.8.0r4/build/datemath/datemath-min.js&2.8.0r4/build/selector/selector-min.js&2.8.0r4/build/event-delegate/event-delegate-min.js&2.8.0r4/build/event-mouseenter/event-mouseenter-min.js&2.8.0r4/build/element/element-min.js&2.8.0r4/build/element-delegate/element-delegate-min.js&2.8.0r4/build/resize/resize-min.js"></script>
+
+<script type="text/javascript" src="http://github.com/mattparker/diary/raw/master/js/Diary.js"></script>
+
+<link rel="stylesheet" type="text/css" href="http://github.com/mattparker/diary/raw/master/css/yui-diary.css">
+ 
+</head> 
+ 
+<body class=" yui-skin-sam"> 
+ <div class="gitpage">
+
+<div class="links">
+ <ul>
+  <li>
+   <a href="../">Home</a>
+  </li>
+  <li>
+   <a href="../resize/">Resize</a>
+  </li>
+  <li>
+   <a href="../treeviewlite/">TreeviewLite</a>
+  </li>
+ </ul>
+</div>
+
+
+<h1>YUI2 Diary</h1> 
+ <p>Diary is a widget to render and manipulate a diary.  It's a work in progress
+    at the moment but hoping for feedback...</p>
+ 
+ <h2>Simple example</h2>
+ <p>This is a live version of the example on the <a href="index.html">overview page.</a></p>
+ 
+ <p>Try dragging and dropping items, resizing the tops and bottoms, or clicking somewhere 
+ on the diary.  Navigation in the top-right needs some design attention...</p>
+ 
+  <div id="diary-test"></div>
+  
+  
+  <script type="text/javascript">
+       // The raw data:
+     var dataArr = [ 
+            {DTSTART: "2010/02/01 08:00", DTEND:"2010/02/01 10:30", SUMMARY: "Doctors appointment" }, 
+            {DTSTART: "2010/02/01 09:00", DTEND:"2010/02/01 11:30", SUMMARY: "Write some code"}, 
+            {DTSTART: "2010/02/04 11:30", DTEND:"2010/02/04 12:30", SUMMARY: "Client meeting"}
+     ];
+
+     // Set up the DataSource
+     var data = new YAHOO.util.DataSource({ 
+      	    total: 3, 
+      	    VCALENDAR: dataArr
+     }); 
+
+     data.responseType = YAHOO.util.DataSource.TYPE_JSON;
+     
+     // Point to the data
+     data.responseSchema = {
+        resultsList : "VCALENDAR", 
+        fields : [
+            { key: "DTSTART" , parser:"date" },                   
+            { key: "DTEND" , parser:"date" },  
+            { key: "SUMMARY" }
+        ]
+     };
+     
+    var cfg = { 
+      startDate: new Date("2010/01/31") , // first day to show in the Diary
+      width: 800, // width in px
+      scaleColumns: true, // whether to stretch columns to fit
+      display: { format: "week" , startTime: 08, endTime: 20 }, // display format: times as 24 hr
+      calenderNav: true // whether to use a YAHOO.widget.Calendar in the navigation
+     };
+    
+     var myDiary = new YAHOO.widget.Diary(  "diary-test" , data, cfg  );
+  </script>
+  
+ </div>
+ 
+ 
+<div class="footer">
+&copy; Matt Parker, <a href="http://www.lamplightdb.co.uk" title="Lamplight Database Systems">
+Lamplight Database Systems Limited</a> 2010 
+</div>
+ </body>
+ </html>
