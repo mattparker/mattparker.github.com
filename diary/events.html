@@ -14,6 +14,11 @@ body {
 	margin:0;
 	padding:0;
 }
+
+#diary-outer{
+margin:50px;
+}
+
 </style> 
 
 
@@ -56,16 +61,81 @@ body {
  <p>Diary is a widget to render and manipulate a diary.  It's a work in progress
     at the moment but hoping for feedback...</p>
  
- <h2>Simple example</h2>
- <p>This is a live version of the example on the <a href="index.html">overview page.
- The overview describes the setup.</a></p>
+ <h2>Events example</h2>
+ <p>This is a live version of the example on the <a href="index.html">overview page</a>,
+ with some event handlers on some of the interesting moments in the Diary.
+ The overview describes the basic setup - there's no real difference in 
+ this example.</p>
  
  <p>Try dragging and dropping items, resizing the tops and bottoms, or clicking somewhere 
- on the diary.  Navigation in the top-right needs some design attention...</p>
+ on the diary.</p>
  
+ <div id="diary-outer">
   <div id="diary-test"></div>
+ </div>
+ <h2>Events</h2>
+  <p>Diary provides quite a few events at the moment: check the 
+  <a href="http://mattparker.github.com/diary/api/YAHOO.widget.Diary.html">API</a>
+   for details.  Some of the more interesting ones are subscribed here, and are 
+   all fired by the Diary:
+   
+   <h3>itemClick</h3>
+   
+    <p>The object passed to the subscriber has a property item, pretty consistently
+    across the events where it makes sense.  So we can display the summary text:
+    </p>
+    <code>
+     // Show summary
+     myDiary.on( "itemClick", function(ob){ 
+       alert( "Thank you for clicking: " + ob.item.get("SUMMARY")); 
+     });
+    </code>
+    
+    <h3>itemBeforeStartMove</h3>
+    <p> Return false to stop the movement.</p>
+    <code>
+     // Turn it orange while we're moving
+     myDiary.on( "itemBeforeStartMove", function(ob){
+     
+       ob.item.setStyle("color","orange");
+     
+     });
+    </code>
+  
+    <h3>itemBeforeEndMove</h3>
+    <p> Return false to return the item to where it came from.</p>
+    <code>
+     // Confirm movement and change text back to black
+     myDiary.on( "itemBeforeEndMove", function( ob ){
+         
+         ob.item.setStyle("color","black");
+
+         if( ob.originEvent.ev == "endResize" ){
+           return ( confirm( "Are you sure you want to change the times of this event?" ) );
+         } else {
+           return ( confirm( "Are you sure you want to move this event? " ) );
+         } 
+     });
+    </code>
   
   
+    <h3>itemEndCreate</h3>
+    <p>After creating a new item by click and dragging: useful for saving!  In this
+    example we just push it onto the data array.  This means that in this example
+    if you create a new item, go to the previous week and then back again, your
+    item is still there; in other examples it's not saved and so disappears when
+    the data is parsed again.</p>
+    <code>
+         // Save a new item (into the array)
+     myDiary.on("itemEndCreate", function(ob) {
+        ob.item.set("SUMMARY", prompt("Enter summary text:"));
+        dataArr.push({ 
+            DTSTART: ob.item.get("DTSTART"), 
+            DTEND: ob.item.get("DTEND"), 
+            SUMMARY: ob.item.get("SUMMARY") 
+        });
+     });
+     </code>
   <script type="text/javascript">
        // The raw data:
      var dataArr = [ 
@@ -97,10 +167,45 @@ body {
       width: 800, // width in px
       scaleColumns: true, // whether to stretch columns to fit
       display: { format: "week" , startTime: 8, endTime: 20 }, // display format: times as 24 hr
-      calenderNav: true // whether to use a YAHOO.widget.Calendar in the navigation
+      calenderNav: true, // whether to use a YAHOO.widget.Calendar in the navigation
+      allowCreateMultiDayItems: true 
      };
     
      var myDiary = new YAHOO.widget.Diary(  "diary-test" , data, cfg  );
+     
+
+     //Event handlers
+     
+     // Turn it orange while we're moving
+     myDiary.on( "itemBeforeStartMove", function(ob){
+     
+       ob.item.setStyle("color","orange");
+     
+     });
+
+     // Confirm movement and change text back to black
+     myDiary.on( "itemBeforeEndMove", function( ob ){
+         
+         ob.item.setStyle("color","black");
+
+         if( ob.originEvent.ev == "endResize" ){
+           return ( confirm( "Are you sure you want to change the times of this event?" ) );
+         } else {
+           return ( confirm( "Are you sure you want to move this event? " ) );
+         } 
+     });
+      
+
+     // Show summary
+     myDiary.on( "itemClick", function(ob){ 
+       alert( "Thank you for clicking: " + ob.item.get("SUMMARY")); 
+     });
+      
+     // Save a new item (into the array)
+     myDiary.on( "itemEndCreate", function( ob ){
+        ob.item.set( "SUMMARY" , prompt( "Enter summary text:" ) );
+        dataArr.push( { DTSTART: ob.item.get("DTSTART"), DTEND: ob.item.get("DTEND"), SUMMARY: ob.item.get("SUMMARY") } );
+     });
   </script>
   
  </div>
