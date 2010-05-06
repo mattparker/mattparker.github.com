@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="content-type" content="text/html; charset=utf-8"> 
+<title>Some YUI examples and things</title> 
+ 
+<style type="text/css"> 
+/*margin and padding on body element
+  can introduce errors in determining
+  element position and are not recommended;
+  we turn them off as a foundation for YUI
+  CSS treatments. */
+body {
+	margin:0;
+	padding:0;
+}
+</style> 
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.1.0/build/cssreset/reset-min.css&amp;3.1.0/build/cssfonts/fonts-min.css&amp;3.1.0/build/cssgrids/grids-min.css">
+<link rel="stylesheet" type="text/css" href="../assets/git.css">
+
+<!-- Combo-handled YUI CSS files: -->
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.8.0r4/build/assets/skins/sam/skin.css">
+<!-- Combo-handled YUI JS files: -->
+<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.8.0r4/build/yahoo-dom-event/yahoo-dom-event.js&2.8.0r4/build/animation/animation-min.js&2.8.0r4/build/calendar/calendar-min.js&2.8.0r4/build/dragdrop/dragdrop-min.js&2.8.0r4/build/container/container-min.js&2.8.0r4/build/datasource/datasource-min.js&2.8.0r4/build/datemath/datemath-min.js&2.8.0r4/build/selector/selector-min.js&2.8.0r4/build/event-delegate/event-delegate-min.js&2.8.0r4/build/event-mouseenter/event-mouseenter-min.js&2.8.0r4/build/element/element-min.js&2.8.0r4/build/element-delegate/element-delegate-min.js&2.8.0r4/build/resize/resize-min.js"></script>
+
+
+<script type="text/javascript" src="http://github.com/mattparker/diary/raw/master/js/Diary.js"></script>
+<link rel="stylesheet" type="text/css" href="http://github.com/mattparker/diary/raw/master/css/yui-diary.css">
+
+ 
+ <!-- Styles for this example -->
+ <style type="text/css">
+    .lplt-diary-item.work{
+     background-color: #A7DFA7;
+    }
+    .lplt-diary-item.personal{
+     background-color: #EFC986;
+    }
+    .lplt-diary-item.seasons{
+     border:0;
+     background: transparent none;
+     border-left: 2px green solid;
+     
+    }
+    .lplt-diary-item.travel{
+     background-color: #FFAEDB;
+    }
+    
+    #diary-test{
+      margin: 30px;
+    }
+ </style>
+</head> 
+ 
+<body class=" yui-skin-sam"> 
+ <div class="gitpage">
+
+<div class="links">
+ <ul>
+  <li>
+   <a href="../">Home</a>
+  </li>
+  <li>
+   <a href="../resize/">Resize</a>
+  </li>
+  <li>
+   <a href="../treeviewlite/">TreeviewLite</a>
+  </li>
+ </ul>
+</div>
+
+
+<h1>YUI2 Diary</h1> 
+ <p>Diary is a widget to render and manipulate a diary.  It's a work in progress
+    at the moment but hoping for feedback...</p>
+ 
+ <h2>Configuration object example.</h2>
+ <p>This is a live version of the example on the <a href="index.html">overview page</a>
+  with some extra features. This example demonstrates use of all the current 
+  config options, with some of the defaults that are usually off turned on.  In
+  particular there's the "useAnimation" and "tooltip" which hopefully do what they
+  say; the animation is applied when items squeeze or expand when they're 
+  overlapping.
+ </p>
+ 
+  <div id="diary-test"></div> 
+     
+  
+ <h2>Config object</h2> 
+ <p>
+  The config object used in this example is
+  <code>
+      var cfg = { 
+       // allow new multi-day items (click-and-drag over several days in one week)
+      allowCreateMultiDayItems: true,
+      
+      // whether to use a YAHOO.widget.Calendar in the navigation
+      calenderNav: true,
+      
+      // display format: times as 24 hr.  the only format currently is "week";
+      // others (e.g. "month") are planned.  startTime and endTime determine the size of the 
+      // visible window and how far down it's scrolled, so that initially you 
+      // should see 8am to 6pm (in this example).
+      display: { format: "week" , startTime: 8, endTime: 18 }, 
+      
+      // last day to show in Diary: redundant at the moment but may be useful
+      // when other diaplay formats are available.  Or it might disappear in the
+      // future!
+      endDate: new Date( "2010/02/06"),   
+      
+      // first day to show in the Diary.
+      startDate: new Date("2010/01/31"), 
+      
+      // width of the Diary container, as a number in pixels.  If a width is set 
+      // on the container, and no value is passed here, Diary will use the width
+      // of the element.  This is used (not quite perfectly at the moment) to 
+      // work out the width of the columns.
+      width: 800,
+      
+      // A string used to render the title of the Diary.  You can use strftime
+      // type strings: a little bit of sweetness in YUI I only found doing this,
+      // in YAHOO.util.Date.format
+      titleString: "My whizzy diary, week %e %B, %Y"
+      
+      // whether to stretch columns to fit
+      scaleColumns: true, 
+      
+      // Whether clicking on an existing item should allow starting to create
+      // a new one.  If you've got itemClick listeners doing anything,
+      // you probably want this off, or it'll start making new items as well
+      // as doing other things...
+      itemClickCreateNew: true, 
+      
+      // maps your datasource fields to the fields that Diary expects.  See
+      // the 'filtering' example for more on this.
+      fieldMap: {
+        backClass: "category"
+      },
+      
+      // whether to use a Tooltip to display info on hovering over diary items.
+      // it doesn't work too well at the moment - it can be a bit slow or 
+      // appear in the top left, because it uses a single Tooltip and changes
+      // the context whenever you mouse over.  I think there's a better way to 
+      // do this...
+      tooltip: true,
+      
+      // whether to animate movement of DiaryItems.
+      useAnimation: true
+     };
+  </code>
+  
+ </p>
+
+
+  
+  <script type="text/javascript">
+       // The raw data:
+     var dataArr = [ 
+            {DTSTART: "2010/01/27 08:00", 
+             DTEND:"2010/02/01 10:30", 
+             SUMMARY: "Road trip" , 
+             category: "travel" }, 
+            {DTSTART: "2010/02/01 09:00", 
+             DTEND:"2010/02/01 11:30", 
+             SUMMARY: "Write some code", 
+             category: "work"}, 
+
+            {DTSTART: "2010/02/04 11:30", 
+             DTEND:"2010/02/04 12:30", 
+             SUMMARY: "Client meeting", 
+             category: "work important"},
+            {DTSTART: "2010/02/04 12:00",
+             DTEND: "2010/02/10 12:30",
+             SUMMARY: "holidays",
+             category: "personal"}
+     ];
+
+     // Set up the DataSource
+     var data = new YAHOO.util.DataSource({ 
+      	    total: 3, 
+      	    VCALENDAR: dataArr
+     }); 
+
+     data.responseType = YAHOO.util.DataSource.TYPE_JSON;
+     
+     // Point to the data
+     data.responseSchema = {
+        resultsList : "VCALENDAR", 
+        fields : [
+            { key: "DTSTART" , parser:"date" },                   
+            { key: "DTEND" , parser:"date" },  
+            { key: "SUMMARY" },
+            { key: "category" }
+        ]
+     };
+     
+    var cfg = { 
+       // allow new multi-day items (click-and-drag over several days in one week)
+      allowCreateMultiDayItems: true,
+      // whether to use a YAHOO.widget.Calendar in the navigation
+      calenderNav: true,
+      // display format: times as 24 hr.  the only format currently is "week";
+      // others (e.g. "month") are planned.  startTime and endTime determine the size of the 
+      // visible window and how far down it's scrolled, so that initially you 
+      // should see 8am to 6pm (in this example).
+      display: { format: "week" , startTime: 8, endTime: 18 }, 
+      // last day to show in Diary: redundant at the moment but may be useful
+      // when other diaplay formats are available.  Or it might disappear in the
+      // future!
+      endDate: new Date( "2010/02/06"),   
+      // first day to show in the Diary.
+      startDate: new Date("2010/01/31"), 
+      // width of the Diary container, as a number in pixels.  If a width is set 
+      // on the container, and no value is passed here, Diary will use the width
+      // of the element.  This is used (not quite perfectly at the moment) to 
+      // work out the width of the columns.
+      width: 800,
+      // A string used to render the title of the Diary.  You can use strftime
+      // type strings: a little bit of sweetness in YUI I only found doing this,
+      // in YAHOO.util.Date.format
+      titleString: "My whizzy diary, week %e %B, %Y",
+      // whether to stretch columns to fit
+      scaleColumns: true, 
+      // Whether clicking on an existing item should allow starting to create
+      // a new one.  If you've got itemClick listeners doing anything,
+      // you probably want this off, or it'll start making new items as well
+      // as doing other things...
+      itemClickCreateNew: true, 
+      // maps your datasource fields to the fields that Diary expects.  See
+      // the 'filtering' example for more on this.
+      fieldMap: {
+        backClass: "category"
+      },
+      // whether to use a Tooltip to display info on hovering over diary items.
+      // it doesn't work too well at the moment.
+      tooltip: true,
+      // whether to animate movement of DiaryItems.
+      useAnimation: true
+     };
+    
+     var myDiary = new YAHOO.widget.Diary(  "diary-test" , data, cfg  );
+
+  </script>
+  
+ </div>
+ 
+ 
+<div class="footer">
+&copy; Matt Parker, <a href="http://www.lamplightdb.co.uk" title="Lamplight Database Systems">
+Lamplight Database Systems Limited</a> 2010 
+</div>
+ </body>
+ </html>
