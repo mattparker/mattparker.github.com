@@ -31,8 +31,12 @@ body {
 <script type="text/javascript" src="http://github.com/mattparker/diary/raw/master/js/Diary.js"></script>
 
 <link rel="stylesheet" type="text/css" href="http://github.com/mattparker/diary/raw/master/css/yui-diary.css">
+<link rel="stylesheet" type="text/css" href="http://github.com/mattparker/diary/raw/master/css/skin/sam/yui-diary.css"> 
+
  
-</head> 
+
+ 
+ </head> 
  
 <body class=" yui-skin-sam"> 
  <div class="gitpage">
@@ -97,7 +101,8 @@ body {
       width: 800, // width in px
       scaleColumns: true, // whether to stretch columns to fit
       display: { format: "week" , startTime: 8, endTime: 20 }, // display format: times as 24 hr
-      calenderNav: true // whether to use a YAHOO.widget.Calendar in the navigation
+      calenderNav: true // whether to use a YAHOO.widget.Calendar in the navigation,
+
      };
     
      var myDiary = new YAHOO.widget.Diary(  "diary-test" , data, cfg  );
