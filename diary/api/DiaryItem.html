@@ -4,11 +4,11 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<title>API: diary  DiaryItem   (YUI Library)</title>
 
-	<link rel="stylesheet" type="text/css" href="assets/reset-fonts-grids-min.css?stamp=1273256050.89" />
-	<link rel="stylesheet" type="text/css" href="assets/api.css?stamp=1273256050.89" />
+	<link rel="stylesheet" type="text/css" href="assets/reset-fonts-grids-min.css?stamp=1273329562.56" />
+	<link rel="stylesheet" type="text/css" href="assets/api.css?stamp=1273329562.56" />
 
-    <script type="text/javascript" src="assets/api-js?stamp=1273256050.89"></script>
-    <script type="text/javascript" src="assets/ac-js?stamp=1273256050.89"></script>
+    <script type="text/javascript" src="assets/api-js?stamp=1273329562.56"></script>
+    <script type="text/javascript" src="assets/ac-js?stamp=1273329562.56"></script>
 </head>
 
 <body id="yahoo-com">
@@ -16,11 +16,7 @@
 <div id="doc3" class="yui-t2">
 	<div id="hd">
         <h1><a href="http://developer.yahoo.com/yui/" title="Yahoo! UI Library">Yahoo! UI Library</a></h1>
-        <h3>Diary widget
-Diary uses a YAHOO.util.Datasource with, minimally, start and end dates.
-Items in the diary can be rescheduled using drag and drop, or times changed using resize.
-New items can be added by click-and-dragging on the diary to provide the 
-start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
+        <h3>Diary widget&nbsp; <span class="subtitle">1.0</span></h3>
         <a href="./index.html" title="Yahoo! UI Library">Yahoo! UI Library</a> 
             &gt; <a href="./module_diary.html" title="diary">diary</a>
                  &gt; DiaryItem 
@@ -64,10 +60,11 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
   
 
                     <div class="summary description" property="yui:description">
-                        DiaryItem class for individual items in the Diary.
-Data and display for particular diary item.
+                        <p>DiaryItem class for individual items in the Diary.</p>
+<p>Data and display for particular diary item.
 Extends resize (and includes drag drop).  This class shouldn't be used
 directly; items to be added should be added by the Diary.addItem() method.
+</p>
                     </div>
 
                     
@@ -404,7 +401,7 @@ come through properly.
                                            (
                                                 
                                                         
-                                                         DiaryItem
+                                                         oDiaryItem
                                                     
                                                 
                                             )
@@ -419,8 +416,8 @@ come through properly.
                                                 <dl rel="yui:parameters">
                                                     <dt>Parameters:</dt>
                                                         <dd rel="yui:parameter">
-                                                        <code><span property="yui:name">DiaryItem</span>
-                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        <code><span property="yui:name">oDiaryItem</span>
+                                                        &lt;<span property="yui:type">DiaryItem</span>&gt;
                                                         </code>
                                                         <span property="yui:description"></span>
                                                         </dd>
@@ -578,6 +575,43 @@ come through properly.
                                                     <dt>Returns:
                                                     <code property="yui:return">
                                                         Int
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_destroy">
+                                    <h4>
+                                        <a name="method_destroy">destroy</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">destroy</strong>
+                                           (
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Destroys the DiaryItem
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
                                                     </code></dt>
                                                     <dd property="yui:returnInfo"></dd>
                                                 </dl>
@@ -851,12 +885,12 @@ and ids for editing and so on.
                                     </div>
                                     <hr />
                                     </div>
-                                    <div class="" rel="yui:method" resource="#method_initContent">
+                                    <div class="protected" rel="yui:method" resource="#method_initContent">
                                     <h4>
                                         <a name="method_initContent">initContent</a></h4>
                                     <div class="detail" >
                                         <code>
-                                        
+                                         protected 
                                         
                                         
                                         void
@@ -888,12 +922,12 @@ and ids for editing and so on.
                                     </div>
                                     <hr />
                                     </div>
-                                    <div class="" rel="yui:method" resource="#method_initListeners">
+                                    <div class="protected" rel="yui:method" resource="#method_initListeners">
                                     <h4>
                                         <a name="method_initListeners">initListeners</a></h4>
                                     <div class="detail" >
                                         <code>
-                                        
+                                         protected 
                                         
                                         
                                         void
@@ -1200,6 +1234,11 @@ and ids for editing and so on.
                                         void
                                             <strong property="yui:name">setEndTimeSecs</strong>
                                            (
+                                                
+                                                        
+                                                         Int
+                                                    
+                                                
                                             )
                                         </code>
                                         
@@ -1209,6 +1248,15 @@ and ids for editing and so on.
 
                                         <div class="description">
 
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">Int</span>
+                                                        &lt;<span property="yui:type">object</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description"></span>
+                                                        </dd>
+                                                </dl>
 
                                                 <dl>
                                                     <dt>Returns:
@@ -1740,6 +1788,50 @@ and ids for editing and so on.
                                     </div>
                                     <hr />
                                     </div>
+                                    <div class="" rel="yui:event" resource="#event_beforeDetailClassChange">
+                                    <h4>
+                                        <a name="event_beforeDetailClassChange">beforeDetailClassChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">beforeDetailClassChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires before the value for the configuration attribute 'detailClass' changes. Return false to cancel the attribute change.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
                                     <div class="" rel="yui:event" resource="#event_beforeDTENDChange">
                                     <h4>
                                         <a name="event_beforeDTENDChange">beforeDTENDChange</a></h4>
@@ -2158,6 +2250,79 @@ and ids for editing and so on.
                                         
                                         <div class="description" property="yui:description">
                                             Fires when the value for the configuration attribute 'DESCRIPTION' changes.
+                                        </div>
+
+                                        <div class="description">
+
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                            <code><span property="yui:name">event</span>
+                                                                &lt;<span property="yui:type">{oldValue: any, newValue: any}</span>&gt;
+                                                            </code>
+                                                            <span property="yui:description">An object containing the previous attribute value and the new value.</span>
+                                                        </dd>
+                                                        
+                                                </dl>
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_destroy">
+                                    <h4>
+                                        <a name="event_destroy">destroy</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">destroy</strong>
+
+                                            (
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fired after destruction process
+                                        </div>
+
+                                        <div class="description">
+
+
+
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:event" resource="#event_detailClassChange">
+                                    <h4>
+                                        <a name="event_detailClassChange">detailClassChange</a></h4>
+                                    <div class="detail">
+                                        <code>
+                                        
+                                        
+                                        
+                                            <strong property="yui:name">detailClassChange</strong>
+
+                                            (
+                                                
+                                                        
+                                                         event
+                                                    
+                                                
+                                            )
+
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Fires when the value for the configuration attribute 'detailClass' changes.
                                         </div>
 
                                         <div class="description">
@@ -2789,6 +2954,23 @@ Return false to cancel the resize/move
 
                                     <hr />
                                     </div>        
+                                    <div class="" rel="yui:attribute" resource="#config_detailClass">
+                                    <h4><a name="config_detailClass">detailClass</a>
+                                        <code>- <span property="yui:type">String class name to add</span></code>
+                                    </h4>
+                                    <div class="detail">
+                                        <div class="description" property="yui:description">
+                                            Adds css class(es) to the text div container Item container
+                                        </div>
+                                    </div>
+ 
+     
+                                    <div class="default">
+                                        Default Value: ""
+                                    </div>        
+
+                                    <hr />
+                                    </div>        
                                     <div class="" rel="yui:attribute" resource="#config_DTEND">
                                     <h4><a name="config_DTEND">DTEND</a>
                                         <code>- <span property="yui:type">Object Date object</span></code>
@@ -2936,6 +3118,7 @@ Return false to cancel the resize/move
                                 <li class=""><a href="#method_calcStartFromPosition" title="calcStartFromPosition">calcStartFromPosition</a></li>
                                 <li class=""><a href="#method_calculateHeight" title="calculateHeight">calculateHeight</a></li>
                                 <li class=""><a href="#method_calculateTop" title="calculateTop">calculateTop</a></li>
+                                <li class=""><a href="#method_destroy" title="destroy">destroy</a></li>
                                 <li class=""><a href="#method_getDiary" title="getDiary">getDiary</a></li>
                                 <li class="protected"><a href="#method_getDisplayEndTimeSecs" title="getDisplayEndTimeSecs">getDisplayEndTimeSecs</a></li>
                                 <li class="protected"><a href="#method_getDisplayStartTimeSecs" title="getDisplayStartTimeSecs">getDisplayStartTimeSecs</a></li>
@@ -2943,8 +3126,8 @@ Return false to cancel the resize/move
                                 <li class=""><a href="#method_getParentItem" title="getParentItem">getParentItem</a></li>
                                 <li class=""><a href="#method_getStartTimeDay" title="getStartTimeDay">getStartTimeDay</a></li>
                                 <li class=""><a href="#method_getStartTimeSecs" title="getStartTimeSecs">getStartTimeSecs</a></li>
-                                <li class=""><a href="#method_initContent" title="initContent">initContent</a></li>
-                                <li class=""><a href="#method_initListeners" title="initListeners">initListeners</a></li>
+                                <li class="protected"><a href="#method_initContent" title="initContent">initContent</a></li>
+                                <li class="protected"><a href="#method_initListeners" title="initListeners">initListeners</a></li>
                                 <li class=""><a href="#method_render" title="render">render</a></li>
                                 <li class=""><a href="#method_renderDetails" title="renderDetails">renderDetails</a></li>
                                 <li class=""><a href="#method_renderEndTime" title="renderEndTime">renderEndTime</a></li>
@@ -2969,6 +3152,7 @@ Return false to cancel the resize/move
                                 <li class=""><a href="#event_beforeBackClassChange" title="beforeBackClassChange">beforeBackClassChange</a></li>
                                 <li class=""><a href="#event_beforeColumnChange" title="beforeColumnChange">beforeColumnChange</a></li>
                                 <li class=""><a href="#event_beforeDESCRIPTIONChange" title="beforeDESCRIPTIONChange">beforeDESCRIPTIONChange</a></li>
+                                <li class=""><a href="#event_beforeDetailClassChange" title="beforeDetailClassChange">beforeDetailClassChange</a></li>
                                 <li class=""><a href="#event_beforeDTENDChange" title="beforeDTENDChange">beforeDTENDChange</a></li>
                                 <li class=""><a href="#event_beforeDTSTARTChange" title="beforeDTSTARTChange">beforeDTSTARTChange</a></li>
                                 <li class=""><a href="#event_beforeMultiDayParentChange" title="beforeMultiDayParentChange">beforeMultiDayParentChange</a></li>
@@ -2979,6 +3163,8 @@ Return false to cancel the resize/move
                                 <li class=""><a href="#event_beforeUseAnimationChange" title="beforeUseAnimationChange">beforeUseAnimationChange</a></li>
                                 <li class=""><a href="#event_columnChange" title="columnChange">columnChange</a></li>
                                 <li class=""><a href="#event_DESCRIPTIONChange" title="DESCRIPTIONChange">DESCRIPTIONChange</a></li>
+                                <li class=""><a href="#event_destroy" title="destroy">destroy</a></li>
+                                <li class=""><a href="#event_detailClassChange" title="detailClassChange">detailClassChange</a></li>
                                 <li class=""><a href="#event_DTENDChange" title="DTENDChange">DTENDChange</a></li>
                                 <li class=""><a href="#event_DTSTARTChange" title="DTSTARTChange">DTSTARTChange</a></li>
                                 <li class=""><a href="#event_itemBeforeEndMove" title="itemBeforeEndMove">itemBeforeEndMove</a></li>
@@ -2999,6 +3185,7 @@ Return false to cancel the resize/move
                                 <li class=""><a href="#config_backClass" title="backClass">backClass</a></li>
                                 <li class=""><a href="#config_column" title="column">column</a></li>
                                 <li class=""><a href="#config_DESCRIPTION" title="DESCRIPTION">DESCRIPTION</a></li>
+                                <li class=""><a href="#config_detailClass" title="detailClass">detailClass</a></li>
                                 <li class=""><a href="#config_DTEND" title="DTEND">DTEND</a></li>
                                 <li class=""><a href="#config_DTSTART" title="DTSTART">DTSTART</a></li>
                                 <li class=""><a href="#config_pxPerHour" title="pxPerHour">pxPerHour</a></li>
@@ -3017,7 +3204,7 @@ Return false to cancel the resize/move
 	</div>
 </div>
 <script type="text/javascript">
-    ALL_YUI_PROPS = [{"url": "DiaryItem.html#method_addMultiDayChild", "access": "", "host": "DiaryItem", "type": "method", "name": "addMultiDayChild"}, {"url": "DiaryItem.html#property_anim", "access": "", "host": "DiaryItem", "type": "property", "name": "anim"}, {"url": "DiaryItem.html#config_backClass", "access": "", "host": "DiaryItem", "type": "config", "name": "backClass"}, {"url": "DiaryItem.html#event_backClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "backClassChange"}, {"url": "DiaryItem.html#event_beforeBackClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeBackClassChange"}, {"url": "DiaryItem.html#event_beforeColumnChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeColumnChange"}, {"url": "DiaryItem.html#event_beforeDESCRIPTIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDESCRIPTIONChange"}, {"url": "DiaryItem.html#event_before_displayDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "before_displayDTENDChange"}, {"url": "DiaryItem.html#event_before_displayDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "before_displayDTSTARTChange"}, {"url": "DiaryItem.html#event_beforeDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDTENDChange"}, {"url": "DiaryItem.html#event_beforeDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDTSTARTChange"}, {"url": "DiaryItem.html#event_beforeMultiDayParentChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeMultiDayParentChange"}, {"url": "DiaryItem.html#event_beforeMultiDayPositionChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeMultiDayPositionChange"}, {"url": "DiaryItem.html#event_beforePxPerHourChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforePxPerHourChange"}, {"url": "DiaryItem.html#event_beforeSUMMARYChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeSUMMARYChange"}, {"url": "DiaryItem.html#event_beforeURLChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeURLChange"}, {"url": "DiaryItem.html#event_beforeUseAnimationChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeUseAnimationChange"}, {"url": "DiaryItem.html#method_calcEndFromPosition", "access": "", "host": "DiaryItem", "type": "method", "name": "calcEndFromPosition"}, {"url": "DiaryItem.html#method_calcStartFromPosition", "access": "", "host": "DiaryItem", "type": "method", "name": "calcStartFromPosition"}, {"url": "DiaryItem.html#method_calculateHeight", "access": "", "host": "DiaryItem", "type": "method", "name": "calculateHeight"}, {"url": "DiaryItem.html#method_calculateTop", "access": "", "host": "DiaryItem", "type": "method", "name": "calculateTop"}, {"url": "DiaryItem.html#config_column", "access": "", "host": "DiaryItem", "type": "config", "name": "column"}, {"url": "DiaryItem.html#event_columnChange", "access": "", "host": "DiaryItem", "type": "event", "name": "columnChange"}, {"url": "DiaryItem.html#config_DESCRIPTION", "access": "", "host": "DiaryItem", "type": "config", "name": "DESCRIPTION"}, {"url": "DiaryItem.html#event_DESCRIPTIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DESCRIPTIONChange"}, {"url": "DiaryItem.html#event__displayDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "_displayDTENDChange"}, {"url": "DiaryItem.html#event__displayDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "_displayDTSTARTChange"}, {"url": "DiaryItem.html#property_dragdrop", "access": "", "host": "DiaryItem", "type": "property", "name": "dragdrop"}, {"url": "DiaryItem.html#config_DTEND", "access": "", "host": "DiaryItem", "type": "config", "name": "DTEND"}, {"url": "DiaryItem.html#event_DTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DTENDChange"}, {"url": "DiaryItem.html#config_DTSTART", "access": "", "host": "DiaryItem", "type": "config", "name": "DTSTART"}, {"url": "DiaryItem.html#event_DTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DTSTARTChange"}, {"url": "DiaryItem.html#method_getDiary", "access": "", "host": "DiaryItem", "type": "method", "name": "getDiary"}, {"url": "DiaryItem.html#method_getDisplayEndTimeSecs", "access": "protected", "host": "DiaryItem", "type": "method", "name": "getDisplayEndTimeSecs"}, {"url": "DiaryItem.html#method_getDisplayStartTimeSecs", "access": "protected", "host": "DiaryItem", "type": "method", "name": "getDisplayStartTimeSecs"}, {"url": "DiaryItem.html#method_getEndTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "getEndTimeSecs"}, {"url": "DiaryItem.html#method_getParentItem", "access": "", "host": "DiaryItem", "type": "method", "name": "getParentItem"}, {"url": "DiaryItem.html#method_getStartTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "getStartTimeDay"}, {"url": "DiaryItem.html#method_getStartTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "getStartTimeSecs"}, {"url": "DiaryItem.html#method__handleBeforeStartDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleBeforeStartDrag"}, {"url": "DiaryItem.html#method__handleDiaryDragEnter", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryDragEnter"}, {"url": "DiaryItem.html#method__handleDiaryDragOver", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryDragOver"}, {"url": "DiaryItem.html#method__handleDiaryEndDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryEndDrag"}, {"url": "DiaryItem.html#method__handleDiaryStartDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryStartDrag"}, {"url": "DiaryItem.html#method_initContent", "access": "", "host": "DiaryItem", "type": "method", "name": "initContent"}, {"url": "DiaryItem.html#method_initListeners", "access": "", "host": "DiaryItem", "type": "method", "name": "initListeners"}, {"url": "DiaryItem.html#event_itemBeforeEndMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemBeforeEndMove"}, {"url": "DiaryItem.html#event_itemBeforeStartMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemBeforeStartMove"}, {"url": "DiaryItem.html#event_itemEndMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemEndMove"}, {"url": "DiaryItem.html#event_multiDayParentChange", "access": "", "host": "DiaryItem", "type": "event", "name": "multiDayParentChange"}, {"url": "DiaryItem.html#event_multiDayPositionChange", "access": "", "host": "DiaryItem", "type": "event", "name": "multiDayPositionChange"}, {"url": "DiaryItem.html#config_pxPerHour", "access": "", "host": "DiaryItem", "type": "config", "name": "pxPerHour"}, {"url": "DiaryItem.html#event_pxPerHourChange", "access": "", "host": "DiaryItem", "type": "event", "name": "pxPerHourChange"}, {"url": "DiaryItem.html#method_render", "access": "", "host": "DiaryItem", "type": "method", "name": "render"}, {"url": "DiaryItem.html#method_renderDetails", "access": "", "host": "DiaryItem", "type": "method", "name": "renderDetails"}, {"url": "DiaryItem.html#method_renderEndTime", "access": "", "host": "DiaryItem", "type": "method", "name": "renderEndTime"}, {"url": "DiaryItem.html#method_renderFullDetails", "access": "", "host": "DiaryItem", "type": "method", "name": "renderFullDetails"}, {"url": "DiaryItem.html#method_renderStartTime", "access": "", "host": "DiaryItem", "type": "method", "name": "renderStartTime"}, {"url": "DiaryItem.html#method_setEndTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "setEndTimeDay"}, {"url": "DiaryItem.html#method_setEndTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "setEndTimeSecs"}, {"url": "DiaryItem.html#method_setLine", "access": "", "host": "DiaryItem", "type": "method", "name": "setLine"}, {"url": "DiaryItem.html#method_setStartTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "setStartTimeDay"}, {"url": "DiaryItem.html#method_setStartTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "setStartTimeSecs"}, {"url": "DiaryItem.html#config_SUMMARY", "access": "", "host": "DiaryItem", "type": "config", "name": "SUMMARY"}, {"url": "DiaryItem.html#event_SUMMARYChange", "access": "", "host": "DiaryItem", "type": "event", "name": "SUMMARYChange"}, {"url": "DiaryItem.html#property_TIME_SEPARATOR", "access": "", "host": "DiaryItem", "type": "property", "name": "TIME_SEPARATOR"}, {"url": "DiaryItem.html#config_URL", "access": "", "host": "DiaryItem", "type": "config", "name": "URL"}, {"url": "DiaryItem.html#event_URLChange", "access": "", "host": "DiaryItem", "type": "event", "name": "URLChange"}, {"url": "DiaryItem.html#config_useAnimation", "access": "", "host": "DiaryItem", "type": "config", "name": "useAnimation"}, {"url": "DiaryItem.html#event_useAnimationChange", "access": "", "host": "DiaryItem", "type": "event", "name": "useAnimationChange"}];
+    ALL_YUI_PROPS = [{"url": "DiaryItem.html#method_addMultiDayChild", "access": "", "host": "DiaryItem", "type": "method", "name": "addMultiDayChild"}, {"url": "DiaryItem.html#property_anim", "access": "", "host": "DiaryItem", "type": "property", "name": "anim"}, {"url": "DiaryItem.html#config_backClass", "access": "", "host": "DiaryItem", "type": "config", "name": "backClass"}, {"url": "DiaryItem.html#event_backClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "backClassChange"}, {"url": "DiaryItem.html#event_beforeBackClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeBackClassChange"}, {"url": "DiaryItem.html#event_beforeColumnChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeColumnChange"}, {"url": "DiaryItem.html#event_beforeDESCRIPTIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDESCRIPTIONChange"}, {"url": "DiaryItem.html#event_beforeDetailClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDetailClassChange"}, {"url": "DiaryItem.html#event_before_displayDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "before_displayDTENDChange"}, {"url": "DiaryItem.html#event_before_displayDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "before_displayDTSTARTChange"}, {"url": "DiaryItem.html#event_beforeDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDTENDChange"}, {"url": "DiaryItem.html#event_beforeDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDTSTARTChange"}, {"url": "DiaryItem.html#event_beforeMultiDayParentChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeMultiDayParentChange"}, {"url": "DiaryItem.html#event_beforeMultiDayPositionChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeMultiDayPositionChange"}, {"url": "DiaryItem.html#event_beforePxPerHourChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforePxPerHourChange"}, {"url": "DiaryItem.html#event_beforeSUMMARYChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeSUMMARYChange"}, {"url": "DiaryItem.html#event_beforeURLChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeURLChange"}, {"url": "DiaryItem.html#event_beforeUseAnimationChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeUseAnimationChange"}, {"url": "DiaryItem.html#method_calcEndFromPosition", "access": "", "host": "DiaryItem", "type": "method", "name": "calcEndFromPosition"}, {"url": "DiaryItem.html#method_calcStartFromPosition", "access": "", "host": "DiaryItem", "type": "method", "name": "calcStartFromPosition"}, {"url": "DiaryItem.html#method_calculateHeight", "access": "", "host": "DiaryItem", "type": "method", "name": "calculateHeight"}, {"url": "DiaryItem.html#method_calculateTop", "access": "", "host": "DiaryItem", "type": "method", "name": "calculateTop"}, {"url": "DiaryItem.html#config_column", "access": "", "host": "DiaryItem", "type": "config", "name": "column"}, {"url": "DiaryItem.html#event_columnChange", "access": "", "host": "DiaryItem", "type": "event", "name": "columnChange"}, {"url": "DiaryItem.html#config_DESCRIPTION", "access": "", "host": "DiaryItem", "type": "config", "name": "DESCRIPTION"}, {"url": "DiaryItem.html#event_DESCRIPTIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DESCRIPTIONChange"}, {"url": "DiaryItem.html#method_destroy", "access": "", "host": "DiaryItem", "type": "method", "name": "destroy"}, {"url": "DiaryItem.html#event_destroy", "access": "", "host": "DiaryItem", "type": "event", "name": "destroy"}, {"url": "DiaryItem.html#config_detailClass", "access": "", "host": "DiaryItem", "type": "config", "name": "detailClass"}, {"url": "DiaryItem.html#event_detailClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "detailClassChange"}, {"url": "DiaryItem.html#event__displayDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "_displayDTENDChange"}, {"url": "DiaryItem.html#event__displayDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "_displayDTSTARTChange"}, {"url": "DiaryItem.html#property_dragdrop", "access": "", "host": "DiaryItem", "type": "property", "name": "dragdrop"}, {"url": "DiaryItem.html#config_DTEND", "access": "", "host": "DiaryItem", "type": "config", "name": "DTEND"}, {"url": "DiaryItem.html#event_DTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DTENDChange"}, {"url": "DiaryItem.html#config_DTSTART", "access": "", "host": "DiaryItem", "type": "config", "name": "DTSTART"}, {"url": "DiaryItem.html#event_DTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DTSTARTChange"}, {"url": "DiaryItem.html#method_getDiary", "access": "", "host": "DiaryItem", "type": "method", "name": "getDiary"}, {"url": "DiaryItem.html#method_getDisplayEndTimeSecs", "access": "protected", "host": "DiaryItem", "type": "method", "name": "getDisplayEndTimeSecs"}, {"url": "DiaryItem.html#method_getDisplayStartTimeSecs", "access": "protected", "host": "DiaryItem", "type": "method", "name": "getDisplayStartTimeSecs"}, {"url": "DiaryItem.html#method_getEndTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "getEndTimeSecs"}, {"url": "DiaryItem.html#method_getParentItem", "access": "", "host": "DiaryItem", "type": "method", "name": "getParentItem"}, {"url": "DiaryItem.html#method_getStartTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "getStartTimeDay"}, {"url": "DiaryItem.html#method_getStartTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "getStartTimeSecs"}, {"url": "DiaryItem.html#method__handleBeforeStartDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleBeforeStartDrag"}, {"url": "DiaryItem.html#method__handleDiaryDragEnter", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryDragEnter"}, {"url": "DiaryItem.html#method__handleDiaryDragOver", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryDragOver"}, {"url": "DiaryItem.html#method__handleDiaryEndDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryEndDrag"}, {"url": "DiaryItem.html#method__handleDiaryStartDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryStartDrag"}, {"url": "DiaryItem.html#method_initContent", "access": "protected", "host": "DiaryItem", "type": "method", "name": "initContent"}, {"url": "DiaryItem.html#method_initListeners", "access": "protected", "host": "DiaryItem", "type": "method", "name": "initListeners"}, {"url": "DiaryItem.html#event_itemBeforeEndMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemBeforeEndMove"}, {"url": "DiaryItem.html#event_itemBeforeStartMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemBeforeStartMove"}, {"url": "DiaryItem.html#event_itemEndMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemEndMove"}, {"url": "DiaryItem.html#event_multiDayParentChange", "access": "", "host": "DiaryItem", "type": "event", "name": "multiDayParentChange"}, {"url": "DiaryItem.html#event_multiDayPositionChange", "access": "", "host": "DiaryItem", "type": "event", "name": "multiDayPositionChange"}, {"url": "DiaryItem.html#config_pxPerHour", "access": "", "host": "DiaryItem", "type": "config", "name": "pxPerHour"}, {"url": "DiaryItem.html#event_pxPerHourChange", "access": "", "host": "DiaryItem", "type": "event", "name": "pxPerHourChange"}, {"url": "DiaryItem.html#method_render", "access": "", "host": "DiaryItem", "type": "method", "name": "render"}, {"url": "DiaryItem.html#method_renderDetails", "access": "", "host": "DiaryItem", "type": "method", "name": "renderDetails"}, {"url": "DiaryItem.html#method_renderEndTime", "access": "", "host": "DiaryItem", "type": "method", "name": "renderEndTime"}, {"url": "DiaryItem.html#method_renderFullDetails", "access": "", "host": "DiaryItem", "type": "method", "name": "renderFullDetails"}, {"url": "DiaryItem.html#method_renderStartTime", "access": "", "host": "DiaryItem", "type": "method", "name": "renderStartTime"}, {"url": "DiaryItem.html#method_setEndTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "setEndTimeDay"}, {"url": "DiaryItem.html#method_setEndTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "setEndTimeSecs"}, {"url": "DiaryItem.html#method_setLine", "access": "", "host": "DiaryItem", "type": "method", "name": "setLine"}, {"url": "DiaryItem.html#method_setStartTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "setStartTimeDay"}, {"url": "DiaryItem.html#method_setStartTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "setStartTimeSecs"}, {"url": "DiaryItem.html#config_SUMMARY", "access": "", "host": "DiaryItem", "type": "config", "name": "SUMMARY"}, {"url": "DiaryItem.html#event_SUMMARYChange", "access": "", "host": "DiaryItem", "type": "event", "name": "SUMMARYChange"}, {"url": "DiaryItem.html#property_TIME_SEPARATOR", "access": "", "host": "DiaryItem", "type": "property", "name": "TIME_SEPARATOR"}, {"url": "DiaryItem.html#config_URL", "access": "", "host": "DiaryItem", "type": "config", "name": "URL"}, {"url": "DiaryItem.html#event_URLChange", "access": "", "host": "DiaryItem", "type": "event", "name": "URLChange"}, {"url": "DiaryItem.html#config_useAnimation", "access": "", "host": "DiaryItem", "type": "config", "name": "useAnimation"}, {"url": "DiaryItem.html#event_useAnimationChange", "access": "", "host": "DiaryItem", "type": "event", "name": "useAnimationChange"}];
 </script>
 </body>
 </html>

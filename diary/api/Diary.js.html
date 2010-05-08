@@ -4,11 +4,11 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<title>API: diary   Diary.js  (YUI Library)</title>
 
-	<link rel="stylesheet" type="text/css" href="assets/reset-fonts-grids-min.css?stamp=1273256050.89" />
-	<link rel="stylesheet" type="text/css" href="assets/api.css?stamp=1273256050.89" />
+	<link rel="stylesheet" type="text/css" href="assets/reset-fonts-grids-min.css?stamp=1273329562.56" />
+	<link rel="stylesheet" type="text/css" href="assets/api.css?stamp=1273329562.56" />
 
-    <script type="text/javascript" src="assets/api-js?stamp=1273256050.89"></script>
-    <script type="text/javascript" src="assets/ac-js?stamp=1273256050.89"></script>
+    <script type="text/javascript" src="assets/api-js?stamp=1273329562.56"></script>
+    <script type="text/javascript" src="assets/ac-js?stamp=1273329562.56"></script>
 </head>
 
 <body id="yahoo-com">
@@ -16,11 +16,7 @@
 <div id="doc3" class="yui-t2">
 	<div id="hd">
         <h1><a href="http://developer.yahoo.com/yui/" title="Yahoo! UI Library">Yahoo! UI Library</a></h1>
-        <h3>Diary widget
-Diary uses a YAHOO.util.Datasource with, minimally, start and end dates.
-Items in the diary can be rescheduled using drag and drop, or times changed using resize.
-New items can be added by click-and-dragging on the diary to provide the 
-start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
+        <h3>Diary widget&nbsp; <span class="subtitle">1.0</span></h3>
         <a href="./index.html" title="Yahoo! UI Library">Yahoo! UI Library</a> 
             &gt; <a href="./module_diary.html" title="diary">diary</a>
                 
@@ -68,10 +64,11 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 <span class="cm"> * @optional anim, container</span>
 <span class="cm"> * @title Diary widget</span>
 <span class="cm"> *</span>
-<span class="cm"> * Diary uses a YAHOO.util.Datasource with, minimally, start and end dates.</span>
+<span class="cm"> * @description</span>
+<span class="cm"> * &lt;p&gt;Diary uses a YAHOO.util.Datasource with, minimally, start and end dates.</span>
 <span class="cm"> * Items in the diary can be rescheduled using drag and drop, or times changed using resize.</span>
 <span class="cm"> * New items can be added by click-and-dragging on the diary to provide the </span>
-<span class="cm"> * start and end times.</span>
+<span class="cm"> * start and end times.&lt;/p&gt;</span>
 <span class="cm"> *</span>
 <span class="cm"> */</span>
 <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
@@ -109,11 +106,12 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
         
   <span class="cm">/**</span>
 <span class="cm">   *</span>
-<span class="cm">   * DiaryItem class for individual items in the Diary.</span>
+<span class="cm">   * &lt;p&gt;DiaryItem class for individual items in the Diary.&lt;/p&gt;</span>
 <span class="cm">   *</span>
-<span class="cm">   * Data and display for particular diary item.</span>
+<span class="cm">   * &lt;p&gt;Data and display for particular diary item.</span>
 <span class="cm">   * Extends resize (and includes drag drop).  This class shouldn&#39;t be used</span>
 <span class="cm">   * directly; items to be added should be added by the Diary.addItem() method.</span>
+<span class="cm">   * &lt;/p&gt;</span>
 <span class="cm">   *</span>
 <span class="cm">   * @class DiaryItem</span>
 <span class="cm">   * @extends YAHOO.util.Resize</span>
@@ -241,7 +239,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
       
       <span class="cm">/**</span>
 <span class="cm">       * References to other elements in multi-day events</span>
-<span class="cm">       * @property _cacheDates</span>
+<span class="cm">       * @property _multiDayChildren</span>
 <span class="cm">       * @private</span>
 <span class="cm">       * @default: []</span>
 <span class="cm">       * @type Array</span>
@@ -253,7 +251,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 <span class="cm">       * Implementation of Element&#39;s abstract method. Sets up config values.</span>
 <span class="cm">       *</span>
 <span class="cm">       * @method initAttributes</span>
-<span class="cm">       * @param oConfigs {Object} Object literal definition of configuration values.</span>
+<span class="cm">       * @param oCfg {Object} Object literal definition of configuration values.</span>
 <span class="cm">       * @private</span>
 <span class="cm">       */</span>
       <span class="nx">initAttributes</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">oCfg</span><span class="p">){</span>
@@ -316,7 +314,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
          <span class="p">});</span>
          
          <span class="cm">/**</span>
-<span class="cm">          * @attribute backClass</span>
+<span class="cm">          * @attribute detailClass</span>
 <span class="cm">          * @description Adds css class(es) to the text div container Item container</span>
 <span class="cm">          * @type String class name to add</span>
 <span class="cm">          * @default &quot;&quot;</span>
@@ -446,7 +444,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
       
       <span class="cm">/**</span>
 <span class="cm">       * @description Initializer, sets up the details Element</span>
-<span class="cm">       *</span>
+<span class="cm">       * @protected</span>
 <span class="cm">       * @method initContent</span>
 <span class="cm">       */</span>
       <span class="nx">initContent</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -466,7 +464,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
       <span class="cm">/**</span>
 <span class="cm">       *</span>
 <span class="cm">       * @description Initialize listeners for this item.</span>
-<span class="cm">       *</span>
+<span class="cm">       * @protected</span>
 <span class="cm">       * @method initListeners</span>
 <span class="cm">       */</span>
       <span class="nx">initListeners</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -530,9 +528,9 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
             <span class="k">this</span><span class="p">.</span><span class="nx">anim</span> <span class="o">===</span> <span class="kc">false</span> <span class="o">&amp;&amp;</span> 
             <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;useAnimation&quot;</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
            
-              <span class="k">this</span><span class="p">.</span><span class="nx">anim</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">YAHOO</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">Anim</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;element&quot;</span><span class="p">)</span> <span class="p">,{}</span> <span class="p">,</span><span class="mf">0.5</span> <span class="p">);</span>
+              <span class="k">this</span><span class="p">.</span><span class="nx">anim</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">YAHOO</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">Anim</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;element&quot;</span><span class="p">),</span> <span class="p">{},</span> <span class="mf">0.5</span><span class="p">);</span>
               
-         <span class="p">}</span>
+        <span class="p">}</span>
       <span class="p">},</span>
       
       
@@ -824,7 +822,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
       <span class="cm">/**</span>
 <span class="cm">       * @method setEndTimeSecs</span>
 <span class="cm">       * @description  Sets the end time (but not date) from seconds</span>
-<span class="cm">       * @param {Int}</span>
+<span class="cm">       * @param Int</span>
 <span class="cm">       */</span>          
       <span class="nx">setEndTimeSecs</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">secs</span> <span class="p">)</span> <span class="p">{</span>
          <span class="kd">var</span> <span class="nx">h</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span> <span class="nx">secs</span> <span class="o">/</span> <span class="mi">3600</span> <span class="p">),</span>
@@ -1023,7 +1021,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
       <span class="cm">/**</span>
 <span class="cm">       * @method addMultiDayChild</span>
 <span class="cm">       * @description Adds a linked child diary item to the stack:</span>
-<span class="cm">       * @param DiaryItem</span>
+<span class="cm">       * @param oDiaryItem {DiaryItem}</span>
 <span class="cm">       */</span>
       <span class="nx">addMultiDayChild</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">oDiaryItem</span> <span class="p">){</span>
          <span class="k">this</span><span class="p">.</span><span class="nx">_multiDayChildren</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span> <span class="nx">oDiaryItem</span> <span class="p">);</span> 
@@ -1043,6 +1041,52 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
           <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;multiDayParent&quot;</span><span class="p">);</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+      <span class="p">},</span>
+      
+      
+      <span class="cm">/**</span>
+<span class="cm">       * @method destroy</span>
+<span class="cm">       * @description Destroys the DiaryItem</span>
+<span class="cm">       */</span>
+      <span class="nx">destroy</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      
+        <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> 
+            <span class="nx">numChildren</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_multiDayChildren</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+            <span class="nx">el</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;element&quot;</span><span class="p">),</span>
+            <span class="nx">parent</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">;</span>
+      
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">dragdrop</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">dragdrop</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+        <span class="p">}</span>
+
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">_line</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_detailsEl</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">anim</span> <span class="o">!==</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">anim</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">anim</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_cacheDates</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  
+        <span class="k">if</span> <span class="p">(</span><span class="nx">numChildren</span><span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">numChildren</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">_multiDayChildren</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_multiDayChildren</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        
+        <span class="nx">DiaryItem</span><span class="p">.</span><span class="nx">superclass</span><span class="p">.</span><span class="nx">destroy</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="nx">parent</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">parent</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">el</span><span class="p">);</span>
+        <span class="p">}</span>
+        
+        <span class="cm">/**</span>
+<span class="cm">         * @event destroy</span>
+<span class="cm">         * @description Fired after destruction process</span>
+<span class="cm">         */</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">fireEvent</span><span class="p">(</span><span class="s2">&quot;destroy&quot;</span><span class="p">);</span>
+      
       <span class="p">}</span>
   
   <span class="p">});</span>  
@@ -1124,7 +1168,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
     <span class="cm">/**</span>
 <span class="cm">     * Adds a DiaryItem to the block.</span>
 <span class="cm">     * @method addItem</span>
-<span class="cm">     * @param DiaryItem</span>
+<span class="cm">     * @param item {DiaryItem}</span>
 <span class="cm">     */</span>
     <span class="nx">addItem</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
     
@@ -1208,7 +1252,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
     <span class="cm">/**</span>
 <span class="cm">     * @method contains</span>
 <span class="cm">     * @description  Does item overlap with this block?</span>
-<span class="cm">     * @param DiaryItem</span>
+<span class="cm">     * @param item {DiaryItem}</span>
 <span class="cm">     * @return {Boolean}</span>
 <span class="cm">     */</span>
     <span class="nx">contains</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
@@ -1442,7 +1486,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
      <span class="cm">/**</span>
 <span class="cm">      * @method removeItemFromBlock</span>
 <span class="cm">      * @description Removes an item from its block</span>
-<span class="cm">      * @param DiaryItem</span>
+<span class="cm">      * @param item {DiaryItem}</span>
 <span class="cm">      * @return {Boolean}  Whether it was successfully removed</span>
 <span class="cm">      */</span>
      <span class="nx">removeItemFromBlock</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">item</span> <span class="p">){</span>
@@ -1625,18 +1669,23 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 <span class="cm">   *</span>
 <span class="cm">   * The main diary; </span>
 <span class="cm">   *</span>
-<span class="cm">   * This is the main object:</span>
-<span class="cm">   *  - gets the data</span>
-<span class="cm">   *  - does the main background display</span>
-<span class="cm">   *  - sets up the DiaryDay objects and calls their render methods</span>
-<span class="cm">   *  - holds delegated event listeners</span>
+<span class="cm">   * &lt;p&gt;This is the main object.  It:</span>
+<span class="cm">   *  &lt;ol style=&quot;margin-left:30px;&quot;&gt;</span>
+<span class="cm">   *   &lt;li&gt;gets the data&lt;/li&gt;</span>
+<span class="cm">   *   &lt;li&gt;does the main background display&lt;/li&gt;</span>
+<span class="cm">   *   &lt;li&gt;sets up the DiaryDay objects and calls their render methods&lt;/li&gt;</span>
+<span class="cm">   *   &lt;li&gt;holds delegated event listeners for the DiaryItems&lt;/li&gt;</span>
+<span class="cm">   * &lt;/ol&gt;</span>
 <span class="cm">   *</span>
 <span class="cm">   * @namespace YAHOO.widget</span>
 <span class="cm">   * @class Diary</span>
 <span class="cm">   * @extends YAHOO.util.Element</span>
 <span class="cm">   * @constructor</span>
 <span class="cm">   * @param el {HTMLElement} Container element for the Diary</span>
-<span class="cm">   * @param oDS {YAHOO.util.DataSource} DataSource instance.</span>
+<span class="cm">   * @param oDS {YAHOO.util.DataSource} DataSource instance.  Each &#39;row&#39; in the</span>
+<span class="cm">   *  data will need a start date/time and end date/time, both as js Date objects.</span>
+<span class="cm">   *  Use the fieldMap config attribute to map data fields to those expected</span>
+<span class="cm">   *  by Diary - DTSTART and DTEND.</span>
 <span class="cm">   * @param oCfg {Object} Object literal of config values.</span>
 <span class="cm">   *</span>
 <span class="cm">   */</span>
@@ -1714,7 +1763,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 
 
      <span class="cm">/**</span>
-<span class="cm">      * @property _diaryData</span>
+<span class="cm">      * @property _itemHash</span>
 <span class="cm">      * @type Array</span>
 <span class="cm">      * @description Array holding DiaryItem element ids and DiaryItem refs</span>
 <span class="cm">      * @protected</span>
@@ -1757,7 +1806,9 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 <span class="cm">            */</span>
            <span class="k">this</span><span class="p">.</span><span class="nx">setAttributeConfig</span><span class="p">(</span> <span class="s1">&#39;startDate&#39;</span> <span class="p">,</span> <span class="p">{</span>
              <span class="nx">method</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">v</span><span class="p">){</span>
-               <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;endDate&quot;</span><span class="p">,</span> <span class="nx">DM</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="nx">v</span><span class="p">,</span> <span class="nx">DM</span><span class="p">.</span><span class="nx">DAY</span><span class="p">,</span> <span class="mi">7</span> <span class="p">));</span>
+               <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;endDate&quot;</span><span class="p">))</span> <span class="p">{</span>
+                  <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;endDate&quot;</span><span class="p">,</span> <span class="nx">DM</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="nx">v</span><span class="p">,</span> <span class="nx">DM</span><span class="p">.</span><span class="nx">DAY</span><span class="p">,</span> <span class="mi">7</span> <span class="p">));</span>
+               <span class="p">}</span>
              <span class="p">}</span>
            <span class="p">});</span>
     			 
@@ -1782,7 +1833,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
     
            <span class="cm">/**</span>
 <span class="cm">            * @attribute scaleColumns</span>
-<span class="cm">            * @description Whether to scale columns to width</span>
+<span class="cm">            * @description Whether to scale columns to width.  writeOnce</span>
 <span class="cm">            * @type Boolean</span>
 <span class="cm">            * @default true</span>
 <span class="cm">            */</span>			 
@@ -1796,7 +1847,8 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
               <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
                 <span class="k">this</span><span class="p">.</span><span class="nx">_colWidth</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
               <span class="p">}</span>
-            <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nx">writeOnce</span><span class="o">:</span> <span class="kc">true</span>
              
             <span class="p">}</span> 
     			 <span class="p">);</span>
@@ -1811,12 +1863,13 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 <span class="cm">            * and start and end times (in 24-hour clock hours) displayed</span>
 <span class="cm">            * in the main window (the rest are above and below the scroll.</span>
 <span class="cm">            * &lt;pre&gt;{ format: &quot;week&quot;, startTime: 8, endTime: 20 }&lt;/pre&gt;.</span>
-<span class="cm">            * The only format available currently is &quot;week&quot;.</span>
+<span class="cm">            * The only format available currently is &quot;week&quot;.  Write once.</span>
 <span class="cm">            * @type Object</span>
 <span class="cm">            * @default &lt;pre&gt;{ format: &quot;week&quot;, startTime: 8, endTime: 20 }&lt;/pre&gt;</span>
 <span class="cm">            */</span>	
            <span class="k">this</span><span class="p">.</span><span class="nx">setAttributeConfig</span><span class="p">(</span> <span class="s1">&#39;display&#39;</span> <span class="p">,</span> <span class="p">{</span>
-             <span class="nx">value</span><span class="o">:</span>  <span class="p">{</span> <span class="nx">format</span><span class="o">:</span> <span class="s2">&quot;week&quot;</span> <span class="p">,</span> <span class="nx">startTime</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span> <span class="nx">endTime</span><span class="o">:</span> <span class="mi">20</span> <span class="p">}</span>
+             <span class="nx">value</span><span class="o">:</span>  <span class="p">{</span> <span class="nx">format</span><span class="o">:</span> <span class="s2">&quot;week&quot;</span> <span class="p">,</span> <span class="nx">startTime</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span> <span class="nx">endTime</span><span class="o">:</span> <span class="mi">20</span> <span class="p">},</span>
+             <span class="nx">writeOnce</span><span class="o">:</span> <span class="kc">true</span>
             <span class="p">}</span> 
     			 <span class="p">);</span>
     			 			 
@@ -1826,12 +1879,14 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
            <span class="cm">/**</span>
 <span class="cm">            * @attribute calenderNav</span>
 <span class="cm">            * @description Whether to use a YAHOO.widget.Calendar in the navigation.</span>
+<span class="cm">            *   Write once.</span>
 <span class="cm">            * @type Boolean</span>
 <span class="cm">            * @default true</span>
 <span class="cm">            */</span>			 
            <span class="k">this</span><span class="p">.</span><span class="nx">setAttributeConfig</span><span class="p">(</span> <span class="s1">&#39;calenderNav&#39;</span><span class="p">,</span> <span class="p">{</span>
              <span class="nx">validator</span><span class="o">:</span> <span class="nx">Lang</span><span class="p">.</span><span class="nx">isBoolean</span><span class="p">,</span>
-             <span class="nx">value</span><span class="o">:</span> <span class="kc">true</span>
+             <span class="nx">value</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+             <span class="nx">writeOnce</span><span class="o">:</span> <span class="kc">true</span>
            <span class="p">});</span>
            
            
@@ -1844,7 +1899,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 <span class="cm">            * backClass is the css class string applied to the background container of the</span>
 <span class="cm">            * DiaryItem; detailClass is the css class string applied to the element</span>
 <span class="cm">            * holding the text of the item.  These can be used by addItemFilter</span>
-<span class="cm">            * to show or hide items by category.</span>
+<span class="cm">            * to show or hide items by category.  Write once</span>
 <span class="cm">            *</span>
 <span class="cm">            * @type {Object}</span>
 <span class="cm">            * @default &lt;pre&gt; </span>
@@ -1875,7 +1930,8 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
                        <span class="nx">backClass</span><span class="o">:</span> <span class="s2">&quot;backClass&quot;</span><span class="p">,</span>
                        <span class="nx">detailClass</span><span class="o">:</span> <span class="s2">&quot;detailClass&quot;</span> <span class="p">},</span> <span class="nx">oMap</span> <span class="p">);</span>
               
-              <span class="p">}</span>
+              <span class="p">},</span>
+              <span class="nx">writeOnce</span><span class="o">:</span> <span class="kc">true</span>
             
           
           <span class="p">}</span> <span class="p">);</span>
@@ -1884,13 +1940,14 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
            <span class="cm">/**</span>
 <span class="cm">            * @attribute titleString</span>
 <span class="cm">            * @description String to use as template for title.  You can use </span>
-<span class="cm">            * strftime type identifiers.</span>
+<span class="cm">            * strftime type identifiers.  Write once.</span>
 <span class="cm">            * @type String</span>
 <span class="cm">            * @default &quot;Diary w/c %A, %e %B %Y&quot;</span>
 <span class="cm">            */</span>	
            <span class="k">this</span><span class="p">.</span><span class="nx">setAttributeConfig</span><span class="p">(</span> <span class="s2">&quot;titleString&quot;</span> <span class="p">,</span> <span class="p">{</span>
              <span class="nx">validator</span><span class="o">:</span> <span class="nx">Lang</span><span class="p">.</span><span class="nx">isString</span><span class="p">,</span>
-             <span class="nx">value</span><span class="o">:</span> <span class="s2">&quot;Diary w/c %A, %e %B %Y&quot;</span>
+             <span class="nx">value</span><span class="o">:</span> <span class="s2">&quot;Diary w/c %A, %e %B %Y&quot;</span><span class="p">,</span>
+             <span class="nx">writeOnce</span><span class="o">:</span> <span class="kc">true</span>
            <span class="p">});</span>
            
 
@@ -1923,38 +1980,43 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
    
           <span class="cm">/**</span>
 <span class="cm">           * @attribute tooltip</span>
-<span class="cm">           * @description  Whether to use tooltip for mouseover events to show details</span>
+<span class="cm">           * @description  Whether to use tooltip for mouseover events to show details.</span>
+<span class="cm">           *   Write once.</span>
 <span class="cm">           * @default: false</span>
 <span class="cm">           * @type Boolean</span>
 <span class="cm">           */</span> 
            <span class="k">this</span><span class="p">.</span><span class="nx">setAttributeConfig</span><span class="p">(</span> <span class="s2">&quot;tooltip&quot;</span><span class="p">,</span> <span class="p">{</span>
              <span class="nx">validator</span><span class="o">:</span> <span class="nx">Lang</span><span class="p">.</span><span class="nx">isBoolean</span><span class="p">,</span>
-             <span class="nx">value</span><span class="o">:</span> <span class="kc">false</span>
+             <span class="nx">value</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+             <span class="nx">writeOnce</span><span class="o">:</span> <span class="kc">true</span>
            <span class="p">});</span>        
                   
           
    
           <span class="cm">/**</span>
 <span class="cm">           * @attribute animate</span>
-<span class="cm">           * @description  Whether to use animation when moving items around</span>
+<span class="cm">           * @description  Whether to use animation when moving items around.</span>
+<span class="cm">           *    Write once.</span>
 <span class="cm">           * @default: false</span>
 <span class="cm">           * @type Boolean</span>
 <span class="cm">           */</span> 
            <span class="k">this</span><span class="p">.</span><span class="nx">setAttributeConfig</span><span class="p">(</span> <span class="s2">&quot;useAnimation&quot;</span><span class="p">,</span> <span class="p">{</span>
              <span class="nx">validator</span><span class="o">:</span> <span class="nx">Lang</span><span class="p">.</span><span class="nx">isBoolean</span><span class="p">,</span>
-             <span class="nx">value</span><span class="o">:</span> <span class="kc">false</span>
+             <span class="nx">value</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+             <span class="nx">writeOnce</span><span class="o">:</span> <span class="kc">true</span>
            <span class="p">});</span> 
            
    
           <span class="cm">/**</span>
 <span class="cm">           * @attribute pxPerHour</span>
-<span class="cm">           * @description  Number of pixels per hour</span>
+<span class="cm">           * @description  Number of pixels per hour.   Write once.</span>
 <span class="cm">           * @default: 20</span>
 <span class="cm">           * @type Number</span>
 <span class="cm">           */</span> 
            <span class="k">this</span><span class="p">.</span><span class="nx">setAttributeConfig</span><span class="p">(</span> <span class="s2">&quot;pxPerHour&quot;</span><span class="p">,</span> <span class="p">{</span>
              <span class="nx">validator</span><span class="o">:</span> <span class="nx">Lang</span><span class="p">.</span><span class="nx">isNumber</span><span class="p">,</span>
-             <span class="nx">value</span><span class="o">:</span> <span class="mi">20</span>
+             <span class="nx">value</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+             <span class="nx">writeOnce</span><span class="o">:</span> <span class="kc">true</span>
            <span class="p">});</span>            
                         
          			 
@@ -1976,13 +2038,16 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
           <span class="k">this</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="s2">&quot;parseData&quot;</span> <span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">,</span> <span class="k">this</span> <span class="p">);</span>
           
           <span class="c1">// click and drag new items</span>
-          <span class="nx">Ev</span><span class="p">.</span><span class="nx">delegate</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;element&quot;</span><span class="p">)</span> <span class="p">,</span> <span class="s2">&quot;mousedown&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_startNewItem</span> <span class="p">,</span> <span class="s2">&quot;div.&quot;</span> <span class="o">+</span> <span class="nx">CLASS_DIARY</span> <span class="p">,</span> <span class="k">this</span> <span class="p">,</span> <span class="kc">true</span> <span class="p">);</span>
+          <span class="nx">Ev</span><span class="p">.</span><span class="nx">delegate</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;element&quot;</span><span class="p">),</span> <span class="s2">&quot;mousedown&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_startNewItem</span><span class="p">,</span> <span class="s2">&quot;div.&quot;</span> <span class="o">+</span> <span class="nx">CLASS_DIARY</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
           
           <span class="c1">// click on existing diary items</span>
-          <span class="nx">Ev</span><span class="p">.</span><span class="nx">delegate</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;element&quot;</span><span class="p">),</span> <span class="s2">&quot;click&quot;</span> <span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleItemClick</span> <span class="p">,</span> <span class="s2">&quot;div.&quot;</span> <span class="o">+</span> <span class="nx">CLASS_DIARY_ITEM</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+          <span class="nx">Ev</span><span class="p">.</span><span class="nx">delegate</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;element&quot;</span><span class="p">),</span> <span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleItemClick</span><span class="p">,</span> <span class="s2">&quot;div.&quot;</span> <span class="o">+</span> <span class="nx">CLASS_DIARY_ITEM</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
           
           <span class="c1">// mouseover</span>
-          <span class="nx">Ev</span><span class="p">.</span><span class="nx">delegate</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;element&quot;</span><span class="p">),</span> <span class="s2">&quot;mouseenter&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleItemMouseEnter</span><span class="p">,</span> <span class="s2">&quot;div.&quot;</span> <span class="o">+</span> <span class="nx">CLASS_DIARY_ITEM</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+          <span class="nx">Ev</span><span class="p">.</span><span class="nx">delegate</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;element&quot;</span><span class="p">),</span> <span class="s2">&quot;mouseenter&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleItemMouseEnter</span><span class="p">,</span> <span class="s2">&quot;div.&quot;</span> <span class="o">+</span> <span class="nx">CLASS_DIARY_ITEM</span><span class="p">,</span> <span class="k">this</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+          
+          <span class="c1">// change display date</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;startDateChange&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_reDo</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
        
        <span class="p">},</span>
 
@@ -2033,8 +2098,9 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
        
        
        <span class="cm">/**</span>
-<span class="cm">        * @method setupDays</span>
-<span class="cm">        * @description Get the DiaryDay object based on date ( in seconds)</span>
+<span class="cm">        * @method getDiaryDay</span>
+<span class="cm">        * @description Get the DiaryDay object based on date (in seconds)</span>
+<span class="cm">        * @param secsDate {Int}  start time in seconds.</span>
 <span class="cm">        * @return {Object} DiaryDay </span>
 <span class="cm">        */</span>
        <span class="nx">getDiaryDay</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">secsDate</span> <span class="p">)</span> <span class="p">{</span>
@@ -2048,7 +2114,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 <span class="cm">        * @description Click and drag to add new DiaryItem</span>
 <span class="cm">        * @method _startNewItem</span>
 <span class="cm">        * @protected</span>
-<span class="cm">        * @param {Event}</span>
+<span class="cm">        * @param ev {Event}</span>
 <span class="cm">        */</span>
        <span class="nx">_startNewItem</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">ev</span> <span class="p">){</span>
           
@@ -2124,7 +2190,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 <span class="cm">      * @description Resizes the selector when creating a new item</span>
 <span class="cm">      * @method _resizeSelectorDiv</span>
 <span class="cm">      * @protected</span>
-<span class="cm">      * @param {Event}</span>
+<span class="cm">      * @param ev {Event}</span>
 <span class="cm">      */</span>    
      <span class="nx">_resizeSelectorDiv</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">ev</span> <span class="p">){</span>
      
@@ -2172,7 +2238,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 <span class="cm">      * @description Called at the end of selector - creating a new item by drag-drop</span>
 <span class="cm">      * @method _endSelector</span>
 <span class="cm">      * @protected</span>
-<span class="cm">      * @param event</span>
+<span class="cm">      * @param ev {Event}</span>
 <span class="cm">      */</span>
      <span class="nx">_endSelector</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">ev</span><span class="p">){</span>
 
@@ -2269,8 +2335,8 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
      <span class="cm">/**</span>
 <span class="cm">      * @description Add an item to the Diary</span>
 <span class="cm">      * @method addItem</span>
-<span class="cm">      * @param Object      Data for the new item, minimally: {DTSTART: oDate, DTEND: oDate }</span>
-<span class="cm">      * @param Boolean     Whether to redraw once it&#39;s added</span>
+<span class="cm">      * @param oCfg   {Object}      Data for the new item, minimally- DTSTART: oDate, DTEND: oDate </span>
+<span class="cm">      * @param redraw {Boolean}     Whether to redraw once it&#39;s added</span>
 <span class="cm">      * @return {DiaryItem}  The new item created</span>
 <span class="cm">      */</span>
      <span class="nx">addItem</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">oCfg</span> <span class="p">,</span> <span class="nx">render</span> <span class="p">){</span>
@@ -2452,7 +2518,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
      <span class="cm">/**</span>
 <span class="cm">      * @method getItem</span>
 <span class="cm">      * @description Returns the DiaryItem with id elId</span>
-<span class="cm">      * @param {String}</span>
+<span class="cm">      * @param elId {String}</span>
 <span class="cm">      * @return {DiaryItem}</span>
 <span class="cm">      *</span>
 <span class="cm">      */</span>
@@ -2476,6 +2542,10 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
       <span class="cm">/**</span>
 <span class="cm">       * @description When a DiaryItem is clicked</span>
 <span class="cm">       * @method handleItemClick</span>
+<span class="cm">       * @param ev {Event}</span>
+<span class="cm">       * @param el {HTMLElement}</span>
+<span class="cm">       * @param el {HTMLElement}</span>
+<span class="cm">       * @protected</span>
 <span class="cm">       */</span>
      <span class="nx">handleItemClick</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">ev</span> <span class="p">,</span> <span class="nx">el</span><span class="p">,</span> <span class="nx">container</span> <span class="p">){</span>
          <span class="nx">YAHOO</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s1">&#39;Diary.handleItemClick&#39;</span><span class="p">,</span> <span class="s2">&quot;info&quot;</span><span class="p">);</span>
@@ -2498,12 +2568,19 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
      
      <span class="cm">/**</span>
 <span class="cm">      * @method handleItemMouseEnter</span>
-<span class="cm">      * @description When a DiaryItem is mouseenter-ed</span>
+<span class="cm">      * @description When a DiaryItem is mouseenter-ed.  Default behaviour</span>
+<span class="cm">      * is to show a tooltip (if this was enabled in the config).  The</span>
+<span class="cm">      * itemMouseEnter event is fired first; return false to this to stop </span>
+<span class="cm">      * the default behaviour.</span>
+<span class="cm">      * @param ev {Event}</span>
+<span class="cm">      * @param el {HTMLElement}</span>
+<span class="cm">      * @param el {HTMLElement}</span>
+<span class="cm">      * @protected</span>
 <span class="cm">      */</span>
-     <span class="nx">handleItemMouseEnter</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">ev</span><span class="p">,</span> <span class="nx">el</span><span class="p">,</span> <span class="nx">container</span> <span class="p">){</span>
+     <span class="nx">handleItemMouseEnter</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">ev</span><span class="p">,</span> <span class="nx">el</span><span class="p">,</span> <span class="nx">container</span> <span class="p">){</span>
 
          <span class="cm">/**</span>
-<span class="cm">          * @event itemClick</span>
+<span class="cm">          * @event itemMouseEnter</span>
 <span class="cm">          * @description When a mouse enters a DiaryItem.  Return false</span>
 <span class="cm">          * to cancel default behaviour (tooltip at the moment).</span>
 <span class="cm">          * @param oArgs.item  The DiaryItem mouseentered</span>
@@ -2552,12 +2629,11 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 <span class="cm">      * @protected</span>
 <span class="cm">      * </span>
 <span class="cm">      */</span>
-      <span class="nx">_doPrevious</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">_doPrevious</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
           <span class="kd">var</span> <span class="nx">newStartDate</span> <span class="o">=</span> <span class="nx">DM</span><span class="p">.</span><span class="nx">subtract</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;startDate&quot;</span><span class="p">),</span> <span class="nx">DM</span><span class="p">.</span><span class="nx">WEEK</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
           <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span> <span class="s2">&quot;startDate&quot;</span> <span class="p">,</span><span class="nx">newStartDate</span> <span class="p">);</span>
 
-          <span class="k">this</span><span class="p">.</span><span class="nx">_reDo</span><span class="p">();</span>
       <span class="p">},</span>
 
      <span class="cm">/**</span>
@@ -2565,25 +2641,23 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 <span class="cm">      * @description Go to the next day/week</span>
 <span class="cm">      * @protected</span>
 <span class="cm">      */</span>      
-      <span class="nx">_doNext</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">_doNext</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
           <span class="kd">var</span> <span class="nx">newStartDate</span> <span class="o">=</span> <span class="nx">DM</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;startDate&quot;</span><span class="p">),</span> <span class="nx">DM</span><span class="p">.</span><span class="nx">WEEK</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
           <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span> <span class="s2">&quot;startDate&quot;</span> <span class="p">,</span><span class="nx">newStartDate</span> <span class="p">);</span>
-          
-          <span class="k">this</span><span class="p">.</span><span class="nx">_reDo</span><span class="p">();</span>
       <span class="p">},</span>
       
      <span class="cm">/**</span>
 <span class="cm">      * @method _doCalNav</span>
 <span class="cm">      * @description Go to any start date (set by calendar)</span>
-<span class="cm">      * @param Event</span>
-<span class="cm">      * @param Array Selected date, as returned by YAHOO.util.Calendar (ie array [[[ yyyy, mm, dd]]])</span>
+<span class="cm">      * @param ev {Event}</span>
+<span class="cm">      * @param selDate {Array} Selected date, as returned by YAHOO.util.Calendar</span>
+<span class="cm">      *   (ie array [[[ yyyy, mm, dd]]])</span>
 <span class="cm">      * @protected</span>
 <span class="cm">      */</span>      
-      <span class="nx">_doCalNav</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">ev</span> <span class="p">,</span> <span class="nx">selDate</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="nx">_doCalNav</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">ev</span><span class="p">,</span> <span class="nx">selDate</span><span class="p">)</span> <span class="p">{</span>
          <span class="k">this</span><span class="p">.</span><span class="nx">_navCalendar</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
          <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span> <span class="s2">&quot;startDate&quot;</span> <span class="p">,</span><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span> <span class="nx">selDate</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="nx">selDate</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">,</span> <span class="nx">selDate</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span> <span class="p">);</span>
-         <span class="k">this</span><span class="p">.</span><span class="nx">_reDo</span><span class="p">();</span>
       <span class="p">},</span>
       
       <span class="cm">/**</span>
@@ -2603,7 +2677,6 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
            <span class="k">return</span><span class="p">;</span>
          <span class="p">}</span>
          <span class="k">this</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span> <span class="s2">&quot;startDate&quot;</span><span class="p">,</span> <span class="nx">startOfWeek</span><span class="p">);</span>
-         <span class="k">this</span><span class="p">.</span><span class="nx">_reDo</span><span class="p">();</span>
       <span class="p">},</span>
       
       <span class="cm">/**</span>
@@ -2638,6 +2711,9 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
         <span class="cm">/**</span>
 <span class="cm">         * @method initData</span>
 <span class="cm">         * @description Store a reference to the data and get it</span>
+<span class="cm">         * @param el {HTMLElement}</span>
+<span class="cm">         * @param oCfg {Object}</span>
+<span class="cm">         * @param oDS {YAHOO.util.DataSource}</span>
 <span class="cm">         * @protected</span>
 <span class="cm">         */</span>
        <span class="nx">initData</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">el</span><span class="p">,</span> <span class="nx">oCfg</span><span class="p">,</span> <span class="nx">oDS</span> <span class="p">){</span>
@@ -2655,7 +2731,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
   	  <span class="cm">/**</span>
 <span class="cm">	     * @method _getData</span>
 <span class="cm">       * @description Gets data from the data source</span>
-<span class="cm">	     * @param YAHOO.util.DataSource</span>
+<span class="cm">	     * @param oDS {YAHOO.util.DataSource}</span>
 <span class="cm">	     * @protected</span>
 <span class="cm">	     */</span>
 	    <span class="nx">_getData</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">oDS</span> <span class="p">){</span>
@@ -2670,8 +2746,8 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 	    
 	    <span class="cm">/**</span>
 <span class="cm">	     * Parses the data when it comes</span>
-<span class="cm">	     * @param {Object}		Request object</span>
-<span class="cm">	     * @param {Object}		Data returned by DataSource</span>
+<span class="cm">	     * @param req  {Object}		Request object</span>
+<span class="cm">	     * @param data {Object}		Data returned by DataSource</span>
 <span class="cm">	     * @protected</span>
 <span class="cm">	     */</span>
 	    <span class="nx">_parseData</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">data</span> <span class="p">){</span>
@@ -2764,8 +2840,8 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 	    <span class="cm">/**</span>
 <span class="cm">	     * @description Looks for the first day between startDate and endDate that has a column</span>
 <span class="cm">	     * in the diary; multi-day items may not start in range but may go into it.</span>
-<span class="cm">	     * @param {Date}</span>
-<span class="cm">	     * @param {Date}</span>
+<span class="cm">	     * @param  startDate {Date}</span>
+<span class="cm">	     * @param  endDate {Date}</span>
 <span class="cm">	     * @return {Date|false}  Date or first if it doesn&#39;t fall in range.</span>
 <span class="cm">	     * @private</span>
 <span class="cm">	     */</span>
@@ -2790,7 +2866,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 	    <span class="cm">/**</span>
 <span class="cm">	     * @method _getDay</span>
 <span class="cm">	     * @description Returns a Date object with times set to 0</span>
-<span class="cm">	     * @param {Date}</span>
+<span class="cm">	     * @param  date {Date}</span>
 <span class="cm">	     * @return {Date}</span>
 <span class="cm">	     * @private</span>
 <span class="cm">	     */</span>
@@ -2804,7 +2880,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 	    <span class="cm">/**</span>
 <span class="cm">	     * @method _getEndOfDay</span>
 <span class="cm">	     * @description Returns a Date object with times set to 23:59:59</span>
-<span class="cm">	     * @param {Date}</span>
+<span class="cm">	     * @param date {Date}</span>
 <span class="cm">	     * @return {Date}</span>
 <span class="cm">	     * @private</span>
 <span class="cm">	     */</span>	    
@@ -2818,9 +2894,9 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 	    <span class="cm">/**</span>
 <span class="cm">	     * @method _sameDay</span>
 <span class="cm">	     * @description Are date1 and date2 the same day?</span>
-<span class="cm">	     * @param Date</span>
-<span class="cm">	     * @param Date</span>
-<span class="cm">	     * @return Boolean</span>
+<span class="cm">	     * @param date1 {Date}</span>
+<span class="cm">	     * @param date2 {Date}</span>
+<span class="cm">	     * @return {Boolean}</span>
 <span class="cm">	     * @private</span>
 <span class="cm">	     */</span>
 	    <span class="nx">_sameDay</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span> <span class="nx">date1</span><span class="p">,</span> <span class="nx">date2</span> <span class="p">){</span>
@@ -2832,7 +2908,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 <span class="cm">	     * @method _dataFailed</span>
 <span class="cm">	     * @description Called if sendRequest fails on the data</span>
 <span class="cm">	     * @method _dataFailed</span>
-<span class="cm">	     * @param {object}   Request object that failed</span>
+<span class="cm">	     * @param req {object}   Request object that failed</span>
 <span class="cm">	     * @private</span>
 <span class="cm">	     */</span>
 	    <span class="nx">_dataFailed</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">req</span> <span class="p">){</span>
@@ -2853,9 +2929,9 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 	    <span class="cm">/**</span>
 <span class="cm">	     * @method _itemSorter</span>
 <span class="cm">	     * @description Sorting function for arranging items in ascending date/time order</span>
-<span class="cm">	     * @param DiaryItem</span>
-<span class="cm">	     * @param DiaryItem</span>
-<span class="cm">	     * @return boolean        True if oItem2 is before oItem1</span>
+<span class="cm">	     * @param oItem1 {DiaryItem}</span>
+<span class="cm">	     * @param oItem2 {DiaryItem}</span>
+<span class="cm">	     * @return {Boolean}        True if oItem2 is before oItem1</span>
 <span class="cm">	     * @private</span>
 <span class="cm">	     */</span>
 	    <span class="nx">_itemSorter</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">oItem1</span> <span class="p">,</span> <span class="nx">oItem2</span> <span class="p">){</span> 
@@ -2863,11 +2939,11 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 	    <span class="p">},</span>
 	    
 	    <span class="cm">/**</span>
-<span class="cm">	     * @method _itemSorter</span>
+<span class="cm">	     * @method _rawItemSorter</span>
 <span class="cm">	     * @description Sorting function for arranging items in ascending date/time order, using raw data objects</span>
-<span class="cm">	     * @param Object    Property DTSTART used for sorting</span>
-<span class="cm">	     * @param Object</span>
-<span class="cm">	     * @return boolean        True if oItem2 is before oItem1</span>
+<span class="cm">	     * @param oItem1 {Date}    Property DTSTART used for sorting</span>
+<span class="cm">	     * @param oItem2 {Date}    Property DTSTART of comparison item for sort</span>
+<span class="cm">	     * @return {Boolean}       True if oItem2 is before oItem1</span>
 <span class="cm">	     * @private</span>
 <span class="cm">	     */</span>	    
 	    <span class="nx">_rawItemSorter</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">oItem1</span><span class="p">,</span> <span class="nx">oItem2</span><span class="p">)</span> <span class="p">{</span> 
@@ -2905,7 +2981,8 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 
       <span class="cm">/**</span>
 <span class="cm">       * @method render</span>
-<span class="cm">       * @description Renders the Diary</span>
+<span class="cm">       * @description Renders the Diary.  Called after data is parsed - shouldn&#39;t</span>
+<span class="cm">       * need to be called otherwise.</span>
 <span class="cm">       * </span>
 <span class="cm">       */</span>
       <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
@@ -2936,7 +3013,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 <span class="cm">       * @protected</span>
 <span class="cm">       * </span>
 <span class="cm">       */</span>      
-      <span class="nx">_renderNav</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">_renderNav</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       
         <span class="k">if</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">getNavContainer</span><span class="p">()</span> <span class="o">!==</span> <span class="kc">false</span> <span class="p">){</span>
           <span class="k">return</span><span class="p">;</span>
@@ -3042,7 +3119,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 <span class="cm">       * @return {HTMLElement}</span>
 <span class="cm">       */</span>
       
-      <span class="nx">getNavContainer</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">getNavContainer</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">con</span> <span class="o">=</span> <span class="nx">Dom</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span> <span class="nx">CLASS_DIARY_NAV</span><span class="p">,</span> <span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;element&quot;</span> <span class="p">)</span> <span class="p">);</span>
         
         <span class="k">if</span><span class="p">(</span> <span class="nx">con</span> <span class="o">===</span> <span class="kc">null</span> <span class="o">||</span> <span class="nx">con</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">con</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span> <span class="p">){</span>
@@ -3055,12 +3132,16 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
       <span class="cm">/**</span>
 <span class="cm">       * @method showNavCalendar</span>
 <span class="cm">       * @description Shows the calendar navigator</span>
+<span class="cm">       * @param ev {Event}  Event object; used to position.  Pass an object</span>
+<span class="cm">       * with ev.clientX and ev.clientY to position the Calendar manually.</span>
 <span class="cm">       */</span>
-      <span class="nx">showNavCalendar</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">ev</span><span class="p">){</span>
+      <span class="nx">showNavCalendar</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">ev</span><span class="p">){</span>
         <span class="kd">var</span> <span class="nx">cal</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">_navCalendar</span><span class="p">;</span>
         
         <span class="nx">cal</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
-        <span class="nx">Dom</span><span class="p">.</span><span class="nx">setXY</span><span class="p">(</span> <span class="nx">cal</span><span class="p">.</span><span class="nx">oDomContainer</span><span class="p">,</span> <span class="p">[</span> <span class="nx">ev</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">-</span> <span class="mi">200</span><span class="p">,</span> <span class="nx">ev</span><span class="p">.</span><span class="nx">clientY</span> <span class="p">]</span> <span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">ev</span> <span class="o">!==</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="nx">Lang</span><span class="p">.</span><span class="nx">isNumber</span><span class="p">(</span><span class="nx">ev</span><span class="p">.</span><span class="nx">clientX</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">Lang</span><span class="p">.</span><span class="nx">isNumber</span><span class="p">(</span><span class="nx">ev</span><span class="p">.</span><span class="nx">clientY</span><span class="p">))</span> <span class="p">{</span>
+          <span class="nx">Dom</span><span class="p">.</span><span class="nx">setXY</span><span class="p">(</span> <span class="nx">cal</span><span class="p">.</span><span class="nx">oDomContainer</span><span class="p">,</span> <span class="p">[</span> <span class="nx">ev</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">-</span> <span class="mi">200</span><span class="p">,</span> <span class="nx">ev</span><span class="p">.</span><span class="nx">clientY</span> <span class="p">]</span> <span class="p">);</span>
+        <span class="p">}</span>
       <span class="p">},</span>
       
       <span class="cm">/**</span>
@@ -3087,7 +3168,6 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
         <span class="nx">dayHeight</span> <span class="o">=</span> <span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;display&quot;</span><span class="p">).</span><span class="nx">endTime</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;display&quot;</span><span class="p">).</span><span class="nx">startTime</span> <span class="p">)</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;pxPerHour&quot;</span><span class="p">);</span> 
         <span class="nx">Dom</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span> <span class="nx">CLASS_DIARYDAY_CONTAINER</span><span class="p">,</span> <span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">_calHolder</span><span class="p">,</span> 
                                     <span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">){</span><span class="nx">Dom</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span> <span class="nx">n</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span> <span class="p">,</span> <span class="nx">dayHeight</span> <span class="o">+</span> <span class="s2">&quot;px&quot;</span> <span class="p">);</span> <span class="p">}</span> <span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s2">&quot;dayHeight&quot;</span> <span class="p">,</span> <span class="nx">dayHeight</span><span class="p">,</span>        <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;pxPerHour&quot;</span><span class="p">));</span>
 
         <span class="nx">scrollTop</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;display&quot;</span><span class="p">).</span><span class="nx">startTime</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;pxPerHour&quot;</span><span class="p">);</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">_calHolder</span><span class="p">.</span><span class="nx">scrollTop</span> <span class="o">=</span> <span class="nx">scrollTop</span><span class="p">;</span> 
@@ -3096,8 +3176,9 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
       
       <span class="cm">/**</span>
 <span class="cm">       * @method renderDateLabel</span>
-<span class="cm">       * @description  Overwritable to render date labels</span>
-<span class="cm">       * @param {Date}</span>
+<span class="cm">       * @description  Overwritable to render date labels at the top of each column.</span>
+<span class="cm">       * Default is oDate.toString().substring(0, 10);</span>
+<span class="cm">       * @param oDate {Date} Date object</span>
 <span class="cm">       * @return {String}</span>
 <span class="cm">       */</span>
       <span class="nx">renderDateLabel</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">oDate</span> <span class="p">)</span> <span class="p">{</span>
@@ -3106,7 +3187,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
       
       
       <span class="cm">/**</span>
-<span class="cm">       * @method renderDateLabel</span>
+<span class="cm">       * @method _renderTitle</span>
 <span class="cm">       * @description  Puts the title text in the title container box</span>
 <span class="cm">       * Doesn&#39;t actually produce the title string though.</span>
 <span class="cm">       * @protected</span>
@@ -3118,10 +3199,10 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
       
       
       <span class="cm">/**</span>
-<span class="cm">       * @method renderDateLabel</span>
+<span class="cm">       * @method renderTitle</span>
 <span class="cm">       * @description  Overwriteable to render title string</span>
 <span class="cm">       * Can use strftime identifiers in the format string</span>
-<span class="cm">       * @param {String}</span>
+<span class="cm">       * @param titleString {String}  Title string with strftime placeholders.</span>
 <span class="cm">       * @return {String}</span>
 <span class="cm">       */</span>
       <span class="nx">renderTitle</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">titleString</span> <span class="p">){</span>
@@ -3161,8 +3242,8 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 <span class="cm">       * @description Filters DiaryItems based on css selector.</span>
 <span class="cm">       * selector passed will be appended directly to &quot;.lplt-diary-item&quot;</span>
 <span class="cm">       * If nothing is passed, it will filter for all (ie hide everything)</span>
-<span class="cm">       * @param {String}</span>
-<span class="cm">       * @param {Int} Number of items hidden</span>
+<span class="cm">       * @param selector {String}</span>
+<span class="cm">       * @return {Int}  Number of items hidden</span>
 <span class="cm">       */</span>
       <span class="nx">addItemFilter</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">selector</span> <span class="p">){</span>
       
@@ -3184,7 +3265,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 <span class="cm">       * @description Removes filter on DiaryItems based on css selector.</span>
 <span class="cm">       * selector passed will be appended directly to &quot;.lplt-diary-item&quot;</span>
 <span class="cm">       * If nothing is passed, it will filter for all (ie show everything)</span>
-<span class="cm">       * @param {String}</span>
+<span class="cm">       * @param selector {String}</span>
 <span class="cm">       * @return {Int} Number of items shown</span>
 <span class="cm">       */</span>      
       <span class="nx">removeItemFilter</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">selector</span> <span class="p">){</span>
@@ -3238,7 +3319,36 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 
 
 
-
+      <span class="cm">/**</span>
+<span class="cm">       * @method destroy</span>
+<span class="cm">       * @description destroys the Diary</span>
+<span class="cm">       */</span>
+      <span class="nx">destroy</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      
+        <span class="k">this</span><span class="p">.</span><span class="nx">_destroyData</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_destroyDays</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_removeListeners</span><span class="p">();</span>
+        
+        <span class="c1">// other widgets:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_tooltip</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">_tooltip</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">_tooltip</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">_navCalendar</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">_navCalendar</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">_navCalendar</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="k">this</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span> <span class="nx">CLASS_DIARY_CONTAINER</span> <span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;element&quot;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+        
+        <span class="cm">/**</span>
+<span class="cm">         * @event destroy</span>
+<span class="cm">         * @description When the Diary has finished destorying</span>
+<span class="cm">         */</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">fireEvent</span><span class="p">(</span><span class="s2">&quot;destroy&quot;</span><span class="p">);</span>
+      
+      <span class="p">},</span>
 
 
       <span class="cm">/**</span>
@@ -3278,7 +3388,37 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
       <span class="nx">_destroyDays</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
         <span class="c1">//Ev.purgeListeners( this._calHolder );</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;element&quot;</span><span class="p">).</span><span class="nx">removeChild</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">_calHolder</span> <span class="p">);</span>
+      <span class="p">},</span>
+      
+      
+      <span class="cm">/**</span>
+<span class="cm">       * @method _removeListeners</span>
+<span class="cm">       * @description Removes event listeners</span>
+<span class="cm">       * @protected</span>
+<span class="cm">       */</span>
+      <span class="nx">_removeListeners</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      
+        <span class="c1">// listeners on the main element (delegated)</span>
+        <span class="nx">Ev</span><span class="p">.</span><span class="nx">purgeElement</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;element&quot;</span><span class="p">),</span> <span class="kc">false</span><span class="p">);</span>
+        <span class="c1">// navigation event listeners (recurse: not too deep and need to pick up</span>
+        <span class="c1">// all the nav buttons</span>
+        <span class="nx">Ev</span><span class="p">.</span><span class="nx">purgeElement</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getNavContainer</span><span class="p">(),</span> <span class="kc">true</span><span class="p">);</span>
+        
+      
+      <span class="p">},</span>
+      
+      
+      <span class="cm">/**</span>
+<span class="cm">      * Returns a string representation of the object.</span>
+<span class="cm">      * @method toString</span>
+<span class="cm">      * @return {String} The string representation of the Diary</span>
+<span class="cm">      * @private</span>
+<span class="cm">      */</span>      
+      <span class="nx">toString</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">&quot;Diary &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;element&quot;</span><span class="p">).</span><span class="nx">id</span><span class="p">;</span>
       <span class="p">}</span>
+      
+      
 
 
 
@@ -3359,7 +3499,7 @@ start and end times.&nbsp; <span class="subtitle">1.0</span></h3>
 	</div>
 </div>
 <script type="text/javascript">
-    ALL_YUI_PROPS = [{"url": "DiaryBlock.html#method_addItem", "access": "", "host": "DiaryBlock", "type": "method", "name": "addItem"}, {"url": "DiaryDay.html#method_addItem", "access": "", "host": "DiaryDay", "type": "method", "name": "addItem"}, {"url": "YAHOO.widget.Diary.html#method_addItem", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "addItem"}, {"url": "YAHOO.widget.Diary.html#method_addItemFilter", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "addItemFilter"}, {"url": "DiaryDay.html#method__addItemToBlock", "access": "protected", "host": "DiaryDay", "type": "method", "name": "_addItemToBlock"}, {"url": "DiaryItem.html#method_addMultiDayChild", "access": "", "host": "DiaryItem", "type": "method", "name": "addMultiDayChild"}, {"url": "YAHOO.widget.Diary.html#config_allowCreateMultiDayItems", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "allowCreateMultiDayItems"}, {"url": "YAHOO.widget.Diary.html#event_allowCreateMultiDayItemsChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "allowCreateMultiDayItemsChange"}, {"url": "DiaryItem.html#property_anim", "access": "", "host": "DiaryItem", "type": "property", "name": "anim"}, {"url": "YAHOO.widget.Diary.html#config_animate", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "animate"}, {"url": "YAHOO.widget.Diary.html#event_animateChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "animateChange"}, {"url": "YAHOO.widget.Diary.html#method__applyFilters", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_applyFilters"}, {"url": "YAHOO.widget.Diary.html#method__applyFiltersToElement", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_applyFiltersToElement"}, {"url": "DiaryItem.html#config_backClass", "access": "", "host": "DiaryItem", "type": "config", "name": "backClass"}, {"url": "DiaryItem.html#event_backClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "backClassChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeAllowCreateMultiDayItemsChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeAllowCreateMultiDayItemsChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeAnimateChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeAnimateChange"}, {"url": "DiaryItem.html#event_beforeBackClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeBackClassChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeCalenderNavChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeCalenderNavChange"}, {"url": "DiaryDay.html#event_beforeColdateChange", "access": "", "host": "DiaryDay", "type": "event", "name": "beforeColdateChange"}, {"url": "DiaryItem.html#event_beforeColumnChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeColumnChange"}, {"url": "DiaryItem.html#event_beforeDESCRIPTIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDESCRIPTIONChange"}, {"url": "DiaryDay.html#event_beforeDiaryChange", "access": "", "host": "DiaryDay", "type": "event", "name": "beforeDiaryChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeDisplayChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeDisplayChange"}, {"url": "DiaryItem.html#event_before_displayDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "before_displayDTENDChange"}, {"url": "DiaryItem.html#event_before_displayDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "before_displayDTSTARTChange"}, {"url": "DiaryItem.html#event_beforeDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDTENDChange"}, {"url": "DiaryItem.html#event_beforeDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDTSTARTChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeEndDateChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeEndDateChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeFieldMapChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeFieldMapChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeItemClickCreateNewChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeItemClickCreateNewChange"}, {"url": "DiaryItem.html#event_beforeMultiDayParentChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeMultiDayParentChange"}, {"url": "DiaryItem.html#event_beforeMultiDayPositionChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeMultiDayPositionChange"}, {"url": "DiaryItem.html#event_beforePxPerHourChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforePxPerHourChange"}, {"url": "YAHOO.widget.Diary.html#event_beforePxPerHourChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforePxPerHourChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeScaleColumnsChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeScaleColumnsChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeStartDateChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeStartDateChange"}, {"url": "DiaryItem.html#event_beforeSUMMARYChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeSUMMARYChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeTitleStringChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeTitleStringChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeTooltipChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeTooltipChange"}, {"url": "DiaryItem.html#event_beforeURLChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeURLChange"}, {"url": "DiaryItem.html#event_beforeUseAnimationChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeUseAnimationChange"}, {"url": "DiaryDay.html#event_beforeWidthChange", "access": "", "host": "DiaryDay", "type": "event", "name": "beforeWidthChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeWidthChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeWidthChange"}, {"url": "DiaryDay.html#property__blocks", "access": "protected", "host": "DiaryDay", "type": "property", "name": "_blocks"}, {"url": "DiaryItem.html#method_calcEndFromPosition", "access": "", "host": "DiaryItem", "type": "method", "name": "calcEndFromPosition"}, {"url": "DiaryItem.html#method_calcStartFromPosition", "access": "", "host": "DiaryItem", "type": "method", "name": "calcStartFromPosition"}, {"url": "DiaryItem.html#method_calculateHeight", "access": "", "host": "DiaryItem", "type": "method", "name": "calculateHeight"}, {"url": "DiaryItem.html#method_calculateTop", "access": "", "host": "DiaryItem", "type": "method", "name": "calculateTop"}, {"url": "YAHOO.widget.Diary.html#config_calenderNav", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "calenderNav"}, {"url": "YAHOO.widget.Diary.html#event_calenderNavChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "calenderNavChange"}, {"url": "DiaryDay.html#config_coldate", "access": "", "host": "DiaryDay", "type": "config", "name": "coldate"}, {"url": "DiaryDay.html#event_coldateChange", "access": "", "host": "DiaryDay", "type": "event", "name": "coldateChange"}, {"url": "YAHOO.widget.Diary.html#property__colToDayMap", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_colToDayMap"}, {"url": "DiaryItem.html#config_column", "access": "", "host": "DiaryItem", "type": "config", "name": "column"}, {"url": "DiaryItem.html#event_columnChange", "access": "", "host": "DiaryItem", "type": "event", "name": "columnChange"}, {"url": "YAHOO.widget.Diary.html#property__colWidth", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_colWidth"}, {"url": "DiaryBlock.html#method_contains", "access": "", "host": "DiaryBlock", "type": "method", "name": "contains"}, {"url": "DiaryDay.html#property__dataEl", "access": "protected", "host": "DiaryDay", "type": "property", "name": "_dataEl"}, {"url": "YAHOO.widget.Diary.html#event_dataFailure", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "dataFailure"}, {"url": "DiaryItem.html#config_DESCRIPTION", "access": "", "host": "DiaryItem", "type": "config", "name": "DESCRIPTION"}, {"url": "DiaryItem.html#event_DESCRIPTIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DESCRIPTIONChange"}, {"url": "DiaryBlock.html#method_destroy", "access": "", "host": "DiaryBlock", "type": "method", "name": "destroy"}, {"url": "DiaryDay.html#method_destroy", "access": "", "host": "DiaryDay", "type": "method", "name": "destroy"}, {"url": "YAHOO.widget.Diary.html#method__destroyData", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_destroyData"}, {"url": "YAHOO.widget.Diary.html#event_destroyData", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "destroyData"}, {"url": "YAHOO.widget.Diary.html#method__destroyDays", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_destroyDays"}, {"url": "DiaryDay.html#config_diary", "access": "", "host": "DiaryDay", "type": "config", "name": "diary"}, {"url": "DiaryDay.html#event_diaryChange", "access": "", "host": "DiaryDay", "type": "event", "name": "diaryChange"}, {"url": "YAHOO.widget.Diary.html#property__diaryData", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_diaryData"}, {"url": "YAHOO.widget.Diary.html#config_display", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "display"}, {"url": "YAHOO.widget.Diary.html#event_displayChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "displayChange"}, {"url": "DiaryItem.html#event__displayDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "_displayDTENDChange"}, {"url": "DiaryItem.html#event__displayDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "_displayDTSTARTChange"}, {"url": "YAHOO.widget.Diary.html#method__doCalNav", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_doCalNav"}, {"url": "YAHOO.widget.Diary.html#method__doFirstDayOfTodaysWeek", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_doFirstDayOfTodaysWeek"}, {"url": "YAHOO.widget.Diary.html#method__doNext", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_doNext"}, {"url": "YAHOO.widget.Diary.html#method__doPrevious", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_doPrevious"}, {"url": "DiaryItem.html#property_dragdrop", "access": "", "host": "DiaryItem", "type": "property", "name": "dragdrop"}, {"url": "YAHOO.widget.Diary.html#property__ds", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_ds"}, {"url": "DiaryItem.html#config_DTEND", "access": "", "host": "DiaryItem", "type": "config", "name": "DTEND"}, {"url": "DiaryItem.html#event_DTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DTENDChange"}, {"url": "DiaryItem.html#config_DTSTART", "access": "", "host": "DiaryItem", "type": "config", "name": "DTSTART"}, {"url": "DiaryItem.html#event_DTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DTSTARTChange"}, {"url": "YAHOO.widget.Diary.html#config_endDate", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "endDate"}, {"url": "YAHOO.widget.Diary.html#event_endDateChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "endDateChange"}, {"url": "DiaryBlock.html#property__endSecs", "access": "protected", "host": "DiaryBlock", "type": "property", "name": "_endSecs"}, {"url": "YAHOO.widget.Diary.html#method__endSelector", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_endSelector"}, {"url": "YAHOO.widget.Diary.html#config_fieldMap", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "fieldMap"}, {"url": "YAHOO.widget.Diary.html#event_fieldMapChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "fieldMapChange"}, {"url": "YAHOO.widget.Diary.html#property__filters", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_filters"}, {"url": "DiaryBlock.html#method__findLineForItem", "access": "protected", "host": "DiaryBlock", "type": "method", "name": "_findLineForItem"}, {"url": "YAHOO.widget.Diary.html#method__getData", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_getData"}, {"url": "DiaryItem.html#method_getDiary", "access": "", "host": "DiaryItem", "type": "method", "name": "getDiary"}, {"url": "DiaryItem.html#method_getDisplayEndTimeSecs", "access": "protected", "host": "DiaryItem", "type": "method", "name": "getDisplayEndTimeSecs"}, {"url": "DiaryItem.html#method_getDisplayStartTimeSecs", "access": "protected", "host": "DiaryItem", "type": "method", "name": "getDisplayStartTimeSecs"}, {"url": "DiaryItem.html#method_getEndTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "getEndTimeSecs"}, {"url": "YAHOO.widget.Diary.html#method_getItem", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "getItem"}, {"url": "YAHOO.widget.Diary.html#method_getNavContainer", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "getNavContainer"}, {"url": "DiaryItem.html#method_getParentItem", "access": "", "host": "DiaryItem", "type": "method", "name": "getParentItem"}, {"url": "DiaryItem.html#method_getStartTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "getStartTimeDay"}, {"url": "DiaryItem.html#method_getStartTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "getStartTimeSecs"}, {"url": "DiaryItem.html#method__handleBeforeStartDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleBeforeStartDrag"}, {"url": "DiaryItem.html#method__handleDiaryDragEnter", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryDragEnter"}, {"url": "DiaryItem.html#method__handleDiaryDragOver", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryDragOver"}, {"url": "DiaryItem.html#method__handleDiaryEndDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryEndDrag"}, {"url": "DiaryItem.html#method__handleDiaryStartDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryStartDrag"}, {"url": "YAHOO.widget.Diary.html#method_handleItemClick", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "handleItemClick"}, {"url": "YAHOO.widget.Diary.html#method_handleItemMouseEnter", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "handleItemMouseEnter"}, {"url": "DiaryBlock.html#method_init", "access": "protected", "host": "DiaryBlock", "type": "method", "name": "init"}, {"url": "DiaryItem.html#method_initContent", "access": "", "host": "DiaryItem", "type": "method", "name": "initContent"}, {"url": "YAHOO.widget.Diary.html#method_initData", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "initData"}, {"url": "DiaryItem.html#method_initListeners", "access": "", "host": "DiaryItem", "type": "method", "name": "initListeners"}, {"url": "YAHOO.widget.Diary.html#method_initListeners", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "initListeners"}, {"url": "YAHOO.widget.Diary.html#event_itemBeforeEndCreate", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemBeforeEndCreate"}, {"url": "DiaryItem.html#event_itemBeforeEndMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemBeforeEndMove"}, {"url": "YAHOO.widget.Diary.html#event_itemBeforeEndMove", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemBeforeEndMove"}, {"url": "YAHOO.widget.Diary.html#event_itemBeforeStartCreate", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemBeforeStartCreate"}, {"url": "DiaryItem.html#event_itemBeforeStartMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemBeforeStartMove"}, {"url": "YAHOO.widget.Diary.html#event_itemBeforeStartMove", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemBeforeStartMove"}, {"url": "YAHOO.widget.Diary.html#event_itemClick", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemClick"}, {"url": "YAHOO.widget.Diary.html#config_itemClickCreateNew", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "itemClickCreateNew"}, {"url": "YAHOO.widget.Diary.html#event_itemClickCreateNewChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemClickCreateNewChange"}, {"url": "YAHOO.widget.Diary.html#event_itemEndCreate", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemEndCreate"}, {"url": "DiaryItem.html#event_itemEndMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemEndMove"}, {"url": "YAHOO.widget.Diary.html#event_itemEndMove", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemEndMove"}, {"url": "DiaryBlock.html#property__items", "access": "protected", "host": "DiaryBlock", "type": "property", "name": "_items"}, {"url": "DiaryBlock.html#property__lines", "access": "protected", "host": "DiaryBlock", "type": "property", "name": "_lines"}, {"url": "DiaryItem.html#event_multiDayParentChange", "access": "", "host": "DiaryItem", "type": "event", "name": "multiDayParentChange"}, {"url": "DiaryItem.html#event_multiDayPositionChange", "access": "", "host": "DiaryItem", "type": "event", "name": "multiDayPositionChange"}, {"url": "YAHOO.widget.Diary.html#property__navCalendar", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_navCalendar"}, {"url": "DiaryDay.html#method_next", "access": "", "host": "DiaryDay", "type": "method", "name": "next"}, {"url": "YAHOO.widget.Diary.html#method__parseData", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_parseData"}, {"url": "YAHOO.widget.Diary.html#event_parseData", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "parseData"}, {"url": "DiaryDay.html#method_previous", "access": "", "host": "DiaryDay", "type": "method", "name": "previous"}, {"url": "DiaryItem.html#config_pxPerHour", "access": "", "host": "DiaryItem", "type": "config", "name": "pxPerHour"}, {"url": "YAHOO.widget.Diary.html#config_pxPerHour", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "pxPerHour"}, {"url": "DiaryItem.html#event_pxPerHourChange", "access": "", "host": "DiaryItem", "type": "event", "name": "pxPerHourChange"}, {"url": "YAHOO.widget.Diary.html#event_pxPerHourChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "pxPerHourChange"}, {"url": "DiaryDay.html#method__rebuildBlocks", "access": "protected", "host": "DiaryDay", "type": "method", "name": "_rebuildBlocks"}, {"url": "YAHOO.widget.Diary.html#method__reDo", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_reDo"}, {"url": "DiaryBlock.html#method_removeItem", "access": "", "host": "DiaryBlock", "type": "method", "name": "removeItem"}, {"url": "YAHOO.widget.Diary.html#method_removeItemFilter", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "removeItemFilter"}, {"url": "DiaryDay.html#method_removeItemFromBlock", "access": "", "host": "DiaryDay", "type": "method", "name": "removeItemFromBlock"}, {"url": "DiaryItem.html#method_render", "access": "", "host": "DiaryItem", "type": "method", "name": "render"}, {"url": "DiaryBlock.html#method_render", "access": "", "host": "DiaryBlock", "type": "method", "name": "render"}, {"url": "DiaryDay.html#method_render", "access": "", "host": "DiaryDay", "type": "method", "name": "render"}, {"url": "YAHOO.widget.Diary.html#method_render", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "render"}, {"url": "YAHOO.widget.Diary.html#event_render", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "render"}, {"url": "DiaryDay.html#method__renderBlocks", "access": "protected", "host": "DiaryDay", "type": "method", "name": "_renderBlocks"}, {"url": "DiaryDay.html#method__renderColumn", "access": "protected", "host": "DiaryDay", "type": "method", "name": "_renderColumn"}, {"url": "YAHOO.widget.Diary.html#method_renderDateLabel", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "renderDateLabel"}, {"url": "DiaryItem.html#method_renderDetails", "access": "", "host": "DiaryItem", "type": "method", "name": "renderDetails"}, {"url": "DiaryItem.html#method_renderEndTime", "access": "", "host": "DiaryItem", "type": "method", "name": "renderEndTime"}, {"url": "DiaryItem.html#method_renderFullDetails", "access": "", "host": "DiaryItem", "type": "method", "name": "renderFullDetails"}, {"url": "YAHOO.widget.Diary.html#method__renderNav", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_renderNav"}, {"url": "DiaryItem.html#method_renderStartTime", "access": "", "host": "DiaryItem", "type": "method", "name": "renderStartTime"}, {"url": "YAHOO.widget.Diary.html#method__renderTooltip", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_renderTooltip"}, {"url": "YAHOO.widget.Diary.html#method__resizeSelectorDiv", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_resizeSelectorDiv"}, {"url": "YAHOO.widget.Diary.html#config_scaleColumns", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "scaleColumns"}, {"url": "YAHOO.widget.Diary.html#event_scaleColumnsChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "scaleColumnsChange"}, {"url": "YAHOO.widget.Diary.html#property__selector", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_selector"}, {"url": "DiaryItem.html#method_setEndTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "setEndTimeDay"}, {"url": "DiaryItem.html#method_setEndTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "setEndTimeSecs"}, {"url": "DiaryItem.html#method_setLine", "access": "", "host": "DiaryItem", "type": "method", "name": "setLine"}, {"url": "DiaryItem.html#method_setStartTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "setStartTimeDay"}, {"url": "DiaryItem.html#method_setStartTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "setStartTimeSecs"}, {"url": "YAHOO.widget.Diary.html#method_setupDays", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "setupDays"}, {"url": "YAHOO.widget.Diary.html#method_showNavCalendar", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "showNavCalendar"}, {"url": "YAHOO.widget.Diary.html#config_startDate", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "startDate"}, {"url": "YAHOO.widget.Diary.html#event_startDateChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "startDateChange"}, {"url": "YAHOO.widget.Diary.html#method__startNewItem", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_startNewItem"}, {"url": "DiaryBlock.html#property__startSecs", "access": "protected", "host": "DiaryBlock", "type": "property", "name": "_startSecs"}, {"url": "DiaryItem.html#config_SUMMARY", "access": "", "host": "DiaryItem", "type": "config", "name": "SUMMARY"}, {"url": "DiaryItem.html#event_SUMMARYChange", "access": "", "host": "DiaryItem", "type": "event", "name": "SUMMARYChange"}, {"url": "DiaryItem.html#property_TIME_SEPARATOR", "access": "", "host": "DiaryItem", "type": "property", "name": "TIME_SEPARATOR"}, {"url": "YAHOO.widget.Diary.html#config_titleString", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "titleString"}, {"url": "YAHOO.widget.Diary.html#event_titleStringChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "titleStringChange"}, {"url": "YAHOO.widget.Diary.html#property__tooltip", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_tooltip"}, {"url": "YAHOO.widget.Diary.html#config_tooltip", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "tooltip"}, {"url": "YAHOO.widget.Diary.html#event_tooltipChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "tooltipChange"}, {"url": "DiaryBlock.html#method_toString", "access": "", "host": "DiaryBlock", "type": "method", "name": "toString"}, {"url": "DiaryItem.html#config_URL", "access": "", "host": "DiaryItem", "type": "config", "name": "URL"}, {"url": "DiaryItem.html#event_URLChange", "access": "", "host": "DiaryItem", "type": "event", "name": "URLChange"}, {"url": "DiaryItem.html#config_useAnimation", "access": "", "host": "DiaryItem", "type": "config", "name": "useAnimation"}, {"url": "DiaryItem.html#event_useAnimationChange", "access": "", "host": "DiaryItem", "type": "event", "name": "useAnimationChange"}, {"url": "DiaryDay.html#config_width", "access": "", "host": "DiaryDay", "type": "config", "name": "width"}, {"url": "YAHOO.widget.Diary.html#config_width", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "width"}, {"url": "DiaryDay.html#event_widthChange", "access": "", "host": "DiaryDay", "type": "event", "name": "widthChange"}, {"url": "YAHOO.widget.Diary.html#event_widthChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "widthChange"}];
+    ALL_YUI_PROPS = [{"url": "DiaryBlock.html#method_addItem", "access": "", "host": "DiaryBlock", "type": "method", "name": "addItem"}, {"url": "DiaryDay.html#method_addItem", "access": "", "host": "DiaryDay", "type": "method", "name": "addItem"}, {"url": "YAHOO.widget.Diary.html#method_addItem", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "addItem"}, {"url": "YAHOO.widget.Diary.html#method_addItemFilter", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "addItemFilter"}, {"url": "DiaryDay.html#method__addItemToBlock", "access": "protected", "host": "DiaryDay", "type": "method", "name": "_addItemToBlock"}, {"url": "DiaryItem.html#method_addMultiDayChild", "access": "", "host": "DiaryItem", "type": "method", "name": "addMultiDayChild"}, {"url": "YAHOO.widget.Diary.html#config_allowCreateMultiDayItems", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "allowCreateMultiDayItems"}, {"url": "YAHOO.widget.Diary.html#event_allowCreateMultiDayItemsChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "allowCreateMultiDayItemsChange"}, {"url": "DiaryItem.html#property_anim", "access": "", "host": "DiaryItem", "type": "property", "name": "anim"}, {"url": "YAHOO.widget.Diary.html#config_animate", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "animate"}, {"url": "YAHOO.widget.Diary.html#event_animateChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "animateChange"}, {"url": "YAHOO.widget.Diary.html#method__applyFilters", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_applyFilters"}, {"url": "YAHOO.widget.Diary.html#method__applyFiltersToElement", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_applyFiltersToElement"}, {"url": "DiaryItem.html#config_backClass", "access": "", "host": "DiaryItem", "type": "config", "name": "backClass"}, {"url": "DiaryItem.html#event_backClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "backClassChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeAllowCreateMultiDayItemsChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeAllowCreateMultiDayItemsChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeAnimateChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeAnimateChange"}, {"url": "DiaryItem.html#event_beforeBackClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeBackClassChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeCalenderNavChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeCalenderNavChange"}, {"url": "DiaryDay.html#event_beforeColdateChange", "access": "", "host": "DiaryDay", "type": "event", "name": "beforeColdateChange"}, {"url": "DiaryItem.html#event_beforeColumnChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeColumnChange"}, {"url": "DiaryItem.html#event_beforeDESCRIPTIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDESCRIPTIONChange"}, {"url": "DiaryItem.html#event_beforeDetailClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDetailClassChange"}, {"url": "DiaryDay.html#event_beforeDiaryChange", "access": "", "host": "DiaryDay", "type": "event", "name": "beforeDiaryChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeDisplayChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeDisplayChange"}, {"url": "DiaryItem.html#event_before_displayDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "before_displayDTENDChange"}, {"url": "DiaryItem.html#event_before_displayDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "before_displayDTSTARTChange"}, {"url": "DiaryItem.html#event_beforeDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDTENDChange"}, {"url": "DiaryItem.html#event_beforeDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDTSTARTChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeEndDateChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeEndDateChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeFieldMapChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeFieldMapChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeItemClickCreateNewChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeItemClickCreateNewChange"}, {"url": "DiaryItem.html#event_beforeMultiDayParentChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeMultiDayParentChange"}, {"url": "DiaryItem.html#event_beforeMultiDayPositionChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeMultiDayPositionChange"}, {"url": "DiaryItem.html#event_beforePxPerHourChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforePxPerHourChange"}, {"url": "YAHOO.widget.Diary.html#event_beforePxPerHourChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforePxPerHourChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeScaleColumnsChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeScaleColumnsChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeStartDateChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeStartDateChange"}, {"url": "DiaryItem.html#event_beforeSUMMARYChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeSUMMARYChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeTitleStringChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeTitleStringChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeTooltipChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeTooltipChange"}, {"url": "DiaryItem.html#event_beforeURLChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeURLChange"}, {"url": "DiaryItem.html#event_beforeUseAnimationChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeUseAnimationChange"}, {"url": "DiaryDay.html#event_beforeWidthChange", "access": "", "host": "DiaryDay", "type": "event", "name": "beforeWidthChange"}, {"url": "YAHOO.widget.Diary.html#event_beforeWidthChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "beforeWidthChange"}, {"url": "DiaryDay.html#property__blocks", "access": "protected", "host": "DiaryDay", "type": "property", "name": "_blocks"}, {"url": "DiaryItem.html#method_calcEndFromPosition", "access": "", "host": "DiaryItem", "type": "method", "name": "calcEndFromPosition"}, {"url": "DiaryItem.html#method_calcStartFromPosition", "access": "", "host": "DiaryItem", "type": "method", "name": "calcStartFromPosition"}, {"url": "DiaryItem.html#method_calculateHeight", "access": "", "host": "DiaryItem", "type": "method", "name": "calculateHeight"}, {"url": "DiaryItem.html#method_calculateTop", "access": "", "host": "DiaryItem", "type": "method", "name": "calculateTop"}, {"url": "YAHOO.widget.Diary.html#config_calenderNav", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "calenderNav"}, {"url": "YAHOO.widget.Diary.html#event_calenderNavChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "calenderNavChange"}, {"url": "DiaryDay.html#config_coldate", "access": "", "host": "DiaryDay", "type": "config", "name": "coldate"}, {"url": "DiaryDay.html#event_coldateChange", "access": "", "host": "DiaryDay", "type": "event", "name": "coldateChange"}, {"url": "YAHOO.widget.Diary.html#property__colToDayMap", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_colToDayMap"}, {"url": "DiaryItem.html#config_column", "access": "", "host": "DiaryItem", "type": "config", "name": "column"}, {"url": "DiaryItem.html#event_columnChange", "access": "", "host": "DiaryItem", "type": "event", "name": "columnChange"}, {"url": "YAHOO.widget.Diary.html#property__colWidth", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_colWidth"}, {"url": "DiaryBlock.html#method_contains", "access": "", "host": "DiaryBlock", "type": "method", "name": "contains"}, {"url": "DiaryDay.html#property__dataEl", "access": "protected", "host": "DiaryDay", "type": "property", "name": "_dataEl"}, {"url": "YAHOO.widget.Diary.html#event_dataFailure", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "dataFailure"}, {"url": "DiaryItem.html#config_DESCRIPTION", "access": "", "host": "DiaryItem", "type": "config", "name": "DESCRIPTION"}, {"url": "DiaryItem.html#event_DESCRIPTIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DESCRIPTIONChange"}, {"url": "DiaryItem.html#method_destroy", "access": "", "host": "DiaryItem", "type": "method", "name": "destroy"}, {"url": "DiaryItem.html#event_destroy", "access": "", "host": "DiaryItem", "type": "event", "name": "destroy"}, {"url": "DiaryBlock.html#method_destroy", "access": "", "host": "DiaryBlock", "type": "method", "name": "destroy"}, {"url": "DiaryDay.html#method_destroy", "access": "", "host": "DiaryDay", "type": "method", "name": "destroy"}, {"url": "YAHOO.widget.Diary.html#method_destroy", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "destroy"}, {"url": "YAHOO.widget.Diary.html#event_destroy", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "destroy"}, {"url": "YAHOO.widget.Diary.html#method__destroyData", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_destroyData"}, {"url": "YAHOO.widget.Diary.html#event_destroyData", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "destroyData"}, {"url": "YAHOO.widget.Diary.html#method__destroyDays", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_destroyDays"}, {"url": "DiaryItem.html#config_detailClass", "access": "", "host": "DiaryItem", "type": "config", "name": "detailClass"}, {"url": "DiaryItem.html#event_detailClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "detailClassChange"}, {"url": "DiaryDay.html#config_diary", "access": "", "host": "DiaryDay", "type": "config", "name": "diary"}, {"url": "DiaryDay.html#event_diaryChange", "access": "", "host": "DiaryDay", "type": "event", "name": "diaryChange"}, {"url": "YAHOO.widget.Diary.html#property__diaryData", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_diaryData"}, {"url": "YAHOO.widget.Diary.html#config_display", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "display"}, {"url": "YAHOO.widget.Diary.html#event_displayChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "displayChange"}, {"url": "DiaryItem.html#event__displayDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "_displayDTENDChange"}, {"url": "DiaryItem.html#event__displayDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "_displayDTSTARTChange"}, {"url": "YAHOO.widget.Diary.html#method__doCalNav", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_doCalNav"}, {"url": "YAHOO.widget.Diary.html#method__doFirstDayOfTodaysWeek", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_doFirstDayOfTodaysWeek"}, {"url": "YAHOO.widget.Diary.html#method__doNext", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_doNext"}, {"url": "YAHOO.widget.Diary.html#method__doPrevious", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_doPrevious"}, {"url": "DiaryItem.html#property_dragdrop", "access": "", "host": "DiaryItem", "type": "property", "name": "dragdrop"}, {"url": "YAHOO.widget.Diary.html#property__ds", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_ds"}, {"url": "DiaryItem.html#config_DTEND", "access": "", "host": "DiaryItem", "type": "config", "name": "DTEND"}, {"url": "DiaryItem.html#event_DTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DTENDChange"}, {"url": "DiaryItem.html#config_DTSTART", "access": "", "host": "DiaryItem", "type": "config", "name": "DTSTART"}, {"url": "DiaryItem.html#event_DTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DTSTARTChange"}, {"url": "YAHOO.widget.Diary.html#config_endDate", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "endDate"}, {"url": "YAHOO.widget.Diary.html#event_endDateChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "endDateChange"}, {"url": "DiaryBlock.html#property__endSecs", "access": "protected", "host": "DiaryBlock", "type": "property", "name": "_endSecs"}, {"url": "YAHOO.widget.Diary.html#method__endSelector", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_endSelector"}, {"url": "YAHOO.widget.Diary.html#config_fieldMap", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "fieldMap"}, {"url": "YAHOO.widget.Diary.html#event_fieldMapChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "fieldMapChange"}, {"url": "YAHOO.widget.Diary.html#property__filters", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_filters"}, {"url": "DiaryBlock.html#method__findLineForItem", "access": "protected", "host": "DiaryBlock", "type": "method", "name": "_findLineForItem"}, {"url": "YAHOO.widget.Diary.html#method__getData", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_getData"}, {"url": "DiaryItem.html#method_getDiary", "access": "", "host": "DiaryItem", "type": "method", "name": "getDiary"}, {"url": "YAHOO.widget.Diary.html#method_getDiaryDay", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "getDiaryDay"}, {"url": "DiaryItem.html#method_getDisplayEndTimeSecs", "access": "protected", "host": "DiaryItem", "type": "method", "name": "getDisplayEndTimeSecs"}, {"url": "DiaryItem.html#method_getDisplayStartTimeSecs", "access": "protected", "host": "DiaryItem", "type": "method", "name": "getDisplayStartTimeSecs"}, {"url": "DiaryItem.html#method_getEndTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "getEndTimeSecs"}, {"url": "YAHOO.widget.Diary.html#method_getItem", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "getItem"}, {"url": "YAHOO.widget.Diary.html#method_getNavContainer", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "getNavContainer"}, {"url": "DiaryItem.html#method_getParentItem", "access": "", "host": "DiaryItem", "type": "method", "name": "getParentItem"}, {"url": "DiaryItem.html#method_getStartTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "getStartTimeDay"}, {"url": "DiaryItem.html#method_getStartTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "getStartTimeSecs"}, {"url": "DiaryItem.html#method__handleBeforeStartDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleBeforeStartDrag"}, {"url": "DiaryItem.html#method__handleDiaryDragEnter", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryDragEnter"}, {"url": "DiaryItem.html#method__handleDiaryDragOver", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryDragOver"}, {"url": "DiaryItem.html#method__handleDiaryEndDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryEndDrag"}, {"url": "DiaryItem.html#method__handleDiaryStartDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryStartDrag"}, {"url": "YAHOO.widget.Diary.html#method_handleItemClick", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "handleItemClick"}, {"url": "YAHOO.widget.Diary.html#method_handleItemMouseEnter", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "handleItemMouseEnter"}, {"url": "DiaryBlock.html#method_init", "access": "protected", "host": "DiaryBlock", "type": "method", "name": "init"}, {"url": "DiaryItem.html#method_initContent", "access": "protected", "host": "DiaryItem", "type": "method", "name": "initContent"}, {"url": "YAHOO.widget.Diary.html#method_initData", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "initData"}, {"url": "DiaryItem.html#method_initListeners", "access": "protected", "host": "DiaryItem", "type": "method", "name": "initListeners"}, {"url": "YAHOO.widget.Diary.html#method_initListeners", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "initListeners"}, {"url": "YAHOO.widget.Diary.html#event_itemBeforeEndCreate", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemBeforeEndCreate"}, {"url": "DiaryItem.html#event_itemBeforeEndMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemBeforeEndMove"}, {"url": "YAHOO.widget.Diary.html#event_itemBeforeEndMove", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemBeforeEndMove"}, {"url": "YAHOO.widget.Diary.html#event_itemBeforeStartCreate", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemBeforeStartCreate"}, {"url": "DiaryItem.html#event_itemBeforeStartMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemBeforeStartMove"}, {"url": "YAHOO.widget.Diary.html#event_itemBeforeStartMove", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemBeforeStartMove"}, {"url": "YAHOO.widget.Diary.html#event_itemClick", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemClick"}, {"url": "YAHOO.widget.Diary.html#config_itemClickCreateNew", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "itemClickCreateNew"}, {"url": "YAHOO.widget.Diary.html#event_itemClickCreateNewChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemClickCreateNewChange"}, {"url": "YAHOO.widget.Diary.html#event_itemEndCreate", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemEndCreate"}, {"url": "DiaryItem.html#event_itemEndMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemEndMove"}, {"url": "YAHOO.widget.Diary.html#event_itemEndMove", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemEndMove"}, {"url": "YAHOO.widget.Diary.html#property__itemHash", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_itemHash"}, {"url": "YAHOO.widget.Diary.html#event_itemMouseEnter", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "itemMouseEnter"}, {"url": "DiaryBlock.html#property__items", "access": "protected", "host": "DiaryBlock", "type": "property", "name": "_items"}, {"url": "DiaryBlock.html#property__lines", "access": "protected", "host": "DiaryBlock", "type": "property", "name": "_lines"}, {"url": "DiaryItem.html#event_multiDayParentChange", "access": "", "host": "DiaryItem", "type": "event", "name": "multiDayParentChange"}, {"url": "DiaryItem.html#event_multiDayPositionChange", "access": "", "host": "DiaryItem", "type": "event", "name": "multiDayPositionChange"}, {"url": "YAHOO.widget.Diary.html#property__navCalendar", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_navCalendar"}, {"url": "DiaryDay.html#method_next", "access": "", "host": "DiaryDay", "type": "method", "name": "next"}, {"url": "YAHOO.widget.Diary.html#method__parseData", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_parseData"}, {"url": "YAHOO.widget.Diary.html#event_parseData", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "parseData"}, {"url": "DiaryDay.html#method_previous", "access": "", "host": "DiaryDay", "type": "method", "name": "previous"}, {"url": "DiaryItem.html#config_pxPerHour", "access": "", "host": "DiaryItem", "type": "config", "name": "pxPerHour"}, {"url": "YAHOO.widget.Diary.html#config_pxPerHour", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "pxPerHour"}, {"url": "DiaryItem.html#event_pxPerHourChange", "access": "", "host": "DiaryItem", "type": "event", "name": "pxPerHourChange"}, {"url": "YAHOO.widget.Diary.html#event_pxPerHourChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "pxPerHourChange"}, {"url": "DiaryDay.html#method__rebuildBlocks", "access": "protected", "host": "DiaryDay", "type": "method", "name": "_rebuildBlocks"}, {"url": "YAHOO.widget.Diary.html#method__reDo", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_reDo"}, {"url": "DiaryBlock.html#method_removeItem", "access": "", "host": "DiaryBlock", "type": "method", "name": "removeItem"}, {"url": "YAHOO.widget.Diary.html#method_removeItemFilter", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "removeItemFilter"}, {"url": "DiaryDay.html#method_removeItemFromBlock", "access": "", "host": "DiaryDay", "type": "method", "name": "removeItemFromBlock"}, {"url": "YAHOO.widget.Diary.html#method__removeListeners", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_removeListeners"}, {"url": "DiaryItem.html#method_render", "access": "", "host": "DiaryItem", "type": "method", "name": "render"}, {"url": "DiaryBlock.html#method_render", "access": "", "host": "DiaryBlock", "type": "method", "name": "render"}, {"url": "DiaryDay.html#method_render", "access": "", "host": "DiaryDay", "type": "method", "name": "render"}, {"url": "YAHOO.widget.Diary.html#method_render", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "render"}, {"url": "YAHOO.widget.Diary.html#event_render", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "render"}, {"url": "DiaryDay.html#method__renderBlocks", "access": "protected", "host": "DiaryDay", "type": "method", "name": "_renderBlocks"}, {"url": "DiaryDay.html#method__renderColumn", "access": "protected", "host": "DiaryDay", "type": "method", "name": "_renderColumn"}, {"url": "YAHOO.widget.Diary.html#method_renderDateLabel", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "renderDateLabel"}, {"url": "DiaryItem.html#method_renderDetails", "access": "", "host": "DiaryItem", "type": "method", "name": "renderDetails"}, {"url": "DiaryItem.html#method_renderEndTime", "access": "", "host": "DiaryItem", "type": "method", "name": "renderEndTime"}, {"url": "DiaryItem.html#method_renderFullDetails", "access": "", "host": "DiaryItem", "type": "method", "name": "renderFullDetails"}, {"url": "YAHOO.widget.Diary.html#method__renderNav", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_renderNav"}, {"url": "DiaryItem.html#method_renderStartTime", "access": "", "host": "DiaryItem", "type": "method", "name": "renderStartTime"}, {"url": "YAHOO.widget.Diary.html#method__renderTitle", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_renderTitle"}, {"url": "YAHOO.widget.Diary.html#method_renderTitle", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "renderTitle"}, {"url": "YAHOO.widget.Diary.html#method__renderTooltip", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_renderTooltip"}, {"url": "YAHOO.widget.Diary.html#method__resizeSelectorDiv", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_resizeSelectorDiv"}, {"url": "YAHOO.widget.Diary.html#config_scaleColumns", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "scaleColumns"}, {"url": "YAHOO.widget.Diary.html#event_scaleColumnsChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "scaleColumnsChange"}, {"url": "YAHOO.widget.Diary.html#property__selector", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_selector"}, {"url": "DiaryItem.html#method_setEndTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "setEndTimeDay"}, {"url": "DiaryItem.html#method_setEndTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "setEndTimeSecs"}, {"url": "DiaryItem.html#method_setLine", "access": "", "host": "DiaryItem", "type": "method", "name": "setLine"}, {"url": "DiaryItem.html#method_setStartTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "setStartTimeDay"}, {"url": "DiaryItem.html#method_setStartTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "setStartTimeSecs"}, {"url": "YAHOO.widget.Diary.html#method_setupDays", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "setupDays"}, {"url": "YAHOO.widget.Diary.html#method_showNavCalendar", "access": "", "host": "YAHOO.widget.Diary", "type": "method", "name": "showNavCalendar"}, {"url": "YAHOO.widget.Diary.html#config_startDate", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "startDate"}, {"url": "YAHOO.widget.Diary.html#event_startDateChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "startDateChange"}, {"url": "YAHOO.widget.Diary.html#method__startNewItem", "access": "protected", "host": "YAHOO.widget.Diary", "type": "method", "name": "_startNewItem"}, {"url": "DiaryBlock.html#property__startSecs", "access": "protected", "host": "DiaryBlock", "type": "property", "name": "_startSecs"}, {"url": "DiaryItem.html#config_SUMMARY", "access": "", "host": "DiaryItem", "type": "config", "name": "SUMMARY"}, {"url": "DiaryItem.html#event_SUMMARYChange", "access": "", "host": "DiaryItem", "type": "event", "name": "SUMMARYChange"}, {"url": "DiaryItem.html#property_TIME_SEPARATOR", "access": "", "host": "DiaryItem", "type": "property", "name": "TIME_SEPARATOR"}, {"url": "YAHOO.widget.Diary.html#config_titleString", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "titleString"}, {"url": "YAHOO.widget.Diary.html#event_titleStringChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "titleStringChange"}, {"url": "YAHOO.widget.Diary.html#property__tooltip", "access": "protected", "host": "YAHOO.widget.Diary", "type": "property", "name": "_tooltip"}, {"url": "YAHOO.widget.Diary.html#config_tooltip", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "tooltip"}, {"url": "YAHOO.widget.Diary.html#event_tooltipChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "tooltipChange"}, {"url": "DiaryBlock.html#method_toString", "access": "", "host": "DiaryBlock", "type": "method", "name": "toString"}, {"url": "DiaryItem.html#config_URL", "access": "", "host": "DiaryItem", "type": "config", "name": "URL"}, {"url": "DiaryItem.html#event_URLChange", "access": "", "host": "DiaryItem", "type": "event", "name": "URLChange"}, {"url": "DiaryItem.html#config_useAnimation", "access": "", "host": "DiaryItem", "type": "config", "name": "useAnimation"}, {"url": "DiaryItem.html#event_useAnimationChange", "access": "", "host": "DiaryItem", "type": "event", "name": "useAnimationChange"}, {"url": "DiaryDay.html#config_width", "access": "", "host": "DiaryDay", "type": "config", "name": "width"}, {"url": "YAHOO.widget.Diary.html#config_width", "access": "", "host": "YAHOO.widget.Diary", "type": "config", "name": "width"}, {"url": "DiaryDay.html#event_widthChange", "access": "", "host": "DiaryDay", "type": "event", "name": "widthChange"}, {"url": "YAHOO.widget.Diary.html#event_widthChange", "access": "", "host": "YAHOO.widget.Diary", "type": "event", "name": "widthChange"}];
 </script>
 </body>
 </html>

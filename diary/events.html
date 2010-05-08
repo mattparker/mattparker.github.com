@@ -33,7 +33,10 @@ margin:50px;
 <!-- Combo-handled YUI JS files: -->
 <script type="text/javascript" src="http://yui.yahooapis.com/combo?2.8.0r4/build/yahoo-dom-event/yahoo-dom-event.js&2.8.0r4/build/animation/animation-min.js&2.8.0r4/build/calendar/calendar-min.js&2.8.0r4/build/dragdrop/dragdrop-min.js&2.8.0r4/build/container/container-min.js&2.8.0r4/build/datasource/datasource-min.js&2.8.0r4/build/datemath/datemath-min.js&2.8.0r4/build/selector/selector-min.js&2.8.0r4/build/event-delegate/event-delegate-min.js&2.8.0r4/build/event-mouseenter/event-mouseenter-min.js&2.8.0r4/build/element/element-min.js&2.8.0r4/build/element-delegate/element-delegate-min.js&2.8.0r4/build/resize/resize-min.js"></script>
 
+
 <script type="text/javascript" src="http://github.com/mattparker/diary/raw/master/js/Diary.js"></script>
+
+
 
 <link rel="stylesheet" type="text/css" href="http://github.com/mattparker/diary/raw/master/css/yui-diary.css">
 <link rel="stylesheet" type="text/css" href="http://github.com/mattparker/diary/raw/master/css/skin/sam/yui-diary.css"> 
@@ -74,6 +77,9 @@ margin:50px;
  <div id="diary-outer">
   <div id="diary-test"></div>
  </div>
+ And one extra thing: destroy it completely: <button id="destroyDiary">destroy diary</button>
+ 
+ 
  <h2>Events</h2>
   <p>Diary provides quite a few events at the moment: check the 
   <a href="http://mattparker.github.com/diary/api/YAHOO.widget.Diary.html">API</a>
@@ -207,6 +213,11 @@ margin:50px;
         ob.item.set( "SUMMARY" , prompt( "Enter summary text:" ) );
         dataArr.push( { DTSTART: ob.item.get("DTSTART"), DTEND: ob.item.get("DTEND"), SUMMARY: ob.item.get("SUMMARY") } );
      });
+     
+     
+     
+     // Destroy the Diary
+     YAHOO.util.Event.on("destroyDiary", "click", function(){myDiary.destroy();});
   </script>
   
  </div>
