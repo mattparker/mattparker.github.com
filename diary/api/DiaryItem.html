@@ -4,11 +4,11 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<title>API: diary  DiaryItem   (YUI Library)</title>
 
-	<link rel="stylesheet" type="text/css" href="assets/reset-fonts-grids-min.css?stamp=1273870729.64" />
-	<link rel="stylesheet" type="text/css" href="assets/api.css?stamp=1273870729.64" />
+	<link rel="stylesheet" type="text/css" href="assets/reset-fonts-grids-min.css?stamp=1275080936.63" />
+	<link rel="stylesheet" type="text/css" href="assets/api.css?stamp=1275080936.63" />
 
-    <script type="text/javascript" src="assets/api-js?stamp=1273870729.64"></script>
-    <script type="text/javascript" src="assets/ac-js?stamp=1273870729.64"></script>
+    <script type="text/javascript" src="assets/api-js?stamp=1275080936.63"></script>
+    <script type="text/javascript" src="assets/ac-js?stamp=1275080936.63"></script>
 </head>
 
 <body id="yahoo-com">
@@ -371,6 +371,68 @@ come through properly.
 
                                         <div class="description">
 
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        void
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
+                                    <div class="" rel="yui:method" resource="#method_addCategory">
+                                    <h4>
+                                        <a name="method_addCategory">addCategory</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        void
+                                            <strong property="yui:name">addCategory</strong>
+                                           (
+                                                
+                                                        
+                                                         category
+                                                    
+                                                
+                                                        , 
+                                                         caseSensitive
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Adds a category to the existing ones, if it's not there
+already (using default case insensitive match
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">category</span>
+                                                        &lt;<span property="yui:type">String</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description">  Category string to check</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">caseSensitive</span>
+                                                        &lt;<span property="yui:type">Boolean</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description">  Whether to do case-sensitive match</span>
+                                                        </dd>
+                                                </dl>
 
                                                 <dl>
                                                     <dt>Returns:
@@ -885,6 +947,68 @@ and ids for editing and so on.
                                     </div>
                                     <hr />
                                     </div>
+                                    <div class="" rel="yui:method" resource="#method_hasCategory">
+                                    <h4>
+                                        <a name="method_hasCategory">hasCategory</a></h4>
+                                    <div class="detail" >
+                                        <code>
+                                        
+                                        
+                                        
+                                        Boolean
+                                            <strong property="yui:name">hasCategory</strong>
+                                           (
+                                                
+                                                        
+                                                         category
+                                                    
+                                                
+                                                        , 
+                                                         caseSensitive
+                                                    
+                                                
+                                            )
+                                        </code>
+                                        
+                                        <div class="description" property="yui:description">
+                                            Checks if Item has category passed.
+                                        </div>
+
+                                        <div class="description">
+
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">category</span>
+                                                        &lt;<span property="yui:type">String</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description">  Category string to check</span>
+                                                        </dd>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">caseSensitive</span>
+                                                        &lt;<span property="yui:type">Boolean</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description">  Whether to do case-sensitive match 
+(default false)</span>
+                                                        </dd>
+                                                </dl>
+
+                                                <dl>
+                                                    <dt>Returns:
+                                                    <code property="yui:return">
+                                                        Boolean
+                                                    </code></dt>
+                                                    <dd property="yui:returnInfo"></dd>
+                                                </dl>
+
+
+             
+
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    </div>
                                     <div class="protected" rel="yui:method" resource="#method_initContent">
                                     <h4>
                                         <a name="method_initContent">initContent</a></h4>
@@ -896,6 +1020,11 @@ and ids for editing and so on.
                                         void
                                             <strong property="yui:name">initContent</strong>
                                            (
+                                                
+                                                        
+                                                         el
+                                                    
+                                                
                                             )
                                         </code>
                                         
@@ -905,6 +1034,15 @@ and ids for editing and so on.
 
                                         <div class="description">
 
+                                                <dl rel="yui:parameters">
+                                                    <dt>Parameters:</dt>
+                                                        <dd rel="yui:parameter">
+                                                        <code><span property="yui:name">el</span>
+                                                        &lt;<span property="yui:type">HTMLElement|String</span>&gt;
+                                                        </code>
+                                                        <span property="yui:description">  Element passed to constructor</span>
+                                                        </dd>
+                                                </dl>
 
                                                 <dl>
                                                     <dt>Returns:
@@ -3420,7 +3558,7 @@ hyphens replacing spaces.
                                     </div>        
                                     <div class="" rel="yui:attribute" resource="#config_UID">
                                     <h4><a name="config_UID">UID</a>
-                                        <code>- <span property="yui:type">String</span></code>
+                                        <code>- <span property="yui:type">object</span></code>
                                     </h4>
                                     <div class="detail">
                                         <div class="description" property="yui:description">
@@ -3538,6 +3676,7 @@ will be changed to hyphens.
                                 <li class="protected"><a href="#method__handleDiaryDragOver" title="_handleDiaryDragOver">_handleDiaryDragOver</a></li>
                                 <li class="protected"><a href="#method__handleDiaryEndDrag" title="_handleDiaryEndDrag">_handleDiaryEndDrag</a></li>
                                 <li class="protected"><a href="#method__handleDiaryStartDrag" title="_handleDiaryStartDrag">_handleDiaryStartDrag</a></li>
+                                <li class=""><a href="#method_addCategory" title="addCategory">addCategory</a></li>
                                 <li class=""><a href="#method_addMultiDayChild" title="addMultiDayChild">addMultiDayChild</a></li>
                                 <li class=""><a href="#method_calcEndFromPosition" title="calcEndFromPosition">calcEndFromPosition</a></li>
                                 <li class=""><a href="#method_calcStartFromPosition" title="calcStartFromPosition">calcStartFromPosition</a></li>
@@ -3551,6 +3690,7 @@ will be changed to hyphens.
                                 <li class=""><a href="#method_getParentItem" title="getParentItem">getParentItem</a></li>
                                 <li class=""><a href="#method_getStartTimeDay" title="getStartTimeDay">getStartTimeDay</a></li>
                                 <li class=""><a href="#method_getStartTimeSecs" title="getStartTimeSecs">getStartTimeSecs</a></li>
+                                <li class=""><a href="#method_hasCategory" title="hasCategory">hasCategory</a></li>
                                 <li class="protected"><a href="#method_initContent" title="initContent">initContent</a></li>
                                 <li class="protected"><a href="#method_initListeners" title="initListeners">initListeners</a></li>
                                 <li class=""><a href="#method_render" title="render">render</a></li>
@@ -3641,7 +3781,7 @@ will be changed to hyphens.
 	</div>
 </div>
 <script type="text/javascript">
-    ALL_YUI_PROPS = [{"url": "DiaryItem.html#method_addMultiDayChild", "access": "", "host": "DiaryItem", "type": "method", "name": "addMultiDayChild"}, {"url": "DiaryItem.html#property_anim", "access": "", "host": "DiaryItem", "type": "property", "name": "anim"}, {"url": "DiaryItem.html#config_backClass", "access": "", "host": "DiaryItem", "type": "config", "name": "backClass"}, {"url": "DiaryItem.html#event_backClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "backClassChange"}, {"url": "DiaryItem.html#event_beforeBackClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeBackClassChange"}, {"url": "DiaryItem.html#event_beforeCATEGORIESChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeCATEGORIESChange"}, {"url": "DiaryItem.html#event_beforeColumnChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeColumnChange"}, {"url": "DiaryItem.html#event_beforeDESCRIPTIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDESCRIPTIONChange"}, {"url": "DiaryItem.html#event_beforeDetailClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDetailClassChange"}, {"url": "DiaryItem.html#event_before_displayDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "before_displayDTENDChange"}, {"url": "DiaryItem.html#event_before_displayDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "before_displayDTSTARTChange"}, {"url": "DiaryItem.html#event_beforeDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDTENDChange"}, {"url": "DiaryItem.html#event_beforeDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDTSTARTChange"}, {"url": "DiaryItem.html#event_beforeLOCATIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeLOCATIONChange"}, {"url": "DiaryItem.html#event_beforeMultiDayParentChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeMultiDayParentChange"}, {"url": "DiaryItem.html#event_beforeMultiDayPositionChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeMultiDayPositionChange"}, {"url": "DiaryItem.html#event_beforePxPerHourChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforePxPerHourChange"}, {"url": "DiaryItem.html#event_beforeSUMMARYChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeSUMMARYChange"}, {"url": "DiaryItem.html#event_beforeUIDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeUIDChange"}, {"url": "DiaryItem.html#event_beforeURLChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeURLChange"}, {"url": "DiaryItem.html#event_beforeUseAnimationChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeUseAnimationChange"}, {"url": "DiaryItem.html#event_beforeUseCssCategoriesChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeUseCssCategoriesChange"}, {"url": "DiaryItem.html#method_calcEndFromPosition", "access": "", "host": "DiaryItem", "type": "method", "name": "calcEndFromPosition"}, {"url": "DiaryItem.html#method_calcStartFromPosition", "access": "", "host": "DiaryItem", "type": "method", "name": "calcStartFromPosition"}, {"url": "DiaryItem.html#method_calculateHeight", "access": "", "host": "DiaryItem", "type": "method", "name": "calculateHeight"}, {"url": "DiaryItem.html#method_calculateTop", "access": "", "host": "DiaryItem", "type": "method", "name": "calculateTop"}, {"url": "DiaryItem.html#config_CATEGORIES", "access": "", "host": "DiaryItem", "type": "config", "name": "CATEGORIES"}, {"url": "DiaryItem.html#event_CATEGORIESChange", "access": "", "host": "DiaryItem", "type": "event", "name": "CATEGORIESChange"}, {"url": "DiaryItem.html#config_column", "access": "", "host": "DiaryItem", "type": "config", "name": "column"}, {"url": "DiaryItem.html#event_columnChange", "access": "", "host": "DiaryItem", "type": "event", "name": "columnChange"}, {"url": "DiaryItem.html#config_DESCRIPTION", "access": "", "host": "DiaryItem", "type": "config", "name": "DESCRIPTION"}, {"url": "DiaryItem.html#event_DESCRIPTIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DESCRIPTIONChange"}, {"url": "DiaryItem.html#method_destroy", "access": "", "host": "DiaryItem", "type": "method", "name": "destroy"}, {"url": "DiaryItem.html#event_destroy", "access": "", "host": "DiaryItem", "type": "event", "name": "destroy"}, {"url": "DiaryItem.html#config_detailClass", "access": "", "host": "DiaryItem", "type": "config", "name": "detailClass"}, {"url": "DiaryItem.html#event_detailClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "detailClassChange"}, {"url": "DiaryItem.html#event__displayDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "_displayDTENDChange"}, {"url": "DiaryItem.html#event__displayDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "_displayDTSTARTChange"}, {"url": "DiaryItem.html#property_dragdrop", "access": "", "host": "DiaryItem", "type": "property", "name": "dragdrop"}, {"url": "DiaryItem.html#config_DTEND", "access": "", "host": "DiaryItem", "type": "config", "name": "DTEND"}, {"url": "DiaryItem.html#event_DTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DTENDChange"}, {"url": "DiaryItem.html#config_DTSTART", "access": "", "host": "DiaryItem", "type": "config", "name": "DTSTART"}, {"url": "DiaryItem.html#event_DTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DTSTARTChange"}, {"url": "DiaryItem.html#method_getDiary", "access": "", "host": "DiaryItem", "type": "method", "name": "getDiary"}, {"url": "DiaryItem.html#method_getDisplayEndTimeSecs", "access": "protected", "host": "DiaryItem", "type": "method", "name": "getDisplayEndTimeSecs"}, {"url": "DiaryItem.html#method_getDisplayStartTimeSecs", "access": "protected", "host": "DiaryItem", "type": "method", "name": "getDisplayStartTimeSecs"}, {"url": "DiaryItem.html#method_getEndTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "getEndTimeSecs"}, {"url": "DiaryItem.html#method_getParentItem", "access": "", "host": "DiaryItem", "type": "method", "name": "getParentItem"}, {"url": "DiaryItem.html#method_getStartTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "getStartTimeDay"}, {"url": "DiaryItem.html#method_getStartTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "getStartTimeSecs"}, {"url": "DiaryItem.html#method__handleBeforeStartDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleBeforeStartDrag"}, {"url": "DiaryItem.html#method__handleDiaryDragEnter", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryDragEnter"}, {"url": "DiaryItem.html#method__handleDiaryDragOver", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryDragOver"}, {"url": "DiaryItem.html#method__handleDiaryEndDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryEndDrag"}, {"url": "DiaryItem.html#method__handleDiaryStartDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryStartDrag"}, {"url": "DiaryItem.html#method_initContent", "access": "protected", "host": "DiaryItem", "type": "method", "name": "initContent"}, {"url": "DiaryItem.html#method_initListeners", "access": "protected", "host": "DiaryItem", "type": "method", "name": "initListeners"}, {"url": "DiaryItem.html#event_itemBeforeEndMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemBeforeEndMove"}, {"url": "DiaryItem.html#event_itemBeforeStartMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemBeforeStartMove"}, {"url": "DiaryItem.html#event_itemEndMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemEndMove"}, {"url": "DiaryItem.html#config_LOCATION", "access": "", "host": "DiaryItem", "type": "config", "name": "LOCATION"}, {"url": "DiaryItem.html#event_LOCATIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "LOCATIONChange"}, {"url": "DiaryItem.html#event_multiDayParentChange", "access": "", "host": "DiaryItem", "type": "event", "name": "multiDayParentChange"}, {"url": "DiaryItem.html#event_multiDayPositionChange", "access": "", "host": "DiaryItem", "type": "event", "name": "multiDayPositionChange"}, {"url": "DiaryItem.html#config_pxPerHour", "access": "", "host": "DiaryItem", "type": "config", "name": "pxPerHour"}, {"url": "DiaryItem.html#event_pxPerHourChange", "access": "", "host": "DiaryItem", "type": "event", "name": "pxPerHourChange"}, {"url": "DiaryItem.html#method_render", "access": "", "host": "DiaryItem", "type": "method", "name": "render"}, {"url": "DiaryItem.html#method_renderDetails", "access": "", "host": "DiaryItem", "type": "method", "name": "renderDetails"}, {"url": "DiaryItem.html#method_renderEndTime", "access": "", "host": "DiaryItem", "type": "method", "name": "renderEndTime"}, {"url": "DiaryItem.html#method_renderFullDetails", "access": "", "host": "DiaryItem", "type": "method", "name": "renderFullDetails"}, {"url": "DiaryItem.html#method_renderStartTime", "access": "", "host": "DiaryItem", "type": "method", "name": "renderStartTime"}, {"url": "DiaryItem.html#method_setEndTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "setEndTimeDay"}, {"url": "DiaryItem.html#method_setEndTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "setEndTimeSecs"}, {"url": "DiaryItem.html#method_setLine", "access": "", "host": "DiaryItem", "type": "method", "name": "setLine"}, {"url": "DiaryItem.html#method_setStartTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "setStartTimeDay"}, {"url": "DiaryItem.html#method_setStartTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "setStartTimeSecs"}, {"url": "DiaryItem.html#config_SUMMARY", "access": "", "host": "DiaryItem", "type": "config", "name": "SUMMARY"}, {"url": "DiaryItem.html#event_SUMMARYChange", "access": "", "host": "DiaryItem", "type": "event", "name": "SUMMARYChange"}, {"url": "DiaryItem.html#property_TIME_SEPARATOR", "access": "", "host": "DiaryItem", "type": "property", "name": "TIME_SEPARATOR"}, {"url": "DiaryItem.html#config_UID", "access": "", "host": "DiaryItem", "type": "config", "name": "UID"}, {"url": "DiaryItem.html#event_UIDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "UIDChange"}, {"url": "DiaryItem.html#config_URL", "access": "", "host": "DiaryItem", "type": "config", "name": "URL"}, {"url": "DiaryItem.html#event_URLChange", "access": "", "host": "DiaryItem", "type": "event", "name": "URLChange"}, {"url": "DiaryItem.html#config_useAnimation", "access": "", "host": "DiaryItem", "type": "config", "name": "useAnimation"}, {"url": "DiaryItem.html#event_useAnimationChange", "access": "", "host": "DiaryItem", "type": "event", "name": "useAnimationChange"}, {"url": "DiaryItem.html#config_useCssCategories", "access": "", "host": "DiaryItem", "type": "config", "name": "useCssCategories"}, {"url": "DiaryItem.html#event_useCssCategoriesChange", "access": "", "host": "DiaryItem", "type": "event", "name": "useCssCategoriesChange"}];
+    ALL_YUI_PROPS = [{"url": "DiaryItem.html#method_addCategory", "access": "", "host": "DiaryItem", "type": "method", "name": "addCategory"}, {"url": "DiaryItem.html#method_addMultiDayChild", "access": "", "host": "DiaryItem", "type": "method", "name": "addMultiDayChild"}, {"url": "DiaryItem.html#property_anim", "access": "", "host": "DiaryItem", "type": "property", "name": "anim"}, {"url": "DiaryItem.html#config_backClass", "access": "", "host": "DiaryItem", "type": "config", "name": "backClass"}, {"url": "DiaryItem.html#event_backClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "backClassChange"}, {"url": "DiaryItem.html#event_beforeBackClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeBackClassChange"}, {"url": "DiaryItem.html#event_beforeCATEGORIESChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeCATEGORIESChange"}, {"url": "DiaryItem.html#event_beforeColumnChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeColumnChange"}, {"url": "DiaryItem.html#event_beforeDESCRIPTIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDESCRIPTIONChange"}, {"url": "DiaryItem.html#event_beforeDetailClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDetailClassChange"}, {"url": "DiaryItem.html#event_before_displayDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "before_displayDTENDChange"}, {"url": "DiaryItem.html#event_before_displayDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "before_displayDTSTARTChange"}, {"url": "DiaryItem.html#event_beforeDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDTENDChange"}, {"url": "DiaryItem.html#event_beforeDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeDTSTARTChange"}, {"url": "DiaryItem.html#event_beforeLOCATIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeLOCATIONChange"}, {"url": "DiaryItem.html#event_beforeMultiDayParentChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeMultiDayParentChange"}, {"url": "DiaryItem.html#event_beforeMultiDayPositionChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeMultiDayPositionChange"}, {"url": "DiaryItem.html#event_beforePxPerHourChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforePxPerHourChange"}, {"url": "DiaryItem.html#event_beforeSUMMARYChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeSUMMARYChange"}, {"url": "DiaryItem.html#event_beforeUIDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeUIDChange"}, {"url": "DiaryItem.html#event_beforeURLChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeURLChange"}, {"url": "DiaryItem.html#event_beforeUseAnimationChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeUseAnimationChange"}, {"url": "DiaryItem.html#event_beforeUseCssCategoriesChange", "access": "", "host": "DiaryItem", "type": "event", "name": "beforeUseCssCategoriesChange"}, {"url": "DiaryItem.html#method_calcEndFromPosition", "access": "", "host": "DiaryItem", "type": "method", "name": "calcEndFromPosition"}, {"url": "DiaryItem.html#method_calcStartFromPosition", "access": "", "host": "DiaryItem", "type": "method", "name": "calcStartFromPosition"}, {"url": "DiaryItem.html#method_calculateHeight", "access": "", "host": "DiaryItem", "type": "method", "name": "calculateHeight"}, {"url": "DiaryItem.html#method_calculateTop", "access": "", "host": "DiaryItem", "type": "method", "name": "calculateTop"}, {"url": "DiaryItem.html#config_CATEGORIES", "access": "", "host": "DiaryItem", "type": "config", "name": "CATEGORIES"}, {"url": "DiaryItem.html#event_CATEGORIESChange", "access": "", "host": "DiaryItem", "type": "event", "name": "CATEGORIESChange"}, {"url": "DiaryItem.html#config_column", "access": "", "host": "DiaryItem", "type": "config", "name": "column"}, {"url": "DiaryItem.html#event_columnChange", "access": "", "host": "DiaryItem", "type": "event", "name": "columnChange"}, {"url": "DiaryItem.html#config_DESCRIPTION", "access": "", "host": "DiaryItem", "type": "config", "name": "DESCRIPTION"}, {"url": "DiaryItem.html#event_DESCRIPTIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DESCRIPTIONChange"}, {"url": "DiaryItem.html#method_destroy", "access": "", "host": "DiaryItem", "type": "method", "name": "destroy"}, {"url": "DiaryItem.html#event_destroy", "access": "", "host": "DiaryItem", "type": "event", "name": "destroy"}, {"url": "DiaryItem.html#config_detailClass", "access": "", "host": "DiaryItem", "type": "config", "name": "detailClass"}, {"url": "DiaryItem.html#event_detailClassChange", "access": "", "host": "DiaryItem", "type": "event", "name": "detailClassChange"}, {"url": "DiaryItem.html#event__displayDTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "_displayDTENDChange"}, {"url": "DiaryItem.html#event__displayDTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "_displayDTSTARTChange"}, {"url": "DiaryItem.html#property_dragdrop", "access": "", "host": "DiaryItem", "type": "property", "name": "dragdrop"}, {"url": "DiaryItem.html#config_DTEND", "access": "", "host": "DiaryItem", "type": "config", "name": "DTEND"}, {"url": "DiaryItem.html#event_DTENDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DTENDChange"}, {"url": "DiaryItem.html#config_DTSTART", "access": "", "host": "DiaryItem", "type": "config", "name": "DTSTART"}, {"url": "DiaryItem.html#event_DTSTARTChange", "access": "", "host": "DiaryItem", "type": "event", "name": "DTSTARTChange"}, {"url": "DiaryItem.html#method_getDiary", "access": "", "host": "DiaryItem", "type": "method", "name": "getDiary"}, {"url": "DiaryItem.html#method_getDisplayEndTimeSecs", "access": "protected", "host": "DiaryItem", "type": "method", "name": "getDisplayEndTimeSecs"}, {"url": "DiaryItem.html#method_getDisplayStartTimeSecs", "access": "protected", "host": "DiaryItem", "type": "method", "name": "getDisplayStartTimeSecs"}, {"url": "DiaryItem.html#method_getEndTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "getEndTimeSecs"}, {"url": "DiaryItem.html#method_getParentItem", "access": "", "host": "DiaryItem", "type": "method", "name": "getParentItem"}, {"url": "DiaryItem.html#method_getStartTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "getStartTimeDay"}, {"url": "DiaryItem.html#method_getStartTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "getStartTimeSecs"}, {"url": "DiaryItem.html#method__handleBeforeStartDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleBeforeStartDrag"}, {"url": "DiaryItem.html#method__handleDiaryDragEnter", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryDragEnter"}, {"url": "DiaryItem.html#method__handleDiaryDragOver", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryDragOver"}, {"url": "DiaryItem.html#method__handleDiaryEndDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryEndDrag"}, {"url": "DiaryItem.html#method__handleDiaryStartDrag", "access": "protected", "host": "DiaryItem", "type": "method", "name": "_handleDiaryStartDrag"}, {"url": "DiaryItem.html#method_hasCategory", "access": "", "host": "DiaryItem", "type": "method", "name": "hasCategory"}, {"url": "DiaryItem.html#method_initContent", "access": "protected", "host": "DiaryItem", "type": "method", "name": "initContent"}, {"url": "DiaryItem.html#method_initListeners", "access": "protected", "host": "DiaryItem", "type": "method", "name": "initListeners"}, {"url": "DiaryItem.html#event_itemBeforeEndMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemBeforeEndMove"}, {"url": "DiaryItem.html#event_itemBeforeStartMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemBeforeStartMove"}, {"url": "DiaryItem.html#event_itemEndMove", "access": "", "host": "DiaryItem", "type": "event", "name": "itemEndMove"}, {"url": "DiaryItem.html#config_LOCATION", "access": "", "host": "DiaryItem", "type": "config", "name": "LOCATION"}, {"url": "DiaryItem.html#event_LOCATIONChange", "access": "", "host": "DiaryItem", "type": "event", "name": "LOCATIONChange"}, {"url": "DiaryItem.html#event_multiDayParentChange", "access": "", "host": "DiaryItem", "type": "event", "name": "multiDayParentChange"}, {"url": "DiaryItem.html#event_multiDayPositionChange", "access": "", "host": "DiaryItem", "type": "event", "name": "multiDayPositionChange"}, {"url": "DiaryItem.html#config_pxPerHour", "access": "", "host": "DiaryItem", "type": "config", "name": "pxPerHour"}, {"url": "DiaryItem.html#event_pxPerHourChange", "access": "", "host": "DiaryItem", "type": "event", "name": "pxPerHourChange"}, {"url": "DiaryItem.html#method_render", "access": "", "host": "DiaryItem", "type": "method", "name": "render"}, {"url": "DiaryItem.html#method_renderDetails", "access": "", "host": "DiaryItem", "type": "method", "name": "renderDetails"}, {"url": "DiaryItem.html#method_renderEndTime", "access": "", "host": "DiaryItem", "type": "method", "name": "renderEndTime"}, {"url": "DiaryItem.html#method_renderFullDetails", "access": "", "host": "DiaryItem", "type": "method", "name": "renderFullDetails"}, {"url": "DiaryItem.html#method_renderStartTime", "access": "", "host": "DiaryItem", "type": "method", "name": "renderStartTime"}, {"url": "DiaryItem.html#method_setEndTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "setEndTimeDay"}, {"url": "DiaryItem.html#method_setEndTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "setEndTimeSecs"}, {"url": "DiaryItem.html#method_setLine", "access": "", "host": "DiaryItem", "type": "method", "name": "setLine"}, {"url": "DiaryItem.html#method_setStartTimeDay", "access": "", "host": "DiaryItem", "type": "method", "name": "setStartTimeDay"}, {"url": "DiaryItem.html#method_setStartTimeSecs", "access": "", "host": "DiaryItem", "type": "method", "name": "setStartTimeSecs"}, {"url": "DiaryItem.html#config_SUMMARY", "access": "", "host": "DiaryItem", "type": "config", "name": "SUMMARY"}, {"url": "DiaryItem.html#event_SUMMARYChange", "access": "", "host": "DiaryItem", "type": "event", "name": "SUMMARYChange"}, {"url": "DiaryItem.html#property_TIME_SEPARATOR", "access": "", "host": "DiaryItem", "type": "property", "name": "TIME_SEPARATOR"}, {"url": "DiaryItem.html#config_UID", "access": "", "host": "DiaryItem", "type": "config", "name": "UID"}, {"url": "DiaryItem.html#event_UIDChange", "access": "", "host": "DiaryItem", "type": "event", "name": "UIDChange"}, {"url": "DiaryItem.html#config_URL", "access": "", "host": "DiaryItem", "type": "config", "name": "URL"}, {"url": "DiaryItem.html#event_URLChange", "access": "", "host": "DiaryItem", "type": "event", "name": "URLChange"}, {"url": "DiaryItem.html#config_useAnimation", "access": "", "host": "DiaryItem", "type": "config", "name": "useAnimation"}, {"url": "DiaryItem.html#event_useAnimationChange", "access": "", "host": "DiaryItem", "type": "event", "name": "useAnimationChange"}, {"url": "DiaryItem.html#config_useCssCategories", "access": "", "host": "DiaryItem", "type": "config", "name": "useCssCategories"}, {"url": "DiaryItem.html#event_useCssCategoriesChange", "access": "", "host": "DiaryItem", "type": "event", "name": "useCssCategoriesChange"}];
 </script>
 </body>
 </html>
