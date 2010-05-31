@@ -41,6 +41,9 @@ body {
   <li>
    <a href="../treeviewlite/">TreeviewLite</a>
   </li>
+  <li>
+   <a href="../diary/">Diary</a>
+  </li>
  </ul>
 </div>
 
@@ -52,7 +55,7 @@ body {
 	<p>This is where I'm sticking YUI related code, docs, examples and things.</p> 
 	<p>There's not so much just yet...</p>
 	
- <h2>Resize</h2>
+ <h2>YUI3 Resize</h2>
   <p>There's a few examples for my <a href="http://yuilibrary.com/gallery/show/resize" title="resize gallery plugin">
      resize gallery plugin</a> <a href="resize/index.html">here</a>.  Resize is not a
      port of the YUI2 resize, but respects its API so using this after YUI2
@@ -63,7 +66,7 @@ body {
       <li><a href="resize/demo-wrap.html">Discussion about wrapping elements and plugins, and another example</a></li>
      </ul>
      
- <h2>TreeviewLite</h2>
+ <h2>YUI3 TreeviewLite</h2>
   <p>TreeviewLite is <a href="http://yuilibrary.com/gallery/show/treeviewlite" title="YUI gallery treeviewlite page">
   another gallery plugin</a> trying to be a really lightweight treeview.  
   There's already a port of the YUI2 version with lots of fancies, but if you
@@ -78,6 +81,35 @@ body {
       <li><a href="treeviewlite/index.html">Introduction and basic example</a></li>
       <li><a href="treeviewlite/sortable.html">Efforts to combine Sortable and TreeviewLite</a></li>
      </ul>
+     
+  <h2>YUI2 Diary</h2>
+   <p>Diary is a YUI2 based calendaring widget.  It takes a datasource and displays
+   events (in the 10am Doctors sense of event, not onclick!) on a weekly, daily 
+   or monthly calendar.  All events are resizeable and 
+   drag-droppable to change their timings.  You can also click and drag to create
+   new events.  It's fairly easy to use categories and other things to set up filter
+   items on the diary (ie show/hide personal events).  There's lots of events 
+   (this time in the onclick sense) to allow you to respond to changes to the data.
+   The first port of call should be <a href="diary/index.html">here</a> to get 
+   an introduction to setting it all up.
+   </p>
+   <p>We're just starting to put it onto our live app for testing; I'm fairly
+   happy the js is about right now.</p>
+   <h3>Examples</h3>
+    <ul>
+      <li><a href="diary/simple.html">A simple example</a></li>
+      <li><a href="diary/filtered.html">Mapping your data fields to what Diary expects, 
+           and adding filters to the diary</a></li>
+      <li><a href="diary/multiday.html">Displaying and creating multi-day items on the Diary.</a></li>
+      <li><a href="diary/events.html">Some interesting events example.</a></li>
+      <li><a href="diary/config.html">The configuration object - all options explained a bit.</a></li>
+    </ul>
+   <h3>API</h3>
+    <p>API docs are <a href="diary/api/index.html">here</a>.  The principal object is the Diary; you'll
+    also come into contact with DiaryItems (ie individual appointments).
+   
+   
+   
 </div>
 </div>
 

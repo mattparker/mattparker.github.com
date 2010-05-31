@@ -16,8 +16,8 @@
 <!--
 <script type="text/javascript" src="http://github.com/mattparker/yui3-gallery/raw/master/src/gallery-treeview-lite/js/treeview-lite.js"></script> 
 -->
-<link rel="stylesheet" type="text/css" href="http://github.com/mattparker/yui3-gallery/raw/master/src/gallery-treeview-lite/assets/gallery-treeviewlite-core.css"/>
-<link rel="stylesheet" type="text/css" href="http://github.com/mattparker/yui3-gallery/raw/master/src/gallery-treeview-lite/assets/skins/sam/gallery-treeviewlite-skin.css"/>
+<link rel="stylesheet" type="text/css" href="http://github.com/mattparker/yui3-gallery/raw/master/src/gallery-treeviewlite/assets/gallery-treeviewlite-core.css"/>
+<link rel="stylesheet" type="text/css" href="http://github.com/mattparker/yui3-gallery/raw/master/src/gallery-treeviewlite/assets/skins/sam/gallery-treeviewlite-skin.css"/>
  
 </head> 
  
@@ -35,6 +35,9 @@
   </li>
   <li>
    <a href="../treeviewlite/">TreeviewLite</a>
+  </li>
+  <li>
+   <a href="../diary/">Diary</a>
   </li>
  </ul>
 </div>
@@ -89,13 +92,13 @@ tree; in this example, the &lt;ol&gt; with id="myOlList", like so:</p>
 <code>
 YUI().use('gallery-treeviewlite', function(Y) {
  
- Y.one( "#myOlList" ).plug( Y.Plugin.TreeviewLite );
+ Y.one( "#myOlList2" ).plug( Y.Plugin.TreeviewLite );
  
 });
 </code>
 <p>which will render this:</p>
 <div class="example">
-<ol id="myOlList2">
+<ol id="myOlList">
  <li><span>item 1</span></li>
  <li><span>item 2</span>
   <ul>
@@ -188,8 +191,10 @@ welcome!</p>
 
 <!-- until it's in the gallery here's the treeview code too: -->
 <script type="text/javascript">
-YUI().use( 'classnamemanager', 'node','plugin', function(Y) {
-        /**
+
+YUI.add('gallery-treeviewlite', function(Y) {
+
+       /**
         * Simple Treeview
         *
         * Copyright (c) 2010 Matt Parker, Lamplight Database Systems Ltd
@@ -265,10 +270,8 @@ YUI().use( 'classnamemanager', 'node','plugin', function(Y) {
              */
             initializer: function(){
             
-              var host = this.get(HOST);
-              
+
               this.renderUI();
-                
               this.bindUI();
                 
 
@@ -315,6 +318,7 @@ YUI().use( 'classnamemanager', 'node','plugin', function(Y) {
               });            
             },
 
+
             /**
              * <p>Adds a delegated listener to the top of the tree
              * to open toggle the collapsed state of any list item
@@ -345,14 +349,14 @@ YUI().use( 'classnamemanager', 'node','plugin', function(Y) {
                      /**
                       * <p>Event fired when a list is opened</p>
                       * @event open
-                      * @param {EventFacade} e Event object
+                      * @param {EventFacade} ev Event object
                       */
-                     this.fire( "open", ev );
+                     this.fire( "open" , ev );
                    } else {
                      /**
                       * <p>Event fired when a list is collapsed</p>
                       * @event collapse
-                      * @param {EventFacade} e Event object
+                      * @param {EventFacade} ev Event object
                       */
                      this.fire( "collapse" , ev );
                    }
@@ -369,10 +373,18 @@ YUI().use( 'classnamemanager', 'node','plugin', function(Y) {
         
         
         Y.Plugin.TreeviewLite = TreeviewLite;
-        
-        
- Y.one( "#myOlList2" ).plug( Y.Plugin.TreeviewLite );
 
+
+
+}, '@VERSION@' ,{requires:['node','plugin','classnamemanager']});
+
+
+YUI().use( 'node','gallery-treeviewlite', function(Y) {
+
+        
+        
+ Y.one( "#myOlList" ).plug( Y.Plugin.TreeviewLite );
+console.log(Y.one("#myOlList"));
 
  var myTvListener = function(ev){
    Y.one("#eventLog").append( 
@@ -380,8 +392,8 @@ YUI().use( 'classnamemanager', 'node','plugin', function(Y) {
    );
  }
 
- Y.one( "#myOlList2" ).treeviewLite.on( "open" , myTvListener );
- Y.one( "#myOlList2" ).treeviewLite.on( "collapse" , myTvListener );  
+ Y.one( "#myOlList" ).treeviewLite.on( "open" , myTvListener );
+ Y.one( "#myOlList" ).treeviewLite.on( "collapse" , myTvListener );  
 });
 </script>
 

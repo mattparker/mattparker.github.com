@@ -71,6 +71,9 @@ body {
   <li>
    <a href="../treeviewlite/">TreeviewLite</a>
   </li>
+  <li>
+   <a href="../diary/">Diary</a>
+  </li>
  </ul>
 </div>
 
@@ -102,8 +105,8 @@ body {
       // whether to use a YAHOO.widget.Calendar in the navigation
       calenderNav: true,
       
-      // display format: times as 24 hr.  the only format currently is "week";
-      // others (e.g. "month") are planned.  startTime and endTime determine the size of the 
+      // display format: times as 24 hr.  formats can be "day", "month", or "week"
+      // (the default).  startTime and endTime determine the size of the 
       // visible window and how far down it's scrolled, so that initially you 
       // should see 8am to 6pm (in this example).
       display: { format: "week" , startTime: 8, endTime: 18 }, 
@@ -118,8 +121,7 @@ body {
       
       // width of the Diary container, as a number in pixels.  If a width is set 
       // on the container, and no value is passed here, Diary will use the width
-      // of the element.  This is used (not quite perfectly at the moment) to 
-      // work out the width of the columns.
+      // of the element.  This is used to  work out the width of the columns.
       width: 800,
       
       // A string used to render the title of the Diary.  You can use strftime
@@ -146,7 +148,7 @@ body {
       // it doesn't work too well at the moment - it can be a bit slow or 
       // appear in the top left, because it uses a single Tooltip and changes
       // the context whenever you mouse over.  I think there's a better way to 
-      // do this...
+      // do this..
       tooltip: true,
       
       // whether to animate movement of DiaryItems.
