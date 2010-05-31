@@ -139,7 +139,11 @@ body {
       itemClickCreateNew: true, 
       
       // maps your datasource fields to the fields that Diary expects.  See
-      // the 'filtering' example for more on this.
+      // the 'filtering' example for more on this.  You can use strings
+      // to map single fields in your data to single fields in the diary,
+      // or you can pass a function, whose only argument is the data source
+      // and which must return the value to be assigned to the DiaryItem
+      // field.
       fieldMap: {
         backClass: "category"
       },
@@ -155,7 +159,17 @@ body {
       useAnimation: true,
       
       // change the height of the diary: number of pixels per hour
-      pxPerHour: 40
+      pxPerHour: 40,
+      
+      // NEW: (31/5/2010, v1.2) Whether to make sure the first day displayed
+      // in week or month views is a particular day.  Pass the index of the
+      // day you want first (i.e. 0 = Sunday).  False means that any day can
+      // be the first in the view, and it might change as they navigate around.
+      keepFirstDay: 1,
+      
+      // locale: uses YAHOO.util.DateLocale locales to render strings
+      locale: "en-GB",
+      
      };
   </code>
   

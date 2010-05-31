@@ -4,11 +4,11 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<title>API: diary  YAHOO.widget.Diary   (YUI Library)</title>
 
-	<link rel="stylesheet" type="text/css" href="assets/reset-fonts-grids-min.css?stamp=1275335199.86" />
-	<link rel="stylesheet" type="text/css" href="assets/api.css?stamp=1275335199.86" />
+	<link rel="stylesheet" type="text/css" href="assets/reset-fonts-grids-min.css?stamp=1275335773.77" />
+	<link rel="stylesheet" type="text/css" href="assets/api.css?stamp=1275335773.77" />
 
-    <script type="text/javascript" src="assets/api-js?stamp=1275335199.86"></script>
-    <script type="text/javascript" src="assets/ac-js?stamp=1275335199.86"></script>
+    <script type="text/javascript" src="assets/api-js?stamp=1275335773.77"></script>
+    <script type="text/javascript" src="assets/ac-js?stamp=1275335773.77"></script>
 </head>
 
 <body id="yahoo-com">
@@ -4789,7 +4789,7 @@ Write once.
 and start and end times (in 24-hour clock hours) displayed
 in the main window (the rest are above and below the scroll.
 <pre>{ format: "week", startTime: 8, endTime: 20 }</pre>.
-The only format available currently is "week".  Write once.
+Formats available are "day", "week", and "month".
                                         </div>
                                     </div>
  
@@ -4833,7 +4833,8 @@ to show or hide items by category.</p>
 <p>DTSTART and DTEND need to be strings; but other values may be
 functions.  These functions are called on the Diary instance (i.e.
 this in your function is the Diary, and receive the raw data literal
-as their only argument.</p>
+as their only argument.  They must return the actual value, not
+a field name.</p>
 Write once
                                         </div>
                                     </div>
@@ -4951,7 +4952,8 @@ YAHOO.util.Date</a> and YAHOO.util.DateLocale. For more info.
                                     </h4>
                                     <div class="detail">
                                         <div class="description" property="yui:description">
-                                            When to start the diary display from
+                                            When to start the diary display from.  Will change this
+to the correct day if keepFirstDay is set.
                                         </div>
                                     </div>
  

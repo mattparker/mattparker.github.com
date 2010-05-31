@@ -4,11 +4,11 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<title>API: diary   Diary.js  (YUI Library)</title>
 
-	<link rel="stylesheet" type="text/css" href="assets/reset-fonts-grids-min.css?stamp=1275335199.86" />
-	<link rel="stylesheet" type="text/css" href="assets/api.css?stamp=1275335199.86" />
+	<link rel="stylesheet" type="text/css" href="assets/reset-fonts-grids-min.css?stamp=1275335773.77" />
+	<link rel="stylesheet" type="text/css" href="assets/api.css?stamp=1275335773.77" />
 
-    <script type="text/javascript" src="assets/api-js?stamp=1275335199.86"></script>
-    <script type="text/javascript" src="assets/ac-js?stamp=1275335199.86"></script>
+    <script type="text/javascript" src="assets/api-js?stamp=1275335773.77"></script>
+    <script type="text/javascript" src="assets/ac-js?stamp=1275335773.77"></script>
 </head>
 
 <body id="yahoo-com">
@@ -2184,7 +2184,8 @@
 
            <span class="cm">/**</span>
 <span class="cm">            * @attribute startDate</span>
-<span class="cm">            * @description When to start the diary display from</span>
+<span class="cm">            * @description When to start the diary display from.  Will change this</span>
+<span class="cm">            * to the correct day if keepFirstDay is set.</span>
 <span class="cm">            * @type {Date}</span>
 <span class="cm">            */</span>
            <span class="k">this</span><span class="p">.</span><span class="nx">setAttributeConfig</span><span class="p">(</span><span class="s1">&#39;startDate&#39;</span><span class="p">,</span> <span class="p">{</span>
@@ -2231,7 +2232,7 @@
 <span class="cm">            * and start and end times (in 24-hour clock hours) displayed</span>
 <span class="cm">            * in the main window (the rest are above and below the scroll.</span>
 <span class="cm">            * &lt;pre&gt;{ format: &quot;week&quot;, startTime: 8, endTime: 20 }&lt;/pre&gt;.</span>
-<span class="cm">            * The only format available currently is &quot;week&quot;.  Write once.</span>
+<span class="cm">            * Formats available are &quot;day&quot;, &quot;week&quot;, and &quot;month&quot;.</span>
 <span class="cm">            * @type Object</span>
 <span class="cm">            * @default &lt;pre&gt;{ format: &quot;week&quot;, startTime: 8, endTime: 20 }&lt;/pre&gt;</span>
 <span class="cm">            */</span>  
@@ -2370,7 +2371,8 @@
 <span class="cm">            * &lt;p&gt;DTSTART and DTEND need to be strings; but other values may be</span>
 <span class="cm">            * functions.  These functions are called on the Diary instance (i.e.</span>
 <span class="cm">            * this in your function is the Diary, and receive the raw data literal</span>
-<span class="cm">            * as their only argument.&lt;/p&gt;</span>
+<span class="cm">            * as their only argument.  They must return the actual value, not</span>
+<span class="cm">            * a field name.&lt;/p&gt;</span>
 <span class="cm">            *</span>
 <span class="cm">            * Write once</span>
 <span class="cm">            *</span>
