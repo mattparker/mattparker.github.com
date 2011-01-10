@@ -107,6 +107,11 @@
  
  <h2>An example</h2>
  
+ <p>Here's a fairly simple datatable, with sortable and movable columns, and a
+ paginator.  The 'add row' etc buttons do what they say, so you can see the
+ effects of programatically changing the datatable.
+ </p>
+ 
 <div id="basic"></div>
 
 <div id="controls">
@@ -218,6 +223,7 @@
   of methods on the YAHOO.util.Stats class - meaning you can add methods to the 
   prototype of YAHOO.util.Stats and have them available as summary stats in your
   datatable, if you want other statistics.  Currently you can choose from:
+  </p>
    <ul>
     <li>sum</li>
     <li>mean</li>
@@ -230,6 +236,7 @@
     <li>variance</li>
     <li>varianceUnbiased</li>
    </ul>
+   <p>
    If you do this, the attribute setter will normalise the array of strings to
    an array of objects.
   </p>
@@ -241,6 +248,14 @@
   This function needs to return a value for the summary, which will then be 
   formatted (if possible) and rendered.
   </p>
+  
+  <p>Or you can use a mixture of strings and object literals!</p>
+  
+  
+  <p>Any comments, bugs etc, please put them on the github issue tracker
+  <a href="https://github.com/mattparker/Yui-DataTable-extension-summary-statistics"
+  >https://github.com/mattparker/Yui-DataTable-extension-summary-statistics</a>.
+  Thanks.
  
 
 
