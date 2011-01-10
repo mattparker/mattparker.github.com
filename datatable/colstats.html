@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- @(#) $Id$ -->
+<head>
+	<title>Datatable with summary</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/fonts/fonts-min.css" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/datatable/assets/skins/sam/datatable.css" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/menu/assets/skins/sam/menu.css"/>
+
+
+
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/dragdrop/dragdrop-min.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/element/element-min.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/paginator/paginator-min.js"></script> 
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/datasource/datasource-min.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/datatable/datatable.js"></script>
+
+
+<script src="http://yui.yahooapis.com/2.8.2r1/build/container/container_core-min.js"></script>
+ 
+<!-- Source File -->
+<script src="http://yui.yahooapis.com/2.8.2r1/build/menu/menu-min.js"></script>
+
+
+
+<script type="text/javascript" src="https://github.com/mattparker/Yui-DataTable-extension-summary-statistics/raw/master/YAHOO_DataSource_patch.js"></script>
+<script type="text/javascript" src="https://github.com/mattparker/Yui-DataTable-extension-summary-statistics/raw/master/YAHOO_util_Stats.js"></script>
+<script type="text/javascript" src="https://github.com/mattparker/Yui-DataTable-extension-summary-statistics/raw/master/YAHOO_DataTable_colStats.js"></script>
+
+<style type="text/css">
+ #controls{
+   margin: 2em;
+ }
+ #controls span{
+   padding: 0.5em; 
+   margin: 0.5em;
+   border: 1px solid gray;
+ }
+ .yui-skin-sam .yui-dt tfoot{
+
+ }
+ .yui-skin-sam .yui-dt tfoot tr.yui-dt-first td{
+   padding-top: 6px;
+   border-top: 2px solid black
+ }
+ .yui-skin-sam .yui-dt tfoot td{
+    font-weight: bold;
+ }
+</style>
+
+</head>
+<body class="yui-skin-sam">
+
+<div id="basic"></div>
+
+<div id="controls">
+<span id="addrow">add row</span>
+<span id="addrows">add 2 rows</span>
+<span id="delrow">delete row</span>
+<span id="delrows">delete 2 rows</span>
+<span id="addcol">add col</span>
+<span id="delcol">del col</span>
+
+</div>
+
+<script type="text/javascript">
+YAHOO.util.Event.addListener(window, "load", function() {
+
+
+
+
+
+
+
+ var bookorders = [
+        {id:"po-0167", date:new Date(1980, 2, 24), quantity:1, amount:4, title:"A Book About Nothing",
+        description: "Lorem ipsum dolor sit amet consectetuer Quisque ipsum suscipit Aenean ligula. Accumsan molestie nibh dui orci vitae auctor nec pulvinar ligula elit."},
+        {id:"po-0783", date:new Date("January 3, 1983"), quantity:0, amount:12.12345, title:"The Meaning of Life",
+        description: "Vestibulum scelerisque wisi adipiscing turpis odio Phasellus euismod id orci tristique. Hendrerit sem dictum volutpat cursus pretium dui vitae tincidunt Vivamus Aenean."},
+        {id:"po-0297", date:new Date(1978, 11, 12), quantity:"12", amount:1.25, title:"This Book Was Meant to Be Read Aloud",
+        description: "Malesuada pellentesque nibh magna nisl tincidunt wisi dui Nam nunc convallis. Adipiscing leo augue Nulla tellus nec eros metus cursus pretium Sed."},
+        {id:"po-1482", date:new Date("March 11, 1985"), quantity:6, amount:3.5, title:"Read Me Twice",
+        description: "Libero justo pede nibh tincidunt ut tempus metus et Vestibulum vel. Sem justo morbi lacinia dui turpis In Lorem dictumst volutpat cursus."}
+    ];
+
+
+
+        var myColumnDefs = [
+            {key:"id", sortable:true, resizeable:true},
+            {key:"date", formatter:YAHOO.widget.DataTable.formatDate, sortable:true, sortOptions:{defaultDir:YAHOO.widget.DataTable.CLASS_DESC},resizeable:true},
+            {key:"quantity", formatter:YAHOO.widget.DataTable.formatNumber, sortable:true, resizeable:true, 
+              editor: new YAHOO.widget.TextboxCellEditor(), columnStats: true},
+            {key:"amount", formatter:YAHOO.widget.DataTable.formatCurrency, sortable:true, resizeable:true,
+              editor: new YAHOO.widget.TextboxCellEditor(), columnStats: true},
+            {key:"title", sortable:true, resizeable:true}
+        ];
+
+        var myDataSource = new YAHOO.util.DataSource(bookorders);
+        myDataSource.responseType = YAHOO.util.DataSource.TYPE_JSARRAY;
+        myDataSource.responseSchema = {
+            fields: ["id","date",{key: "quantity", parser: "number"},{key: "amount", parser: "number"},"title"]
+        };
+
+         myDataTable = new YAHOO.LPLT.DataTable("basic", myColumnDefs, myDataSource, {
+           caption:"DataTable Caption", 
+           showColumnChooser: true,
+           columnStats: {on: true, pagedTotals: false, stats: [
+              
+              // Custom summary function:
+              {label: 'Weighted mean', fn: function(stats, allStats, oCol) {
+                
+                // stats is the YAHOO.util.Stats instance for this column
+                // allStats is an object literal with all the Stats instances
+                // for 'summarisable' columns
+                // oCol is the column instance
+                // this is the DataTable instance
+                
+                // This example works out a weighted mean - ie. mean sales value
+                
+                var i, tot = 0, ds;
+                
+                if (oCol.key == "amount") {
+                  if (allStats.quantity.stats.sum() == 0) {
+                    return '';
+                  }
+                  
+                  // This returns either the visible recordset (if pagedTotals is true)
+                  // or the entire recordset (if pagedTotals is false)
+                  ds = this.colStatsGetRecordSet();
+                  
+                  for (i = 0; i < ds.length; i=i+1) {
+                    tot = tot + (ds[i].getData("quantity") * ds[i].getData("amount"));
+                  }
+                  return tot / (allStats.quantity.stats.sum());
+                }
+                return '';
+                
+              }},
+              {label: 'Grand total', fn: 'sum'}, 
+              {label:'Average', fn: 'mean'}
+           ]}, //, 'mean', 'max', 'min', 'stdev', 'range', 'variance'
+           draggableColumns: true,
+           paginator: new YAHOO.widget.Paginator({
+             rowsPerPage: 4
+           })
+        });
+        
+
+           
+       myDataTable.subscribe("cellClickEvent", myDataTable.onEventShowCellEditor); 
+
+      
+      // The buttons:
+      YAHOO.util.Event.on("addrow", "click", function() {
+        myDataTable.addRow({id: 6, date: new Date(2011,3,2), quantity: "60", amount: 6.4, title: "Test"});
+      });
+      YAHOO.util.Event.on("addrows", "click", function() {
+        myDataTable.addRows([{id: 7, date: new Date(2011,1,2), quantity: null, amount: 1.4, title: "Test2"},
+          {id: 8, date: new Date(2011,1,2), quantity: 4, amount: 2, title: "Test3"}]);
+      });
+      
+      YAHOO.util.Event.on("delrow", "click", function() {
+        myDataTable.deleteRow(2);
+      });
+      YAHOO.util.Event.on("delrows", "click", function() {
+        myDataTable.deleteRows(2,2);
+      });
+           
+      var newColCount = 0
+      YAHOO.util.Event.on("addcol", "click", function() {
+        myDataSource.responseSchema.fields.push({key:"new" + newColCount, parser:"number"});
+        myDataTable.insertColumn({key: "new" + newColCount, sortable: true, editor: new YAHOO.widget.TextboxCellEditor()});
+        newColCount++;
+      });
+      
+      YAHOO.util.Event.on("delcol", "click", function() {
+        var cols = this.getColumnSet().flat;
+        this.removeColumn(cols[cols.length - 1]);
+        
+      },myDataTable, true);
+
+});
+</script>
+
+</body>
+</html>
+		
