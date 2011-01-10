@@ -5,10 +5,13 @@
 	<title>Datatable with summary</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.1.0/build/cssreset/reset-min.css&amp;3.1.0/build/cssfonts/fonts-min.css&amp;3.1.0/build/cssgrids/grids-min.css">
+
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/fonts/fonts-min.css" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/datatable/assets/skins/sam/datatable.css" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/menu/assets/skins/sam/menu.css"/>
 
+<link rel="stylesheet" type="text/css" href="assets/git.css">
 
 
 <script type="text/javascript" src="http://yui.yahooapis.com/2.8.2r1/build/yahoo-dom-event/yahoo-dom-event.js"></script>
@@ -55,6 +58,177 @@
 </head>
 <body class="yui-skin-sam">
 
+
+ <div class="gitpage">
+
+<div class="links">
+ <ul>
+  <li>
+   <a href="../">Home</a>
+  </li>
+  <li>
+   <a href="../resize/">Resize</a>
+  </li>
+  <li>
+   <a href="../treeviewlite/">TreeviewLite</a>
+  </li>
+  <li>
+   <a href="../diary/">Diary</a>
+  </li>
+   
+ </ul>
+</div>
+
+
+
+
+<h1>YUI2 DataTable summary statistics</h1> 
+
+ 
+ <h2>Introducation</h2>
+ <p>This is an example of use of a datatable extension that adds a table footer
+ with summary statistics.  The extension adds a tfoot with the stats you need,
+ and keeps it updated as the table changes.</p>
+
+
+ <h2>Implementation</h2>
+ 
+ <p>
+ The javascript can be downloaded/forked on github: 
+ <a href="https://github.com/mattparker/Yui-DataTable-extension-summary-statistics">
+ https://github.com/mattparker/Yui-DataTable-extension-summary-statistics</a>.
+ 
+ There are three files that you need (this is all described in the readme on 
+ github).  One gives a YAHOO.util.Stats class; one adds a parseField method
+ to DataSource that's used by the column stats; one is the actual extension
+ to the DataTable.
+ </p>
+ 
+ <p>
+ 
+ This example is a variation of one from the YUI examples site.  There are some
+ changes, though.  Firstly, to the column definitions.  We add 
+    <code>columnStats: true</code> 
+ to the columns we want summarised.  You may also want to make sure that formatters
+ are defined.
+ </p>
+ 
+ <code>
+   var myColumnDefs = [
+      {key:"id", sortable:true, resizeable:true},
+      {key:"date", formatter:YAHOO.widget.DataTable.formatDate, sortable:true, 
+       sortOptions:{defaultDir:YAHOO.widget.DataTable.CLASS_DESC},resizeable:true},
+      {key:"quantity", formatter:YAHOO.widget.DataTable.formatNumber, sortable:true, resizeable:true, 
+        editor: new YAHOO.widget.TextboxCellEditor(), columnStats: true},
+      {key:"amount", formatter:YAHOO.widget.DataTable.formatCurrency, sortable:true, resizeable:true,
+        editor: new YAHOO.widget.TextboxCellEditor(), columnStats: true},
+      {key:"title", sortable:true, resizeable:true}
+  ];
+ </code>
+ 
+ <p>Secondly, the datasource.  You need to make sure that parsers are set on 
+ the columns you want to summarise:
+ </p>
+ 
+ <code>
+   myDataSource.responseSchema = {
+      fields: ["id", 
+        "date",
+        {key: "quantity", parser: "number"},
+        {key: "amount", parser: "number"},
+        "title"]
+   };
+ </code>
+ 
+ <p>And then in the DataTable constructor, you add the columnStats to the 
+ config object.  columnStats should be an object literal with keys 'on',
+ 'pagedTotals', and 'stats'.  'on' === true turns on the stats; 'pagedTotals'
+ determines whether stats are for the entire recordset (false) or just the 
+ current view (ie current page with a paginated table) - true.  'stats' is
+ an array of the statistics you want to display.  This is the config for the 
+ example on this page: more explanation is below.
+ </p>
+ 
+ 
+ <code>
+  myDataTable = new YAHOO.LPLT.DataTable("basic", myColumnDefs, myDataSource, {
+   caption:"DataTable Caption", 
+   showColumnChooser: true,
+   columnStats: {on: true, pagedTotals: false, stats: [
+      
+      // Custom summary function:
+      {label: 'Weighted mean', fn: function(stats, allStats, oCol) {
+        
+        // stats is the YAHOO.util.Stats instance for this column
+        // allStats is an object literal with all the Stats instances
+        // for 'summarisable' columns
+        // oCol is the column instance
+        // this is the DataTable instance
+        
+        // This example works out a weighted mean - ie. mean sales value
+        
+        var i, tot = 0, ds;
+        
+        if (oCol.key == "amount") {
+          if (allStats.quantity.stats.sum() == 0) {
+            return '';
+          }
+          
+          // This returns either the visible recordset (if pagedTotals is true)
+          // or the entire recordset (if pagedTotals is false)
+          ds = this.colStatsGetRecordSet();
+          
+          for (i = 0; i < ds.length; i=i+1) {
+            tot = tot + (ds[i].getData("quantity") * ds[i].getData("amount"));
+          }
+          return tot / (allStats.quantity.stats.sum());
+        }
+        return '';
+        
+      }},
+      {label: 'Grand total', fn: 'sum'}, 
+      {label:'Average', fn: 'mean'}
+   ]}, //, 'mean', 'max', 'min', 'stdev', 'range', 'variance'
+   draggableColumns: true,
+   paginator: new YAHOO.widget.Paginator({
+     rowsPerPage: 4
+   })
+});
+
+  </code>
+
+
+  <p> The 'stats' value may be an array of strings.  These strings should be names
+  of methods on the YAHOO.util.Stats class - meaning you can add methods to the 
+  prototype of YAHOO.util.Stats and have them available as summary stats in your
+  datatable, if you want other statistics.  Currently you can choose from:
+   <ul>
+    <li>sum</li>
+    <li>mean</li>
+    <li>min</li>
+    <li>max</li>
+    <li>range</li>
+    <li>count</li>
+    <li>median</li>
+    <li>stdev</li>
+    <li>variance</li>
+    <li>varianceUnbiased</li>
+   </ul>
+   If you do this, the attribute setter will normalise the array of strings to
+   an array of objects.
+  </p>
+  
+  <p>Alternatively, you can pass an array of object literals, specifying 'label'
+  and 'fn' keys.  'label' is the label to be used in the first column (labels
+  always appear there); 'fn' is the name of the function to use (again a string,
+  as above), or a function (as in the example above for 'Weighted mean').
+  This function needs to return a value for the summary, which will then be 
+  formatted (if possible) and rendered.
+  </p>
+ 
+ <code>
+
+
 <div id="basic"></div>
 
 <div id="controls">
@@ -66,6 +240,18 @@
 <span id="delcol">del col</span>
 
 </div>
+
+
+
+ </div>
+ 
+ 
+<div class="footer">
+&copy; Matt Parker, <a href="http://www.lamplightdb.co.uk" title="Lamplight Database Systems">
+Lamplight Database Systems Limited</a> 2010 
+</div>
+ </body>
+ </html>
 
 <script type="text/javascript">
 YAHOO.util.Event.addListener(window, "load", function() {
