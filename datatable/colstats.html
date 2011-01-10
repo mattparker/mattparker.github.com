@@ -175,7 +175,7 @@
   myDataTable = new YAHOO.LPLT.DataTable("basic", myColumnDefs, myDataSource, {
    caption:"DataTable Caption", 
    showColumnChooser: true,
-   columnStats: {on: true, pagedTotals: false, stats: [
+   columnStats: {on: true, pagedTotals: true, stats: [
       
       // Custom summary function:
       {label: 'Weighted mean', fn: function(stats, allStats, oCol) {
@@ -314,7 +314,7 @@ YAHOO.util.Event.addListener(window, "load", function() {
          myDataTable = new YAHOO.LPLT.DataTable("basic", myColumnDefs, myDataSource, {
            caption:"DataTable Caption", 
            showColumnChooser: true,
-           columnStats: {on: true, pagedTotals: false, stats: [
+           columnStats: {on: true, pagedTotals: true, stats: [
               
               // Custom summary function:
               {label: 'Weighted mean', fn: function(stats, allStats, oCol) {
