@@ -1,0 +1,156 @@
+
+
+.yui-diary-container .yui-diary {
+ text-align: left;
+ overflow:auto;
+ position: relative;
+ margin-top:1px;
+ 
+}
+.yui-diary-container .yui-diary-day{
+  float: left;
+  margin-right:1px;
+}
+.yui-diary-container.yui-diary-view-month .yui-diary-day{
+  border: 1px dotted gray;
+  border-top:none;
+  border-left:none;
+}
+
+.yui-diary-container .yui-diary-hourblock{
+  height: 19px;
+}
+
+.yui-diary-container .yui-diary-item{
+  position: absolute;
+  margin: 0;
+  overflow:hidden;
+  cursor:move;
+}
+
+.yui-diary-container.yui-diary-view-month .yui-resize .yui-resize-handle {
+cursor:default;
+}
+
+/*.yui-diary-container.yui-diary-view-month .yui-diary-item-monthview{
+height:20px !important;
+left:0 !important;
+position:relative;
+top:0 !important;
+width:95% !important;
+}*/
+.yui-diary-container .yui-diary-item-hidden{
+ display: none;
+ visibility: hidden;
+}
+.yui-diary-container.yui-diary-view-month .yui-diary-datacontainer{
+padding-top:20px;
+}
+.yui-diary-container .yui-diary-datacontainer{
+
+}
+.yui-diary-container .yui-diaryday-container{
+ position: relative;
+}
+.yui-diary-container.yui-diary-view-month .yui-diaryday-container{
+ overflow: auto;
+}
+.yui-skin-sam .yui-diary-container .yui-diary-nav .yui-diary-title {
+height:25px;
+}
+.yui-diary-container .yui-diary-collabel-container{
+height:24px;
+text-align:left;
+}
+.yui-diary-container .yui-diary-collabel{
+ text-align: center;
+ display:block;
+ float:left;
+ padding:2px;
+ z-index: 4;
+ overflow:hidden;
+ height:18px;
+ cursor: pointer;
+}
+.yui-diary-container.yui-diary-view-month .yui-diary-collabel{
+cursor:default;
+}
+.yui-diary-container .yui-diary-selector{
+  position: fixed;
+  border: 1px solid black;
+}
+.yui-diary-container .yui-diary-background{
+  border-left:0;
+  border-bottom:0;
+}
+.yui-diary-container .ft{
+  height:20px;
+}
+
+
+
+
+.yui-diary-container .yui-diary-nav  {
+height:50px;
+position:relative;
+text-align:center;
+width:100%;
+}
+
+.yui-diary-container .yui-diary-nav .yui-diary-nav-right {
+bottom:0;
+cursor:pointer;
+height:15px;
+margin-right:10px;
+top:2px;
+width:25px;
+}
+
+.yui-diary-container .yui-diary-nav .yui-diary-nav-right,
+.yui-diary-container .yui-diary-nav .yui-diary-nav-left,
+.yui-diary-container .yui-diary-nav .yui-diary-nav-today,
+.yui-diary-container .yui-diary-nav .yui-diary-nav-view,
+.yui-diary-container .yui-diary-nav .yui-diary-nav-calbutton{
+overflow:hidden;
+text-indent:-10000em;
+z-index:1;
+bottom:0;
+cursor:pointer;
+height:17px;
+top:2px;
+width:45px;
+
+margin-top:5px;
+float:left;
+}
+
+
+.yui-diary-container .yui-diary-nav .yui-diary-nav-buttons{
+float:right;
+position:absolute;
+right:10px;
+top:0;
+}
+
+
+.yui-diary-container .yui-diary-nav .yui-diary-nav-cal{
+position:absolute;
+z-index:5;
+background-color: white;
+}
+.yui-diary-container .yui-diary-loading-hidden{
+display:none;
+visibility:hidden;
+}
+
+.yui-diary-container .yui-diary-goto-weekview{
+cursor:pointer;
+float:left;
+font-size:9px;
+height:69px;
+margin-left:-2px;
+padding-top:30px;
+text-align:center;
+overflow:hidden;
+width:10px;
+}
